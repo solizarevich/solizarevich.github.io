@@ -5,7 +5,7 @@ draft: false
 layout: page
 menu:
   main:
-    name: About
+    name: О сайте
     weight: 5
     pre: fa-info-circle
 ---
