@@ -20,7 +20,7 @@ author = "yifan"
 [[social.links]]
   type = "telegram"
   id = "solizarevich"
-  icon = "fab fa-telegram"
+  icon = "fab fa-telegram-plane"
 
 [[social.links]]
   type = "email"
