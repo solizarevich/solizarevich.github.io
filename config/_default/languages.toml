@@ -1,8 +1,8 @@
-["ru-RU"]
+["ru-ru"]
   languageName = "Русский"
-  languageCode = "ru-RU"
+  languageCode = "ru-ru"
   weight = 1
   title = "Linux | Network | DevOps"
   
-  ["ru-RU".params]
+  ["ru-ru".params]
     tagline = "Авторский канал"
