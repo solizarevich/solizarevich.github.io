@@ -6,10 +6,10 @@
   [en.params]
     tagline = "A text-focused blog theme"
 
-[zh-CN]
-  languageName = "中文"
-  languageCode = "zh-CN"
+[ru]
+  languageName = "Русский"
+  languageCode = "ru"
   weight = 1
-  title = "Chirpy"
-  [zh-CN.params]
-    tagline = "一个专注于文本的博客主题"
+  title = "Linux | Network | DevOps"
+  [ru.params]
+    tagline = "Авторский канал"
