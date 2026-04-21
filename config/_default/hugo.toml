@@ -5,7 +5,7 @@ title = 'Linux | Network | DevOps'
 # Enable Git info › https://gohugo.io/methods/page/gitinfo/
 enableGitInfo = false
 # The default content language.
-defaultContentLanguage = "ru-RU"
+defaultContentLanguage = "ru"
 # Whether the default content language is in a subdirectory.
 defaultContentLanguageInSubdir = false
 # Whether the site has CJK language (Chinese, Japanese, Korean).
