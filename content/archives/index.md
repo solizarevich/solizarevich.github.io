@@ -1,10 +1,10 @@
 ---
-title: "Archives"
+title: "Архив"
 draft: false
 layout: archives
 menu:
   main:
-    name: Archives
+    name: Архив
     weight: 4
     pre: fa-archive
 ---
