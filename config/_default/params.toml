@@ -18,7 +18,7 @@ author = "yifan"
   icon = "fab fa-github"
 
 [[social.links]]
-  type = "telegram"
+  type = "twitter"
   id = "solizarevich"
   icon = "fab fa-telegram-plane"
 
