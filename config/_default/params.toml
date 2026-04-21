@@ -14,17 +14,17 @@ author = "yifan"
 
 [[social.links]]
   type = "github"
-  id = "yourusername"
+  id = "solizarevich"
   icon = "fab fa-github"
 
 [[social.links]]
-  type = "twitter"
-  id = "yourhandle"
-  icon = "fab fa-twitter"
+  type = "telegram"
+  id = "solizarevich"
+  icon = "fab fa-telegram"
 
 [[social.links]]
   type = "email"
-  id = "your.email@example.com"
+  id = "neuxunil@yandex.ru"
   icon = "fas fa-envelope"
 
 [[social.links]]
