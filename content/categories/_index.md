@@ -1,8 +1,8 @@
 ---
-title: "Categories"
+title: "Категории"
 menu:
   main:
-    name: Categories
+    name: Категории
     weight: 3
     pre: fa-stream
 ---
