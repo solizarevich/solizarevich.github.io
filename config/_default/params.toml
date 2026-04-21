@@ -18,8 +18,7 @@ author = "yifan"
   icon = "fab fa-github"
 
 [[social.links]]
-  type = "twitter"
-  id = "solizarevich"
+  url = "https://t.me/solizarevich"
   icon = "fab fa-telegram-plane"
 
 [[social.links]]
