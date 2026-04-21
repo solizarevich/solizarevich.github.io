@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "О сайте"
 date: 2023-04-20
 draft: false
 layout: page
