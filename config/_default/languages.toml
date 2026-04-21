@@ -1,15 +1,8 @@
-[en]
-  languageName = "English"
-  languageCode = "en"
-  weight = 2
-  title = "Chirpy"
-  [en.params]
-    tagline = "A text-focused blog theme"
-
 [ru]
   languageName = "Русский"
-  languageCode = "ru"
+  languageCode = "ru-RU"
   weight = 1
   title = "Linux | Network | DevOps"
+  
   [ru.params]
     tagline = "Авторский канал"
