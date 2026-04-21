@@ -5,11 +5,11 @@ title = 'Linux | Network | DevOps'
 # Enable Git info › https://gohugo.io/methods/page/gitinfo/
 enableGitInfo = false
 # The default content language.
-defaultContentLanguage = "en"
+defaultContentLanguage = "ru-RU"
 # Whether the default content language is in a subdirectory.
 defaultContentLanguageInSubdir = false
 # Whether the site has CJK language (Chinese, Japanese, Korean).
-hasCJKLanguage = true
+hasCJKLanguage = false
 
 # Pagination settings.
 [pagination]
