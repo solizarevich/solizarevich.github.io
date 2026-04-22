@@ -24,6 +24,10 @@ author = "solizarevich"
 [[social.links]]
   url = "https://vk.com/linautonet"
   icon = "fab fa-vk"
+  
+[[social.links]]
+  url = "https://youtube.com/@solizarevich"
+  icon = "fab fa-youtube"
 
 [[social.links]]
   type = "rss"
