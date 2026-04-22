@@ -2,15 +2,15 @@
 toc = true
 # the avatar on sidebar, should be a relative path to /assets.
 avatar = "img/commons/avatar.jpg"
-author = "yifan"
+author = "solizarevich"
 
 [assets]
   # Self-hosted static assets, default to false. If true, the assets will be hosted on your own server.
   self_host = false
 
 [social]
-  name = "Yifan"
-  url = "https://github.com/geekifan"
+  name = "solizarevich"
+  url = "https://github.com/solizarevich"
 
 [[social.links]]
   type = "github"
@@ -22,9 +22,8 @@ author = "yifan"
   icon = "fab fa-telegram-plane"
 
 [[social.links]]
-  type = "email"
-  id = "neuxunil@yandex.ru"
-  icon = "fas fa-envelope"
+  url = "https://vk.com/linautonet"
+  icon = "fab fa-vk"
 
 [[social.links]]
   type = "rss"
