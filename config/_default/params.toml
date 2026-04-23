@@ -30,6 +30,10 @@ author = "solizarevich"
   icon = "fab fa-youtube"
 
 [[social.links]]
+  url = "https://rutube.ru/channel/25269092/"
+  icon = "fas fa-registered"
+
+[[social.links]]
   url = "https://boosty.to/solizarevich"
   icon = "fab fa-blogger"
 
