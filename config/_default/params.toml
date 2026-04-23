@@ -30,6 +30,10 @@ author = "solizarevich"
   icon = "fab fa-youtube"
 
 [[social.links]]
+  url = "https://boosty.to/solizarevich"
+  icon = "fas fa-rocket"
+
+[[social.links]]
   type = "rss"
   icon = "fas fa-rss"
   noblank = true  # will not open in new window
