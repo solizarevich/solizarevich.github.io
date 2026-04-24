@@ -10,17 +10,58 @@ menu:
     pre: fa-info-circle
 ---
 
-[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) is a blog theme originally based on [Jekyll](https://jekyllrb.com/). Due to Jekyll's design limitations, it does not natively support internationalization (i18n) and requires third-party plugins for i18n functionality. To enable i18n support for Chirpy without the hassle of relying on third-party plugins, the [hugo-theme-chirpy](https://github.com/geekifan/hugo-theme-chirpy) project migrated the Chirpy theme to [Hugo](https://gohugo.io/) with minimal adaptations. All features of Chirpy are available in hugo-theme-chirpy (though some functionalities may operate differently within the Hugo framework).
+Приветствую всех 👋 кто интересуется Linux, компьютерными сетями и DevOps. 
 
-Follow the posts in the demo site to quickly set up a free personal blog!
-## Features
+Меня зовут Сергей, и я сетевой/системный инженер, в ИТ сфере больше 10 лет #SysAdmin
 
-- **Dark Mode**: Enhanced readability in low-light environments.
-- **Multilingual UI:** Easily switch between different languages.
-- **Efficient Post Organization:** Use hierarchical categories, trending tags, recommended reading, and search functionalities.
-- **Optimized Layout:** Includes TOC, syntax highlighting, prompts, and more.
-- **Rich Writing Extensions:** Support for mathematical formulas, charts, flowcharts, and embedded media.
-- **Multiple Comment Systems:** Choose from various commenting options.
-- **Web Analysis Tools:** Integrated with multiple analytics tools.
-- **Modern Web Technologies:** Built for SEO and web performance.
-- **RSS Feed Support:** Keep your readers updated with RSS feeds.
+На этом канале будем обсуждать различные аспекты:
+
+🕸 Компьютерные сети и их автоматизация; #Network #Automation #devnet, #netops
+
+👩‍💻 Linux, включая инструменты администрирования; #Linux #Bash
+
+🛠 Методологии и лучшие практики, такие как, DevOps, NetOps, DevNet, GitOps. 
+#DevOps
+
+Рассмотрим такие инструменты:
+-- Ansible #Ansible 
+-- Terraform #Terraform 
+-- Git #Git
+-- Docker #Docker 
+-- Kubernetes #Kubernetes
+-- Helm #Helm
+-- Prometeus #Prometheus
+-- Grafana #Grafana
+-- NetBox #NetBox
+-- Полезные видео #video 
+
+Кроме того, изучим и погрузимся в концепции:
+
+1️⃣DevOps, которые помогают нам улучшить процессы разработки и развертывания приложений (CI/CD) #CI_CD, а также обеспечить более быстрое и надежное обновление нашей инфраструктуры.
+
+2️⃣Методологию GitOps, которая использует Git для управления конфигурацией и изменениями в инфраструктуре. 
+
+3️⃣DevNet и NetOps области, которые фокусируются на управлении сетью, автоматизации и ее интеграции с другими областями IT, такими как разработка и безопасность. #Security
+
+4️⃣Обсудим, как автоматизация сетей может помочь улучшить эффективность и надежность наших сетей.
+
+Я надеюсь, что этот канал станет полезным ресурсом для всех, кто хочет расширить свои знания в данных сферах ИТ.
+Если у вас есть вопросы или предложения, пожалуйста, пишите в личные сообщения (https://t.me/solizarevich). 
+
+Давайте вместе учиться, расти и развиваться в этих увлекательных областях. #Обучение 
+
+И немного шуток и юмора
+#ИТ_юмор #IT_humor
+
+Разбор вопросов с собеседований
+#вопросы_с_собеседований
+
+***
+Также если нужна консультация по темам Linux, Network, DevOps - обращайтесь (https://t.me/solizarevich) или сюда (https://boosty.to/solizarevich)❤️
+***
+
+Вакансии 
+#вакансия
+
+Чат (https://t.me/linautonetchat) на темы Linux, Network, DevOps. Поделиться опытом, помощь с проблемами, задать вопрос или просто пообщаться. 
+
