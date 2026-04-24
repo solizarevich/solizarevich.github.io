@@ -23,7 +23,8 @@ Uptime
 
 Uptime показывает время непрерывной работы системы. Это можно узнать и командой uptime.
 
-```$ uptime
+```
+ $ uptime
  12:17:58 up 111 days, 31 min,  1 user,  load average: 0.00, 0.01, 0.05
  ```
 
