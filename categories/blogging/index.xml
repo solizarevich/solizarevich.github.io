@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogging on Linux | Network | DevOps</title><link>https://solizarevich.github.io/categories/blogging/</link><description>Recent content in Blogging on Linux | Network | DevOps</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 11 Aug 2019 00:34:00 +0800</lastBuildDate><atom:link href="https://solizarevich.github.io/categories/blogging/index.xml" rel="self" type="application/rss+xml"/><item><title>Customize the Favicon</title><link>https://solizarevich.github.io/post/2019-08-11-customize-the-favicon/</link><pubDate>Sun, 11 Aug 2019 00:34:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-11-customize-the-favicon/</guid><description>&lt;p&gt;The &lt;a href="https://www.favicon-generator.org/about/"&gt;favicons&lt;/a&gt; of &lt;a href="https://github.com/cotes2020/jekyll-theme-chirpy/"&gt;&lt;strong&gt;Chirpy&lt;/strong&gt;&lt;/a&gt; are placed in the directory &lt;code class="filepath"&gt;assets/img/favicons/&lt;/code&gt;. You may want to replace them with your own. The following sections will guide you to create and replace the default favicons.&lt;/p&gt;
+&lt;h2 id="generate-the-favicon" id=generate-the-favicon&gt;
+ 
+ &lt;span class="me-2"&gt;Generate the favicon&lt;/span&gt;
+ &lt;a href="#generate-the-favicon" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Prepare a square image (PNG, JPG, or SVG) with a size of 512x512 or more, and then go to the online tool &lt;a href="https://realfavicongenerator.net/"&gt;&lt;strong&gt;Real Favicon Generator&lt;/strong&gt;&lt;/a&gt; and click the button &lt;kbd&gt;Select your Favicon image&lt;/kbd&gt; to upload your image file.&lt;/p&gt;</description></item><item><title>Getting Started</title><link>https://solizarevich.github.io/post/2019-08-09-getting-started/</link><pubDate>Fri, 09 Aug 2019 20:55:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-09-getting-started/</guid><description>&lt;blockquote class="prompt-warning"&gt;&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This tutorial is not fully migrated from the Jekyll version &amp;ndash; please reference with caution.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="creating-a-site-repository" id=creating-a-site-repository&gt;
+ 
+ &lt;span class="me-2"&gt;Creating a Site Repository&lt;/span&gt;
+ &lt;a href="#creating-a-site-repository" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;When creating your site repository, you have two options depending on your needs:&lt;/p&gt;
+&lt;h3 id="option-1-using-the-starter-recommended" id=option-1-using-the-starter-recommended&gt;
+ 
+ &lt;span class="me-2"&gt;Option 1. Using the Starter (Recommended)&lt;/span&gt;
+ &lt;a href="#option-1-using-the-starter-recommended" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h3&gt;&lt;p&gt;This approach simplifies upgrades, isolates unnecessary files, and is perfect for users who want to focus on writing with minimal configuration.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign in to GitHub and navigate to the &lt;a href="https://github.com/geekifan/chirpy-starter"&gt;&lt;strong&gt;starter&lt;/strong&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Click the &lt;kbd&gt;Use this template&lt;/kbd&gt; button and then select &lt;kbd&gt;Create a new repository&lt;/kbd&gt;.&lt;/li&gt;
+&lt;li&gt;Name the new repository &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;, replacing &lt;code&gt;username&lt;/code&gt; with your lowercase GitHub username.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="option-2-forking-the-theme" id=option-2-forking-the-theme&gt;
+ 
+ &lt;span class="me-2"&gt;Option 2. Forking the Theme&lt;/span&gt;
+ &lt;a href="#option-2-forking-the-theme" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h3&gt;&lt;p&gt;This approach is convenient for modifying features or UI design, but presents challenges during upgrades. So don&amp;rsquo;t try this unless you are familiar with Jekyll and plan to heavily modify this theme.&lt;/p&gt;</description></item><item><title>Writing a New Post</title><link>https://solizarevich.github.io/post/2019-08-08-write-a-new-post/</link><pubDate>Thu, 08 Aug 2019 14:10:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-08-write-a-new-post/</guid><description>&lt;p&gt;This tutorial will guide you how to write a post in the &lt;em&gt;Chirpy&lt;/em&gt; template, and it&amp;rsquo;s worth reading even if you&amp;rsquo;ve used Hugo before, as many features require specific variables to be set.&lt;/p&gt;
+&lt;h2 id="naming-and-path" id=naming-and-path&gt;
+ 
+ &lt;span class="me-2"&gt;Naming and Path&lt;/span&gt;
+ &lt;a href="#naming-and-path" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Create a new file using &lt;code&gt;hugo new content/post/YYYY-MM-DD-TITLE.md&lt;/code&gt;. You can change the path as you like, but note that all the posts should be placed in &lt;code class="filepath"&gt;content/post&lt;/code&gt; of the root directory.&lt;/p&gt;
+&lt;h2 id="front-matter" id=front-matter&gt;
+ 
+ &lt;span class="me-2"&gt;Front Matter&lt;/span&gt;
+ &lt;a href="#front-matter" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Basically, you need to fill the &lt;a href="https://gohugo.io/content-management/front-matter/"&gt;Front Matter&lt;/a&gt; as below at the top of the post:&lt;/p&gt;</description></item><item><title>Text and Typography</title><link>https://solizarevich.github.io/post/2019-08-08-text-and-typography/</link><pubDate>Thu, 08 Aug 2019 11:33:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-08-text-and-typography/</guid><description>&lt;h2 id="headings" id=headings&gt;
+ 
+ &lt;span class="me-2"&gt;Headings&lt;/span&gt;
+ &lt;a href="#headings" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;!-- markdownlint-capture --&gt;
+&lt;!-- markdownlint-disable --&gt;
+&lt;h1 id="h1--heading" class=mt-4 mb-0 data-toc-skip=true id=h1--heading&gt;
+ H1 — heading
+&lt;/h1&gt;&lt;h2 id="h2--heading" class=mt-4 mb-0 data-toc-skip=true id=h2--heading&gt;
+ H2 — heading
+&lt;/h2&gt;&lt;h3 id="h3--heading" class=mt-4 mb-0 data-toc-skip=true id=h3--heading&gt;
+ H3 — heading
+&lt;/h3&gt;&lt;h4 id="h4--heading" class=mt-4 data-toc-skip=true id=h4--heading&gt;
+ H4 — heading
+&lt;/h4&gt;&lt;!-- markdownlint-restore --&gt;
+&lt;h2 id="paragraph" id=paragraph&gt;
+ 
+ &lt;span class="me-2"&gt;Paragraph&lt;/span&gt;
+ &lt;a href="#paragraph" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilisis ac. Phasellus semper dui non purus ultrices sodales. Aliquam ante lorem, ornare a feugiat ac, finibus nec mauris. Vivamus ut tristique nisi. Sed vel leo vulputate, efficitur risus non, posuere mi. Nullam tincidunt bibendum rutrum. Proin commodo ornare sapien. Vivamus interdum diam sed sapien blandit, sit amet aliquam risus mattis. Nullam arcu turpis, mollis quis laoreet at, placerat id nibh. Suspendisse venenatis eros eros.&lt;/p&gt;</description></item></channel></rss>
