@@ -1214,3 +1214,23 @@ sudo apt remove accountsservice -y --purge
 sudo apt remove policykit-1 -y --purge
 ```
 ![htop](htopposle.png)
+
+Крайняя степень:
+```bash
+sudo apt remove dbus -y --purge
+sudo apt remove rsyslog -y --purge
+sudo apt remove acpid -y --purge
+sudo systemctl stop cron && sudo systemctl disable cron
+sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.service
+sudo rm /lib/systemd/system/getty@.service
+```
+
+![htop](htop2.png)
+
+Я так же попробовал установить программное обеспечение по своей инструкции [об автоматической установке WordPress на Ubuntu Server](https://peteris.rocks/blog/unattended-installation-of-wordpress-on-ubuntu-server/) и всё работало.
+
+Тут nginx, PHP7 и MySQL.
+
+![htop](htop3.png)
+
+ 
