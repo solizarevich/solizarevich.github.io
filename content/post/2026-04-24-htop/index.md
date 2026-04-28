@@ -1233,4 +1233,24 @@ sudo rm /lib/systemd/system/getty@.service
 
 ![htop](htop3.png)
 
+## Исходный код
+  
+Иногда не достаточно только **strace**. Другой способ посмотреть, что же программа делает это взглянуть на исходный код  
+  
+Сперва, надо найти где начать искать.  
+  
+```bash
+$ which uptime/usr/bin/uptime$ dpkg -S /usr/bin/uptimeprocps: /usr/bin/uptime
+```
+  
+Тут видно, что **uptime** находится в **/usr/bin/uptime** и что в Ubuntu это часть пакета **procps**.  
+  
+Затем, можно зайти на [packages.ubuntu.com](http://packages.ubuntu.com/) и найти этот пакет.  
+  
+Страница **procps**: [http://packages.ubuntu.com/source/xenial/procps](http://packages.ubuntu.com/source/xenial/procps)
  
+Внизу есть ссылки на репозитории с исходными кодами:
+- Debian Package Source Repository git://git.debian.org/collab-maint/procps.git
+- Debian Package Source Repository (для браузера) https://anonscm.debian.org/cgit/collab-maint/procps.git/
+
+    
