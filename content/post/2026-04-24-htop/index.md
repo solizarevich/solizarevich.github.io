@@ -578,39 +578,26 @@ mount("8.8.8.8:/tmp", "/tmp", "nfs", 0, ...
 Я продемонстрирую это, написав небольшой код на С.
 ```C
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <unistd.h>
 
 int main() {
+  printf("Running\n");
 
-`  `printf("Running\n");
+  int pid = fork();
 
-`  `int pid = fork();
+  if (pid == 0) {
+    printf("Я родительский процесс\n");
+    printf("Родительский процесс завершает работу\n");
+    exit(0);
+  } else {
+    printf("Я дочерний процесс\n");
+    printf("Дочерний процесс спит\n");
+    sleep(20);
+    printf("Дочерний процесс завершён\n");
+  }
 
-`  `if (pid == 0) {
-
-`    `printf("Я родительский процесс\n");
-
-`    `printf("Родительский процесс завершает работу\n");
-
-`    `exit(0);
-
-`  `} else {
-
-`    `printf("Я дочерний процесс\n");
-
-`    `printf("Дочерний процесс спит\n");
-
-`    `sleep(20);
-
-`    `printf("Дочерний процесс завершён\n");
-
-`  `}
-
-`  `return 0;
-
+  return 0;
 }
 ```
 
