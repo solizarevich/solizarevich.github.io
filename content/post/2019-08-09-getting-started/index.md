@@ -10,7 +10,6 @@ categories:
   - Tutorial
 tags:
   - getting started
-pin: true
 ---
 
 > **NOTE:** This tutorial is not fully migrated from the Jekyll version -- please reference with caution.
