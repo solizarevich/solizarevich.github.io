@@ -862,7 +862,7 @@ gcc -std=c99 mem.c -o mem
 
 Ниже приведён анализ процессов, которые запускаются на чистой версии машины с Ubuntu Server 16.04.1 LTS x64 в Digital Ocean.
 
-**До**
+### До
 ![htop](htopdo.png)
 
 ### /sbin/init
@@ -1181,7 +1181,7 @@ sudo apt remove open-iscsi -y --purge
 
 Ради эксперимента, я удалил файл конфигурации, который запускает и создаёт **agetty**:  
 
-```
+```bash
 sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.servicesudo rm /lib/systemd/system/getty@.service
 ```
 
@@ -1199,3 +1199,18 @@ sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.servicesudo rm /lib/sy
 Там стоит дефис, потому что запуск его как "-bash", активирует login-оболочку. Login-оболочка это такая оболочка, у которой первый символ аргумента под номером 0 дефис, либо он запущен с параметром --login. В результате используются разные файлы настроек.  
   
 **htop** — интерактивная программа для просмотра процессов, которая изображена на скриншоте.
+
+### После
+ 
+
+```bash
+sudo apt remove lvm2 -y --purge
+sudo apt remove at -y --purge
+sudo apt remove snapd -y --purge
+sudo apt remove lxcfs -y --purge
+sudo apt remove mdadm -y --purge
+sudo apt remove open-iscsi -y --purge
+sudo apt remove accountsservice -y --purge
+sudo apt remove policykit-1 -y --purge
+```
+![htop](htopposle.png)
