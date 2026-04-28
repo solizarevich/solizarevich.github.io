@@ -885,4 +885,206 @@ systemd-sysv: /sbin/init
 
 Одним из основных преимуществ **journald** является замена обычных текстовых файлов логов специально отформатированными структурированными сообщениями. Это позволяет администраторам эффективнее работать с журналами событий.
 
-Если нужно найти событие, лучше использовать journalctl.
+Если нужно найти событие, лучше использовать **journalctl**.
+
+- **journalctl _COMM=sshd** поиск по sshd
+- **journalctl _COMM=sshd -o json-pretty** поиск по sshd в JSON
+- **journalctl --since «2015-01-10» --until «2015-01-11 03:00»**
+- **journalctl --since 09:00 --until «1 hour ago»**
+- **journalctl --since yesterday**
+- **journalctl -b** история с момента запуска системы
+- **journalctl -f** чтобы следить за логами
+- **journalctl --disk-usage**
+- **journalctl --vacuum-size=1G**
+
+Впечатляюще. Этот процесс, кажется, нельзя остановить или убрать, можно лишь отключить ведение истории.
+
+### /sbin/lvmetad -f
+
+Демон lvmetad кэширует метаданные LVM, чтобы команды LVM получали доступ к метаданным без сканирования диска. Кэширование помогает избежать возможного вмешивания в работу других приложений и сэкономить время сканирования диска.
+
+Но что такое LVM [Logical Volume Management] (Менеджер логических томов)? Можно считать, что LVM это динамические разделы, что подразумевает создание/изменение/удаление разделов, так называемых «логических томов» из командной строки на лету, без надобности перезагрузки системы.
+
+ Звучит так, что нужен он только если пользоваться LVM.
+```bash
+$ lvscan
+$ sudo apt remove lvm2 -y --purge
+```
+### /lib/systemd/udevd
+
+systemd-udevd следит за событиями uevents ядра. Для каждого события, systemd-udevd запускает соответствующую инструкцию на основе правил в udev.
+
+udev это диспетчер устройств ядра Linux. Как преемник devfsd и hotplug, udev в основном работает с устройствами в каталоге /dev.
+
+Я не уверен о его необходимости в виртуальной среде. 
+
+### /lib/systemd/timesyncd
+
+systemd-timesyncd это системная служба которая синхронизирует локальное время с удалённым сервером NTP.
+
+Он заменил **ntpd**.
+```bash
+$ timedatectl status
+      Local time: Fri 2016-08-26 11:38:21 UTC
+  Universal time: Fri 2016-08-26 11:38:21 UTC
+        RTC time: Fri 2016-08-26 11:38:20
+       Time zone: Etc/UTC (UTC, +0000)
+ Network time on: yes
+NTP synchronized: yes
+ RTC in local TZ: no
+```
+ Посмотрим на открытые порты системы:
+```bash
+ $ sudo netstat -nlput
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      2178/sshd
+tcp6       0      0 :::22                   :::*                    LISTEN      2178/sshd
+```
+
+
+Красота! В Ubuntu 14.04 это выглядело так:
+```bash
+$ sudo apt-get install ntp -y
+$ sudo netstat -nlput
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1380/sshd
+tcp6       0      0 :::22                   :::*                    LISTEN      1380/sshd
+udp        0      0 10.19.0.6:123           0.0.0.0:*                           2377/ntpd
+udp        0      0 139.59.256.256:123      0.0.0.0:*                           2377/ntpd
+udp        0      0 127.0.0.1:123           0.0.0.0:*                           2377/ntpd
+udp        0      0 0.0.0.0:123             0.0.0.0:*                           2377/ntpd
+udp6       0      0 fe80::601:6aff:fxxx:123 :::*                                2377/ntpd
+udp6       0      0 ::1:123                 :::*                                2377/ntpd
+udp6       0      0 :::123                  :::*                                2377/ntpd
+```
+
+**/usr/sbin/atd -f**
+
+atd запускает задания, назначенные в определённое время с помощью at.
+
+В отличии от cron, который исполняет задания с периодичностью, at единовременно выполняет задание в определённое время.
+```bash
+$ echo "touch /tmp/yolo.txt" | at now + 1 minute
+job 1 at Fri Aug 26 10:44:00 2016
+$ atq
+1       Fri Aug 26 10:44:00 2016 a root
+$ sleep 60 && ls /tmp/yolo.txt
+/tmp/yolo.txt
+```
+ Кстати, я ни разу не использовал его до этого момента. 
+ ```bash
+ sudo apt remove at -y --purge
+```
+### /usr/lib/snapd/snapd
+
+Snappy Ubuntu Core это новое исполнение Ubuntu с обновлёнными решениями — минимальный образ сервера с теми же библиотеками что и Ubuntu, но приложения предоставляются через более простой механизм.
+
+Что?
+
+Разработчики нескольких дистрибутивов Linux и компании призвали к сотрудничеству для создания универсального формата «snap» для пакетов Linux, чтобы один и тот же бинарный пакет успешно и безопасно работал на любом компьютере, сервере, облаке и устройстве с Linux.
+
+Оказывается, это упрощенный пакет deb, где нужно прикреплять все зависимости. Я никогда не пользовался snappy для установки или создания приложений на серверах.
+```bash
+sudo apt remove snapd -y --purge
+```
+
+### /usr/bin/dbus-daemon
+
+D-Bus — система межпроцессного взаимодействия, которая позволяет приложениям в операционной системе общаться друг с другом.
+
+Я так понимаю, что это нужно только для домашнего окружения, но зачем это серверу веб приложений?
+```bash
+sudo apt remove dbus -y --purge
+```
+
+Интересно, который сейчас час и синхронизируется ли время с NTP?
+```bash
+$ timedatectl status
+Failed to create bus connection: No such file or directory
+```
+
+Упс, возможно, это стоило оставить.
+
+### /lib/systemd/systemd-logind
+
+systemd-logind это системная служба, управляющая авторизациями в систему.
+
+### /usr/sbin/cron -f
+
+cron — демон для запуска заданий по расписанию (Vixie Cron)
+-f — не демонизировать процесс.
+
+С помощью cron можно запускать задания с периодичностью.
+
+Чтобы редактировать расписание, можно использовать crontab -e, я предпочитаю каталоги /etc/cron.hourly, /etc/cron.daily, и т.д.
+
+А историю запуска можно найти так:
+- **grep cron /var/log/syslog** или
+- **journalctl _COMM=cron** или даже так
+- **journalctl _COMM=cron --since=«date» --until=«date»**
+
+Наверняка, cron вам понадобится. 
+
+Но если нет, то перед удалением, его нужно остановить и отключить
+```bash
+sudo systemctl stop cron
+sudo systemctl disable cron
+```
+
+Иначе при попытке удаления командой apt remove cron, он попытается установить postfix!
+```bash
+$ sudo apt remove cron
+The following packages will be REMOVED:
+  cron
+The following NEW packages will be installed:
+  anacron bcron bcron-run fgetty libbg1 libbg1-doc postfix runit ssl-cert ucspi-unix
+```
+
+ Похоже, что cron нужен сервер почты для рассылки.
+```bash
+ $ apt show cron
+Package: cron
+Version: 3.0pl1-128ubuntu2
+...
+Suggests: anacron (>= 2.0-1), logrotate, checksecurity, exim4 | postfix | mail-transport-agent
+
+$ apt depends cron
+cron
+  ...
+  Suggests: anacron (>= 2.0-1)
+  Suggests: logrotate
+  Suggests: checksecurity
+ |Suggests: exim4
+ |Suggests: postfix
+  Suggests: <mail-transport-agent>
+    ...
+    exim4-daemon-heavy
+    postfix
+```
+
+### /usr/sbin/rsyslogd -n
+
+Rsyslogd — утилита помогающая вести логи.
+
+Другими словами, это то, что создаёт файлы в **/var/log/**, такие как **/var/log/auth.log** для сообщений о попытках аутентификации пользователя через SSH.
+
+Файлы конфигурации тут **/etc/rsyslog.d**.
+
+Можно настроить **rsyslogd** таким образом, что он будет отправлять файлы на удалённый сервер, создав тем самым централизованную систему логирования.
+
+Командой **logger** можно сохранить сообщение в **/var/log/syslog** в фоновых скриптах, таких как автозагрузчики.
+```bash
+#!/bin/bash
+
+logger Starting doing something
+# NFS, get IPs, etc.
+logger Done doing something
+```
+
+Да, но у нас уже есть **systemd-journald**. Нужен ли ещё и **rsyslogd?**
+
+**Rsyslog и Journal**, это два приложения протоколирования в системе. У них есть несколько различающихся функций, которые более предпочтительны в той или иной ситуации. В большинстве случаев лучше сочетать возможности обоих, например, для создания структурированных сообщений и сохранения их в файлах. Интерфейс связи для кооперирования предоставляется модулями ввода и вывода **Rsyslog** и сокетом **Journal**.
+
+И всё же? На всякий случай, я его оставлю.
