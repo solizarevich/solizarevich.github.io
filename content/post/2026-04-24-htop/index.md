@@ -1254,3 +1254,72 @@ $ which uptime/usr/bin/uptime$ dpkg -S /usr/bin/uptimeprocps: /usr/bin/uptime
 - Debian Package Source Repository (для браузера) https://anonscm.debian.org/cgit/collab-maint/procps.git/
 
     
+## Дескрипторы файлов и перенаправление
+
+Если нужно перенаправить стандартный поток ошибок (**stderr**) в стандартный выходной поток, нужно это делать с **2&>1** или **2>&1**?  
+  
+Можно запомнить положение амперсанда пониманием того, что **echo нечто > файл** запишет **нечто** в файл **файл**. Это тоже самое, что **echo нечто 1> файл**. А вот **echo нечто 2> файл** запишет поток ошибок в **файл**.  
+  
+Если написать **echo нечто 2> 1**, то поток ошибок перенаправится в файл, с именем **1**.  
+  
+Если поставить перед **1** амперсанд **&**, то это будет означать, что **1** это не имя файла, а идентификатор потока. Поэтому правильно **echo нечто 2>&1**.
+
+## Цвета в PuTTY
+
+![htop](htop4.png)
+
+Если некоторые элементы сверху не отображаются при использовании PuTTY, то можно это исправить так.
+
+  1.Нажмите правой кнопкой на заголовок окна
+  2.Выберите Change settings
+  3.Перейдите в Window → Colours
+  4.Отметьте опцию Both
+  5.Нажмите Apply
+
+![htop](htop5.png)
+
+
+## Командная оболочка на C
+
+  
+Попробуем написать очень простую командную оболочку на C, которая бы использовала системные вызовы **fork**/**exec**/**wait**. Программа **shell.c**:  
+  
+```bash
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/wait.h>
+
+int main() {
+  printf("Добро пожаловать\n");
+  char line[1024];
+
+  while (1) {
+    printf("> ");
+
+    fgets(line, sizeof(line), stdin);
+    line[strlen(line)-1] = '\0'; // strip \n
+    if (strcmp(line, "exit") == 0) // shell built-in
+      break;
+
+    int pid = fork();
+    if (pid == 0) {
+        printf("Запуск: %s\n", line);
+        if (execlp(line, "", NULL) == -1) {
+          printf("Ошибка!\n");
+          exit(1);
+        }
+    } else if (pid > 0) {
+        int status;
+        waitpid(pid, &status, 0);
+        printf("Потомок вышел с кодом %d\n", WEXITSTATUS(status));
+    } else {
+        printf("Ошибка!\n");
+        break;
+    }
+  }
+
+  return 0;
+}
+```
