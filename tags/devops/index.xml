@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Devops on Linux | Network | DevOps</title><link>https://solizarevich.github.io/tags/devops/</link><description>Recent content in Devops on Linux | Network | DevOps</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 28 Apr 2026 18:55:00 +0300</lastBuildDate><atom:link href="https://solizarevich.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml"/><item><title>Сборник по DevOps и Linux</title><link>https://solizarevich.github.io/post/2026-04-28-sbornik/</link><pubDate>Tue, 28 Apr 2026 18:55:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-28-sbornik/</guid><description>&lt;p&gt;🌀 &lt;a href="https://boosty.to/solizarevich/posts/defada2e-054e-4106-836b-cf8888f44170"&gt;Материал обновляется&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Разобраны материалы и задания по ключевым темам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux: команды, файловая система, практика&lt;/li&gt;
+&lt;li&gt;Терминал: хитрости CLI, команды на скорость&lt;/li&gt;
+&lt;li&gt;CI/CD: пайплайны, автосборка, DevOps-логика&lt;/li&gt;
+&lt;li&gt;Docker: образы, volume, docker-compose&lt;/li&gt;
+&lt;li&gt;Сети: TCP/IP, DNS, NAT, туннели, практика&lt;/li&gt;
+&lt;li&gt;Ansible: плейбуки, роли, inventory&lt;/li&gt;
+&lt;li&gt;Kubernetes: поды, сервисы, деплой, хелм&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Внутри:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;— термины по каждой теме&lt;/p&gt;
+&lt;p&gt;— вопросы для самопроверки&lt;/p&gt;
+&lt;p&gt;— задания для выполнения&lt;/p&gt;
+&lt;p&gt;— рабочие задачи (прямо как на собесах и на реальной работе)&lt;/p&gt;
+&lt;p&gt;Уровень: от Junior до Senior — есть над чем подумать.&lt;/p&gt;</description></item></channel></rss>

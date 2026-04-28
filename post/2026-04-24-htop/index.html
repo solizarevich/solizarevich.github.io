@@ -1,0 +1,1039 @@
+<!doctype html><head><link rel=stylesheet href=https://solizarevich.github.io/css/main.min.cd04cd5d69efec14dc13e17d4c8876b1cd584327e8d67d88cc5d8bd6c3927c64.css></head><html lang=ru-ru><head><meta charset=utf-8><meta name=theme-color media="(prefers-color-scheme: light)" content="#f7f7f7"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#1b1b1e"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"><meta property="og:url" content="https://solizarevich.github.io/post/2026-04-24-htop/"><meta property="og:site_name" content="Linux | Network | DevOps"><meta property="og:title" content="Как читать htop и не пугаться всех этих цифр"><meta property="og:description" content="На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?
+Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.
+htop на Ubuntu Server Ниже скриншот htop, который я буду рассматривать в статье."><meta property="og:locale" content="ru_ru"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2026-04-24T15:35:00+03:00"><meta property="article:modified_time" content="2026-04-24T15:35:00+03:00"><meta property="article:tag" content="Linux"><meta property="article:tag" content="Htop"><meta name=twitter:card content="summary"><meta name=twitter:title content="Как читать htop и не пугаться всех этих цифр"><meta name=twitter:description content="На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?
+Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.
+htop на Ubuntu Server Ниже скриншот htop, который я буду рассматривать в статье."><meta itemprop=name content="Как читать htop и не пугаться всех этих цифр"><meta itemprop=description content="На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?
+Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.
+htop на Ubuntu Server Ниже скриншот htop, который я буду рассматривать в статье."><meta itemprop=datePublished content="2026-04-24T15:35:00+03:00"><meta itemprop=dateModified content="2026-04-24T15:35:00+03:00"><meta itemprop=wordCount content="7081"><meta itemprop=keywords content="Linux,Htop"><title>Как читать htop и не пугаться всех этих цифр |
+Linux | Network | DevOps</title><link rel=apple-touch-icon sizes=180x180 href=/img/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/img/favicons/favicon-16x16.png><link rel="shortcut icon" href=/img/favicons/favicon.ico><meta name=apple-mobile-web-app-title content="Linux | Network | DevOps"><meta name=application-name content="Linux | Network | DevOps"><meta name=msapplication-TileColor content="#da532c"><meta name=msapplication-config content="/img/favicons/browserconfig.xml"><meta name=theme-color content="#ffffff"><link rel=preconnect href=https://fonts.googleapis.com><link rel=dns-prefetch href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=https://fonts.gstatic.com><link rel=preconnect href=https://cdn.jsdelivr.net><link rel=dns-prefetch href=https://cdn.jsdelivr.net><link rel=stylesheet href=https://solizarevich.github.io/css/main.min.cd04cd5d69efec14dc13e17d4c8876b1cd584327e8d67d88cc5d8bd6c3927c64.css><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&amp;family=Source+Sans+Pro:wght@400;600;700;900&amp;display=swap"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css><link rel=stylesheet href=/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css><script src=/js/modules/theme.js></script><script src=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/locale/ru-ru.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/relativeTime.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/localizedFormat.js></script><script src=https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.js></script><script defer src=/js/post.js></script></head><body><aside aria-label=Sidebar id=sidebar class="d-flex flex-column align-items-end"><header class=profile-wrapper><a href=/ id=avatar class=rounded-circle><img src=/img/commons/avatar.jpg width=112 height=112 alt=avatar onerror='this.style.display="none"'></a>
+<a class="site-title d-block" href=/>Linux | Network | DevOps</a><p class="site-subtitle fst-italic mb-0">Авторский сайт для тех кто изучает Linux, Network, DevOps, NetDevOps, DevNet, Bash, Git, CI/CD, Docker, Kubernetes, Ansible, Terraform, Prometheus, Grafana, Zabbix</p></header><nav class="flex-column flex-grow-1 w-100 ps-0"><ul class=nav><li class=nav-item><a href=/ class=nav-link><i class="fa-fw fas fa-house"></i>
+<span>ГЛАВНАЯ</span></a></li><li class=nav-item><a href=/categories/ class=nav-link><i class="fa-fw fas fa-stream"></i>
+<span>КАТЕГОРИИ</span></a></li><li class=nav-item><a href=/tags/ class=nav-link><i class="fa-fw fas fa-tags"></i>
+<span>ТЕГИ</span></a></li><li class=nav-item><a href=/archives/ class=nav-link><i class="fa-fw fas fa-archive"></i>
+<span>АРХИВ</span></a></li><li class=nav-item><a href=/about/ class=nav-link><i class="fa-fw fas fa-info-circle"></i>
+<span>О САЙТЕ</span></a></li></ul></nav><div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type=button class="btn btn-link nav-link" aria-label="Switch Mode" id=mode-toggle>
+<i class="fas fa-adjust"></i>
+</button>
+<span class=icon-border></span>
+<a href=https://github.com/solizarevich aria-label=github target=_blank rel="noopener noreferrer"><i class="fab fa-github"></i>
+</a><a href=https://t.me/linautonet aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i>
+</a><a href=https://vk.com/linautonet aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-vk"></i>
+</a><a href=https://youtube.com/@solizarevich aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-youtube"></i>
+</a><a href=https://rutube.ru/channel/25269092/ aria-label target=_blank rel="noopener noreferrer"><i class="fas fa-registered"></i>
+</a><a href=https://boosty.to/solizarevich aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-blogger"></i>
+</a><a href=https://solizarevich.github.io/index.xml aria-label=rss><i class="fas fa-rss"></i></a></div></aside><div id=main-wrapper class="d-flex justify-content-center"><div class="container d-flex flex-column px-xxl-5"><header id=topbar-wrapper class=flex-shrink-0 aria-label="Top Bar"><div id=topbar class="d-flex align-items-center justify-content-between px-lg-3 h-100"><nav id=breadcrumb aria-label=Breadcrumb><span><a href=/>Главная</a>
+</span><span>Как читать htop и не пугаться всех этих цифр</span></nav><button type=button id=sidebar-trigger class="btn btn-link" aria-label=Sidebar>
+<i class="fas fa-bars fa-fw"></i></button><div id=topbar-title>Как читать htop и не пугаться всех этих цифр</div><button type=button id=search-trigger class="btn btn-link" aria-label=Search>
+<i class="fas fa-search fa-fw"></i>
+</button>
+<search id=search class="align-items-center ms-3 ms-lg-0"><i class="fas fa-search fa-fw"></i>
+<input class=form-control id=search-input type=search aria-label=search autocomplete=off placeholder=Поиск...>
+</search><button type=button class="btn btn-link text-decoration-none" id=search-cancel>Отмена</button></div></header><div class="row flex-grow-1"><main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4"><article class=px-1 data-toc=true><header><h1 data-toc-skip>Как читать htop и не пугаться всех этих цифр</h1><div class="post-meta text-muted"><span>Опубликовано
+<time data-ts=1777034100 data-df=DD.MM.YYYY data-bs-toggle=tooltip data-bs-placement=bottom>%d.%m.%Y</time></span><div class="d-flex justify-content-between"><span>Автор
+<em></em></span><div><span class=readtime data-bs-toggle=tooltip data-bs-placement=bottom title="12680 слов"><em>70 мин.</em> чтения</span></div></div></div></header><div id=toc-bar class="d-flex align-items-center justify-content-between invisible"><span class="label text-truncate">Как читать htop и не пугаться всех этих цифр</span>
+<button type=button class="toc-trigger btn me-1">
+<i class="fa-solid fa-list-ul fa-fw"></i></button></div><button id=toc-solo-trigger type=button class="toc-trigger btn btn-outline-secondary btn-sm">
+<span class="label ps-2 pe-1">Содержание</span>
+<i class="fa-solid fa-angle-right fa-fw"></i>
+</button>
+<dialog id=toc-popup class=p-0><div class="header d-flex flex-row align-items-center justify-content-between"><div class="label text-truncate py-2 ms-4">Как читать htop и не пугаться всех этих цифр</div><button id=toc-popup-close type=button class="btn mx-1 my-1 opacity-75">
+<i class="fas fa-close"></i></button></div><div id=toc-popup-content class="px-4 py-3 pb-4"><nav id=TableOfContents><ul><li><a href=#htop-на-ubuntu-server>htop на Ubuntu Server</a></li><li><a href=#uptime>Uptime</a></li><li><a href=#load-average>Load average</a></li><li><a href=#процессы>Процессы</a></li><li><a href=#id-процесса--pid>ID процесса / PID</a></li><li><a href=#дерево-процессов>Дерево процессов</a></li><li><a href=#владелец-процесса>Владелец процесса</a></li><li><a href=#состояния-процесса>Состояния процесса</a><ul><li><a href=#r--запущенные-или-в-очереди>R — Запущенные или в очереди</a></li><li><a href=#s--прерываемый-сон>S — Прерываемый сон</a></li><li><a href=#d--непрерываемый-сон>D — непрерываемый сон</a></li><li><a href=#z--зомби-процесс>Z — Зомби процесс</a></li><li><a href=#t--остановлен-сигналом-управления-заданиями>T — Остановлен сигналом управления заданиями</a></li><li><a href=#t--остановлен-отладчиком>t — Остановлен отладчиком</a></li></ul></li><li><a href=#время-обработки-процесса>Время обработки процесса</a></li><li><a href=#любезность-и-приоритет-процессов>Любезность и приоритет процессов</a></li><li><a href=#память--virtresshrmem>Память — VIRT/RES/SHR/MEM</a><ul><li><a href=#virtvsz--виртуальный-образ>VIRT/VSZ — Виртуальный образ</a></li><li><a href=#resrss--резидентная-память>RES/RSS — Резидентная память</a></li><li><a href=#shr--разделяемая-память>SHR — Разделяемая память</a></li><li><a href=#mem--использование-памяти>MEM% — Использование памяти</a></li></ul></li><li><a href=#процессы-1>Процессы</a><ul><li><a href=#до>До</a></li><li><a href=#sbininit>/sbin/init</a></li><li><a href=#libsystemdsystemd-journald>/lib/systemd/systemd-journald</a></li><li><a href=#sbinlvmetad--f>/sbin/lvmetad -f</a></li><li><a href=#libsystemdudevd>/lib/systemd/udevd</a></li><li><a href=#libsystemdtimesyncd>/lib/systemd/timesyncd</a></li><li><a href=#usrlibsnapdsnapd>/usr/lib/snapd/snapd</a></li><li><a href=#usrbindbus-daemon>/usr/bin/dbus-daemon</a></li><li><a href=#libsystemdsystemd-logind>/lib/systemd/systemd-logind</a></li><li><a href=#usrsbincron--f>/usr/sbin/cron -f</a></li><li><a href=#usrsbinrsyslogd--n>/usr/sbin/rsyslogd -n</a></li><li><a href=#usrsbinacpid>/usr/sbin/acpid</a></li><li><a href=#usrbinlxcfs-varliblxcfs>/usr/bin/lxcfs /var/lib/lxcfs/</a></li><li><a href=#usrlibaccountserviceaccounts-daemon>/usr/lib/accountservice/accounts-daemon</a></li><li><a href=#sbinmdadm>/sbin/mdadm</a></li><li><a href=#usrlibpolicykit-1polkitd-no-debug>/usr/lib/policykit-1/polkitd &ndash;no-debug</a></li><li><a href=#usrsbinsshd--d>/usr/sbin/sshd -D</a></li><li><a href=#sbiniscsid>/sbin/iscsid</a></li><li><a href=#sbinagetty-noclear-tty1-linux>/sbin/agetty &ndash;noclear tty1 linux</a></li><li><a href=#sshd-rootpts0--bash-и-htop>sshd: root@pts/0, -bash и htop</a></li><li><a href=#после>После</a></li></ul></li><li><a href=#исходный-код>Исходный код</a></li><li><a href=#дескрипторы-файлов-и-перенаправление>Дескрипторы файлов и перенаправление</a></li><li><a href=#цвета-в-putty>Цвета в PuTTY</a></li><li><a href=#командная-оболочка-на-c>Командная оболочка на C</a></li><li><a href=#от-себя>От себя</a></li></ul></nav></div></dialog><div class=content><p>На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?</p><p>Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.</p><h2 id=htop-на-ubuntu-server id=htop-на-ubuntu-server><span class=me-2>htop на Ubuntu Server</span>
+<a href=#htop-%d0%bd%d0%b0-ubuntu-server class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Ниже скриншот htop, который я буду рассматривать в статье.
+<a href=/post/2026-04-24-htop/htop.png class="popup img-link"><img src=/post/2026-04-24-htop/htop.png alt=htop></a></p><h2 id=uptime id=uptime><span class=me-2>Uptime</span>
+<a href=#uptime class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Uptime показывает время непрерывной работы системы. Это можно узнать и командой uptime.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ uptime
+</span></span><span class=line><span class=cl> 12:17:58 up <span class=m>111</span> days, <span class=m>31</span> min,  <span class=m>1</span> user,  load average: 0.00, 0.01, 0.05</span></span></code></pre></td></tr></table></div></div></div><p>Где же программа uptime это берёт? Она считывает информацию из файла /proc/uptime.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>9592411.58 9566042.33</span></span></code></pre></td></tr></table></div></div></div><p>Первое число — количество секунд работы системы. Второе же показывает сколько секунд система находилась в бездействии. Стоит отметить, что на системах с несколькими процессорами, второй показатель может оказаться больше, чем первый, так как это сумма по процессорам.</p><p>Как я об этом узнал? Я посмотрел какие файлы открывает <strong>uptime</strong> при запуске. Для этого, можно воспользоваться утилитой <strong>strace</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>strace uptime</span></span></code></pre></td></tr></table></div></div></div><p>Будет много вывода, лучше сделать <strong>grep</strong> для поиска системного вызова open. Но это не совсем сработает, т.к. по умолчанию он выводит в стандартный поток ошибок (stderr). Можно перенаправить stderr в стандартный поток с помощью <strong>2>&amp;1</strong>.</p><p>Результат таков:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ strace uptime 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>|</span> grep open
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>open<span class=o>(</span><span class=s2>&#34;/proc/uptime&#34;</span>, O_RDONLY<span class=o>)</span>          <span class=o>=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>open<span class=o>(</span><span class=s2>&#34;/var/run/utmp&#34;</span>, O_RDONLY<span class=p>|</span>O_CLOEXEC<span class=o>)</span> <span class=o>=</span> <span class=m>4</span>
+</span></span><span class=line><span class=cl>open<span class=o>(</span><span class=s2>&#34;/proc/loadavg&#34;</span>, O_RDONLY<span class=o>)</span>         <span class=o>=</span> <span class=m>4</span></span></span></code></pre></td></tr></table></div></div></div><p>Тут содержится упомянутый файл <strong>/proc/uptime</strong>. Оказалось, что достаточно запустить <strong>strace -e open uptime</strong> и не мучиться с grepом.</p><p>Если можно взять это прямо из файла, то зачем нужна утилита uptime? Дело в том, что uptime форматирует вывод в читаемом виде, тогда как секунды в файле удобно использовать при написании собственных скриптов и программ.</p><h2 id=load-average id=load-average><span class=me-2>Load average</span>
+<a href=#load-average class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Помимо времени непрерывной работы, uptime показывает и среднюю загрузку системы, они отображены как 3 числа.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ uptime
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span>12:59:09 up <span class=m>32</span> min,  <span class=m>1</span> user,  load average: 0.00, 0.01, 0.03</span></span></code></pre></td></tr></table></div></div></div><p>А взяты они из файла <strong>/proc/loadavg</strong>. Если еще раз посмотреть на вывод <strong>strace</strong>, то можно заметить, что этот файл тоже был открыт.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ cat /proc/loadavg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>0<span class=se>\.</span><span class=m>00</span> 0.01 0.03 1/120 <span class=m>1500</span></span></span></code></pre></td></tr></table></div></div></div><p>Первые 3 числа измеряют среднюю загрузку системы за последние 1, 5 и 15 минут. 4-ый параметр это количество активных процессов и их общее число. Последнее число это ID последнего использованного процесса.</p><p>Начнём с конца.</p><p>Когда запускается процесс, ему присваивается ID. Как правило, они идут в возрастающем порядке, за исключением случаев, когда число исчерпалось и системе приходится начинать отсчёт заново. ID 1 присваивается процессу <strong>/sbin/init</strong>, который запускается при старте.</p><p>Взглянем ещё раз на <strong>/proc/loadavg</strong> и попробуем запустить команду <strong>sleep</strong> в фоновом режиме. При запуске в фоновом режиме, можно увидеть ID процесса.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ cat /proc/loadavg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>0<span class=se>\.</span><span class=m>00</span> 0.01 0.03 1/123 <span class=m>1566</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sleep <span class=m>10</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>1567</span></span></span></code></pre></td></tr></table></div></div></div><p>Таким образом, <strong>1/123</strong> означает, что 1 процесс выполняется или готов к выполнению, а всего их 123.</p><p>Когда при запуске <strong>htop</strong>, вы видите, что выполняется только один процесс, это сам процесс htop.</p><p>Если запустить <strong>sleep 30</strong> и открыть <strong>htop</strong>, то число выполняющихся процессов всё равно будет 1. Это потому, что процесс <strong>sleep</strong> не выполняется, а «спит», т.е. находится в состоянии покоя, иными словами ждёт определённого события. Выполняющийся или активный процесс, это процесс который на данный момент обрабатывается в процессоре (CPU), либо ждёт своей очереди в процессоре.</p><p>Попробуйте запустить <strong>cat /dev/urandom > /dev/null</strong>, где генерируемые случайные байты записываются в особый файл, считывание из которого невозможно. Тогда вы увидите, что выполняющихся процессов теперь уже 2.</p><div class=code-block><div class=code-header><span data-label-text><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-gdscript3 data-lang=gdscript3><span class=line><span class=cl><span class=o>$</span> <span class=n>cat</span> <span class=o>/</span><span class=n>dev</span><span class=o>/</span><span class=n>urandom</span> <span class=o>&gt;</span> <span class=o>/</span><span class=n>dev</span><span class=o>/</span><span class=n>null</span> <span class=o>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>[</span><span class=mi>1</span><span class=p>]</span> <span class=mi>1639</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>$</span> <span class=n>cat</span> <span class=o>/</span><span class=n>proc</span><span class=o>/</span><span class=n>loadavg</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=mi>1</span>\<span class=o>.</span><span class=mi>00</span> <span class=mf>0.69</span> <span class=mf>0.35</span> <span class=mi>2</span><span class=o>/</span><span class=mi>124</span> <span class=mi>1679</span></span></span></code></pre></td></tr></table></div></div></div><p>Так, активных процессов ровно 2 (генератор случайных чисел и утилита <strong>cat</strong>, которая читает файл <strong>/proc/loadavg</strong>), еще можно заметить что средняя загрузка возросла.</p><p><strong>load average</strong> это средняя загрузка системы на протяжении определённого периода времени.</p><p>Число загрузки считается как сумма количества процессов, которые запущены (выполняются или находятся в ожидании запуска) и непрерываемых процессов (о видах процессов будет рассказано ниже). Т.е. это просто число процессов.</p><p>А средняя загрузка получается просто усреднённое значение за 1, 5 и 15 минут, так?</p><p>Оказывается, не всё так просто.</p><p>Говоря математическим языком, все три значения усредняют среднюю загрузку за всё время работы системы. Они устаревают экспоненциально, но с разной скоростью. Таким образом, средняя загрузка за 1 минуту это сумма 63% загрузки за последнюю минуту + 37% загрузки с момента запуска без учёта последней минуты. То же соотношение верно и для 5, 15 минут. Поэтому не совсем верно, что средняя загрузка за последнюю минуту включает активность только за последнюю минуту, но бОльшей частью за последнюю минуту.</p><p>Вы это знали?</p><p>Вернёмся к генератору случайных чисел.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ cat /proc/loadavg
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>1<span class=se>\.</span><span class=m>00</span> 0.69 0.35 2/124 <span class=m>1679</span></span></span></code></pre></td></tr></table></div></div></div><p>Хотя это не совсем правильно, но вот как я упростил для понимания показатель средней загрузки.</p><p>В данном случае генератор использует процессор, средняя загрузка за последнюю минуту <strong>1.00</strong>, другими словами в среднем 1 выполняющийся процесс.</p><p>В моей системе это означает что процессор загружен на 100%, т.к. процессор один, а выполнять он может только один процесс за раз.</p><p>Если бы процессоров было 2, то загрузка соответственно была бы 50%, т.к. можно было бы одновременно выполнять 2 процесса. Максимальная средняя загрузка (100% использования CPU) системы с двумя процессорами составляет <strong>2.00</strong>.</p><p>Количество процессоров в системе можно узнать в левом верхнем углу <strong>htop</strong> или при помощи <strong>nproc</strong>.</p><h2 id=процессы id=процессы><span class=me-2>Процессы</span>
+<a href=#%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d1%8b class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>В правом верхнем углу, <strong>htop</strong> показывает общее количество процессов и сколько из них активны. Но почему там написано задания [Tasks], а не процессы?</p><p>Задание это синоним процесса. В ядре Linux процессы это и есть задания. <strong>htop</strong> использует термин задания, возможно, потому, что это название короче и экономит немного места.  
+В <strong>htop</strong> можно увидеть и потоки [threads]. Для переключения этой опции нужно использовать комбинацию <em>Shift+H</em>. Если отображается что то вроде <strong>Tasks: 23, 10 thr</strong>, то это значит они видимы.</p><p>Отображение потоков выполнения ядра [kernel threads] можно включить комбинацией <em>Shift+K</em>, и тогда задания будут выглядеть как <strong>Tasks: 23, 40 kthr</strong>.</p><h2 id=id-процесса--pid id=id-процесса--pid><span class=me-2>ID процесса / PID</span>
+<a href=#id-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%b0--pid class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>При каждом запуске процесса, ему присваивается идентификатор (ID), сокращенно PID.</p><p>Если запускать программу в фоновом режиме (<strong>&</strong>) из <strong>bash</strong>, то номер задачи[job] выводится в квадратных скобках, а рядом с ним PID процесса.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sleep <span class=m>1000</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>12503</span></span></span></code></pre></td></tr></table></div></div></div><p>Ещё один способ, это использовать переменную <strong>$!</strong> в <strong>bash</strong>, которая хранит PID последнего процесса, запущенного в фоне.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=nv>$!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>12503</span></span></span></code></pre></td></tr></table></div></div></div><p>ID процесса очень полезна. С помощью него можно узнать подробности процесса и управлять им.</p><p>Существует псевдо файловая система <strong>procfs</strong>, с помощью которой программы могут получить информацию от ядра системы путём чтения файлов. Чаще всего она монтируется в <strong>/proc/</strong> и для пользователя выглядит как обычный каталог, который можно смотреть командами, такими как <strong>ls</strong> и <strong>cd</strong>.</p><p>Вся информация о процессе находится в <strong>/proc/&lt;рid>/</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls /proc/12503
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>attr        coredump<span class=se>\_</span>filter  fdinfo     maps        ns             personality  smaps    task
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>auxv        cpuset           gid<span class=se>\_</span>map    mem         numa<span class=se>\_</span>maps      projid<span class=se>\_</span>map   stack    uid<span class=se>\_</span>map
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cgroup      cwd              io         mountinfo   oom<span class=se>\_</span>adj        root         stat     wchan
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>clear<span class=se>\_</span>refs  environ          limits     mounts      oom<span class=se>\_</span>score      schedstat    statm
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>cmdline     exe              loginuid   mountstats  oom<span class=se>\_</span>score<span class=se>\_</span>adj  sessionid    status
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>comm        fd               map<span class=se>\_</span>files  net         pagemap        setgroups    syscall</span></span></code></pre></td></tr></table></div></div></div><p>Например в <strong>/proc/&lt;рid>/cmdline</strong> содержится команда при помощи которой процесс запустился.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ cat /proc/12503/cmdline
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sleep1000$</span></span></code></pre></td></tr></table></div></div></div><p>Эмм&mldr;, не совсем так. Разделителем тут служит байт <strong>\0</strong>,</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ od -c /proc/12503/cmdline
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>0000000</span>   s   l   e   e   p  <span class=se>\0</span>   <span class=m>1</span>   <span class=m>0</span>   <span class=m>0</span>   <span class=m>0</span>  <span class=se>\0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>0000013</span></span></span></code></pre></td></tr></table></div></div></div><p>который можно заменить пробелом, либо переводом строки</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ tr <span class=s1>&#39;\0&#39;</span> <span class=s1>&#39;\n&#39;</span> &lt; /proc/12503/cmdline
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sleep
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>1000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ strings /proc/12503/cmdline
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>sleep
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>1000</span></span></span></code></pre></td></tr></table></div></div></div><p>В каталоге процесса могут быть и ссылки! Для примера, <strong>cwd</strong> ссылается на текущий рабочий каталог, а <strong>exe</strong> на запущенный исполняемый файл.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls -l /proc/12503/<span class=o>{</span>cwd,exe<span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>lrwxrwxrwx <span class=m>1</span> ubuntu ubuntu <span class=m>0</span> Jul  <span class=m>6</span> 10:10 /proc/12503/cwd -&gt; /home/ubuntu
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>lrwxrwxrwx <span class=m>1</span> ubuntu ubuntu <span class=m>0</span> Jul  <span class=m>6</span> 10:10 /proc/12503/exe -&gt; /bin/sleep</span></span></code></pre></td></tr></table></div></div></div><p>Таким образом утилиты <strong>htop</strong>, <strong>top</strong>, <strong>ps</strong> и другие показывают информацию о процессе, они просто читают <strong>/proc/&lt;рid>/&lt;файл></strong>.</p><h2 id=дерево-процессов id=дерево-процессов><span class=me-2>Дерево процессов</span>
+<a href=#%d0%b4%d0%b5%d1%80%d0%b5%d0%b2%d0%be-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%be%d0%b2 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Когда запускается новый процесс, процесс который его запускает принято называть родительским или просто родителем. Таким образом новый процесс это дочерний процесс родительского. Эти отношения образуют структуру в виде дерева.</p><p>Если нажать <em>F5</em> в <strong>htop</strong>, то можно увидеть иерархию процессов.</p><p>Тот же эффект и от флага <strong>f</strong> команды <strong>ps</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps f
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>PID TTY      STAT   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>12472</span> pts/0    Ss     0:00 -bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>12684</span> pts/0    R+     0:00  <span class=se>\\</span>_ ps f</span></span></code></pre></td></tr></table></div></div></div><p>Либо <strong>pstree</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ pstree -a
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>init
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>├─atd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>├─cron
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>├─sshd -D
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>│   └─sshd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>│       └─sshd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>│           └─bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>│               └─pstree -a
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>…</span></span></code></pre></td></tr></table></div></div></div><p>Если вы когда нибудь задумывались, почему <strong>bash</strong> или <strong>sshd</strong> являются родительскими для некоторых процессов, то вот почему.</p><p>Ниже я написал, что происходит, если вы, к примеру, вызовите <strong>date</strong> из консоли <strong>bash</strong>.</p><ul><li><strong>bash</strong> создаст новую копию своего процесса (используя системный вызов <strong>fork</strong>)</li><li>Затем он переместит исполняемый файл <strong>/bin/date</strong> в память (при помощи системного вызова <strong>exec</strong>).</li><li><strong>bash</strong>, как родительский процесс будет ожидать окончания работы дочернего.</li></ul><p>Таким образом, <strong>/sbin/init</strong>, у которого ID 1, начал выполняться при старте системы и породил демона SSH <strong>sshd</strong>. После подключения к системе, <strong>sshd</strong> породит процесс для текущей сессии, который в свою очередь запустит консоль <strong>bash</strong>. \</p><p>Я предпочитаю использовать древовидную структуру в <strong>htop</strong> когда хочется увидеть все потоки.</p><h2 id=владелец-процесса id=владелец-процесса><span class=me-2>Владелец процесса</span>
+<a href=#%d0%b2%d0%bb%d0%b0%d0%b4%d0%b5%d0%bb%d0%b5%d1%86-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%b0 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>У каждого процесса есть владелец — пользователь. У пользователей, в свою очередь, существуют численные ID.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sleep <span class=m>1000</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>2045</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$  grep Uid /proc/2045/status
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Uid:    <span class=m>1000</span>    <span class=m>1000</span>    <span class=m>1000</span>    <span class=m>1000</span></span></span></code></pre></td></tr></table></div></div></div><p>Можно воспользоваться командой <strong>id</strong>, чтобы узнать имя этого пользователя.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ id <span class=m>1000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span>,4<span class=o>(</span>adm<span class=o>)</span></span></span></code></pre></td></tr></table></div></div></div><p>Как выяснилось, <strong>id</strong> берёт эту информацию из файлов <strong>/etc/passwd</strong> и <strong>/etc/group</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ strace -e open id <span class=m>1000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>open<span class=o>(</span><span class=s2>&#34;/etc/passwd&#34;</span>, O<span class=se>\_</span>RDONLY<span class=p>|</span>O<span class=se>\_</span>CLOEXEC<span class=o>)</span> <span class=o>=</span> <span class=m>3</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>open<span class=o>(</span><span class=s2>&#34;/etc/group&#34;</span>, O<span class=se>\_</span>RDONLY<span class=p>|</span>O<span class=se>\_</span>CLOEXEC<span class=o>)</span>  <span class=o>=</span> <span class=m>3</span></span></span></code></pre></td></tr></table></div></div></div><p>Это обычные текстовые файлы, в которых ID привязаны к именам пользователей.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ cat /etc/passwd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>root:x:0:0:root:/root:/bin/bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu:x:1000:1000:Ubuntu:/home/ubuntu:/bin/bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ cat /etc/group
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>root:x:0:
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>adm:x:4:syslog,ubuntu
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu:x:1000:</span></span></code></pre></td></tr></table></div></div></div><p><strong>passwd</strong>? Но где пароли? А они на самом деле в <strong>/etc/shadow</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo cat /etc/shadow
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>root:<span class=nv>$6$mS9o0QBw$P1ojPSTexV2PQ</span>.Z./rqzYex.k7TJE2nVeIVL0dql/:17126:0:99999:7:::
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>daemon:<span class=se>\*</span>:17109:0:99999:7:::
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu:<span class=nv>$6$GIfdqlb</span>/<span class=nv>$ms9ZoxfrUq455K6UbmHyOfz7DVf7TWaveyHcp</span>.:17126:0:99999:7:::</span></span></code></pre></td></tr></table></div></div></div><p>Если вы запустите программу, то она запустится от вашего имени, даже если вы не являетесь её владельцем. Если же вам нужно запустить её как <strong>root</strong>, то нужно использовать <strong>sudo</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ id
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span>,4<span class=o>(</span>adm<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sudo id
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>0<span class=o>(</span>root<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>0<span class=o>(</span>root<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>0<span class=o>(</span>root<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sudo -u ubuntu id
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>1000<span class=o>(</span>ubuntu<span class=o>)</span>,4<span class=o>(</span>adm<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sudo -u daemon id
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nv>uid</span><span class=o>=</span>1<span class=o>(</span>daemon<span class=o>)</span> <span class=nv>gid</span><span class=o>=</span>1<span class=o>(</span>daemon<span class=o>)</span> <span class=nv>groups</span><span class=o>=</span>1<span class=o>(</span>daemon<span class=o>)</span></span></span></code></pre></td></tr></table></div></div></div><p>Но что, если нужно запустить несколько программ от имени других пользователей? Можно запустить консоль от их имени, если воспользоваться командами <strong>sudo bash</strong> или <strong>sudo -u user bash</strong>.</p><p>Если не хочется каждый раз вводить пароль администратора при запуске программ, то можно отключить эту функцию, добавив своё имя пользователя в файл <strong>/etc/sudoers</strong>.</p><p>Давайте попробуем.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$USER</span><span class=s2> ALL=(ALL) NOPASSWD: ALL&#34;</span> &gt;&gt; /etc/sudoers
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-bash: /etc/sudoers: Permission denied</span></span></code></pre></td></tr></table></div></div></div><p>Да, точно, это можно сделать только с привилегиями <strong>root</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo <span class=nb>echo</span> <span class=s2>&#34;</span><span class=nv>$USER</span><span class=s2> ALL=(ALL) NOPASSWD: ALL&#34;</span> &gt;&gt; /etc/sudoers
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-bash: /etc/sudoers: Permission denied</span></span></code></pre></td></tr></table></div></div></div><p>Что за…?</p><p>Тут мы пытаемся вызвать <strong>echo</strong> от имени администратора, но при этом пишем в файл <strong>/etc/sudoers</strong> всё так же от нашего имени.</p><p>Как правило, есть 2 выхода из данной ситуации:</p><ul><li>echo &ldquo;$USER ALL=(ALL) NOPASSWD: ALL&rdquo; | sudo tee -a /etc/sudoers</li><li>sudo bash -c «echo &lsquo;$USER ALL=(ALL) NOPASSWD: ALL&rsquo; &#187; /etc/sudoers»</li></ul><p>В первом случае, <strong>tee -a</strong> запишет из стандартного потока ввода в файл от имени администратора.</p><p>Во втором случае, мы запускаем консоль от имени администратора и просим выполнить команды (<strong>-c</strong>) и все команды выполнятся от имени root. Обратите внимание на расстановку кавычек <strong>"</strong>/’, при помощи которых переменная $USER разыменуется правильно.</p><p>Допустим, вы захотели поменять свой пароль. Команда <strong>passwd</strong> вам в помощь. Она сохранит пароль в файле <strong>/etc/shadow</strong>, который мы видели выше.</p><p>Этот файл доступен для записи только для root:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls -l /etc/shadow
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-rw-r----- <span class=m>1</span> root shadow <span class=m>1122</span> Nov <span class=m>27</span> 18:52 /etc/shadow</span></span></code></pre></td></tr></table></div></div></div><p>Как же это возможно, что программа запускаемая от имени пользователя может записывать в защищённый файл?</p><p>Я уже говорил, что при вызове, программа запускается от имени пользователя, запускающего её, даже если она принадлежит другому пользователю.</p><p>Оказывается, это поведение можно изменить правками разрешения файла. Давайте посмотрим.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ls -l /usr/bin/passwd
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>-rwsr-xr-x <span class=m>1</span> root root <span class=m>54256</span> Mar <span class=m>29</span>  <span class=m>2016</span> /usr/bin/passwd</span></span></code></pre></td></tr></table></div></div></div><p>Обратите внимание на символ <strong>s</strong>. Она была добавлена при помощи <strong>sudo chmod u+s /usr/bin/passwd</strong>. И означает, что исполняемый файл будет всегда запускаться от имени владельца, в данном случае это root.</p><p>Так называемые исполняемые файлы <strong>setuid</strong> можно искать при помощи <strong>find /bin -user root -perm -u+s</strong>.</p><p>Так же это можно осуществить и для групп (<strong>g+s</strong>).</p><h2 id=состояния-процесса id=состояния-процесса><span class=me-2>Состояния процесса</span>
+<a href=#%d1%81%d0%be%d1%81%d1%82%d0%be%d1%8f%d0%bd%d0%b8%d1%8f-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%b0 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Дальше, мы будем разбираться со столбцом состояния процессов в <strong>htop</strong>, в котором, на примере, находятся символы <strong>S</strong>.</p><p>Возможные значения состояния:</p><ul><li>R — [running or runnable] запущенные или находятся в очереди на запуск</li><li>S — [interruptible sleep] прерываемый сон</li><li>D — [uninterruptible sleep] непрерываемый сон (в основном IO)</li><li>Z — [zombie] процесс зомби, прекращенный, но не забранный родителем</li><li>T — Остановленный сигналом управления заданиями</li><li>t — Остановленный отладчиком</li><li>X — Мёртвый (не должен показываться)</li></ul><p>Они отсортированы по тому, как часто я их обычно вижу.</p><p>Заметьте, что при запуске <strong>ps</strong>, он может ещё показывать подсостояния как <strong>Ss</strong>, <strong>R+</strong>, <strong>Ss+</strong> и т.д.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps x
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>PID TTY      STAT   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>1688</span> ?        Ss     0:00 /lib/systemd/systemd --user
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>1689</span> ?        S      0:00 <span class=o>(</span>sd-pam<span class=o>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>1724</span> ?        S      0:01 sshd: vagrant@pts/0
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>1725</span> pts/0    Ss     0:00 -bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>2628</span> pts/0    R+     0:00 ps x</span></span></code></pre></td></tr></table></div></div></div><h3 id=r--запущенные-или-в-очереди id=r--запущенные-или-в-очереди><span class=me-2>R — Запущенные или в очереди</span>
+<a href=#r--%d0%b7%d0%b0%d0%bf%d1%83%d1%89%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b8%d0%bb%d0%b8-%d0%b2-%d0%be%d1%87%d0%b5%d1%80%d0%b5%d0%b4%d0%b8 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Процессы в этом состоянии либо запущены, либо находятся в очереди для запуска.\</p><p>Что это значит?</p><p>Когда вы компилируете код, то на выходе получаете исполняемый файл в виде инструкций для процессора. При запуске, этот файл помещается в память, где процессор выполняет эти инструкции, проще говоря занимается вычислениями.</p><h3 id=s--прерываемый-сон id=s--прерываемый-сон><span class=me-2>S — Прерываемый сон</span>
+<a href=#s--%d0%bf%d1%80%d0%b5%d1%80%d1%8b%d0%b2%d0%b0%d0%b5%d0%bc%d1%8b%d0%b9-%d1%81%d0%be%d0%bd class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>При этом состоянии инструкции программы не исполняются в процессоре, проще говоря спят. Процесс ждёт события или какого нибудь условия для продолжения. После того, как событие произошло, состояние меняется на запущенное.</p><p>Для примера можно взять утилиту <strong>sleep</strong> из coreutils. Он будет находится в состоянии сна определенное количество секунд.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sleep <span class=m>1000</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>10089</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ ps f
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span>  <span class=sb>`</span>PID TTY      STAT   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=sb>`</span> <span class=sb>`</span><span class=m>3514</span> pts/1    Ss     0:00 -bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>10089</span> pts/1    S      0:00  <span class=se>\\</span>_ sleep <span class=m>1000</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>10094</span> pts/1    R+     0:00  <span class=se>\\</span>_ ps f</span></span></code></pre></td></tr></table></div></div></div><p>Так это <em>прерываемый</em> сон, как же его можно прервать? С помощью сигнала.</p><p>Послать сигнал с помощью <strong>htop</strong> можно нажав клавишу <em>F9</em> и выбрав нужный вид сигнала в меню.</p><p>Передача сигнала, так же известна как команда <strong>kill</strong>, потому что это на самом деле системный вызов, который может послать сигнал процессу. Существует одноимённая программа <strong>/bin/kill</strong>, которая может исполнить системномный вызов из пользовательского окружения и по умолчанию посылает сигнал <strong>TERM</strong>, который уничтожает процесс, убивает его.</p><p>Сигнал это всего лишь число. Числа сложно запомнить, поэтому их назвали именами. Их имена обычно пишут заглавными буквами и могут быть с префиксом <strong>SIG</strong>.</p><p>Часто используемые сигналы, это: <strong>INT</strong>, <strong>KILL</strong>, <strong>STOP</strong>, <strong>CONT</strong>, <strong>HUP</strong>.</p><p>Попробуем прервать спящий процесс, послав ему сигнал <strong>INT</strong>, он же <strong>SIGINT</strong>, просто <strong>2</strong>, или <strong>сигнал прерывания с терминала</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=nb>kill</span> -INT <span class=m>10089</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span>+  Interrupt               sleep <span class=m>1000</span></span></span></code></pre></td></tr></table></div></div></div><p>Этот же сигнал посылается, если нажать комбинацию <em>CTRL+C</em>. <strong>bash</strong> пошлёт сигнал <strong>SIGINT</strong> процессу на переднем плане, точно так же, как мы это сделали вручную.\</p><p>Кстати, в <strong>bash</strong> команда <strong>kill</strong> встроена, хотя во многих системах есть программа <strong>/bin/kill</strong>. Почему? Чтобы можно было «убить» процесс даже если превышен лимит на количество создаваемых процессов. \</p><p>Следующие команды идентичны:</p><ul><li>kill -INT 10089</li><li>kill -2 10089</li><li>/bin/kill -2 10089</li></ul><p>Другой полезный сигнал это <strong>SIGKILL</strong> или <strong>9</strong>. Вы, возможно, использовали его, когда не могли завершить процесс безудержным кликаньем <em>CTRL+C</em>.</p><p>При написании программы, можно эти сигналы ловить и создавать функции, которые будут запускаться когда соответствующий сигнал получен. Например, можно очищать память или же аккуратно завершить работу. Поэтому отправка сигнала, такого как сигнал прерывания с терминала, не означает что процесс будет прекращён.</p><p>Возможно, вы встречали такое исключение при запуске скриптов на Python:</p><div class=code-block><div class=code-header><span data-label-text=Python><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=err>$</span> <span class=n>python</span> <span class=o>-</span><span class=n>c</span> <span class=s1>&#39;import sys; sys.stdin.read()&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>^</span><span class=n>C</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Traceback</span> <span class=p>(</span><span class=n>most</span> <span class=n>recent</span> <span class=n>call</span> <span class=n>last</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=err>`</span>  <span class=err>`</span><span class=n>File</span> <span class=s2>&#34;&lt;string&gt;&#34;</span><span class=p>,</span> <span class=n>line</span> <span class=mi>1</span><span class=p>,</span> <span class=ow>in</span> <span class=o>&lt;</span><span class=n>module</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=ne>KeyboardInterrupt</span></span></span></code></pre></td></tr></table></div></div></div><p>Но существует сигнал способный остановить процесс, не дав ему возможности на него ответить. Это сигнал <strong>KILL</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sleep <span class=m>1000</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>2658</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ <span class=nb>kill</span> -9 <span class=m>2658</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span>+  Killed                  sleep <span class=m>1000</span></span></span></code></pre></td></tr></table></div></div></div><h3 id=d--непрерываемый-сон id=d--непрерываемый-сон><span class=me-2>D — непрерываемый сон</span>
+<a href=#d--%d0%bd%d0%b5%d0%bf%d1%80%d0%b5%d1%80%d1%8b%d0%b2%d0%b0%d0%b5%d0%bc%d1%8b%d0%b9-%d1%81%d0%be%d0%bd class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>В отличии от прерываемого сна, процессы в таком состоянии невозможно остановить с помощью сигналов. Поэтому многие не любят это состояние.</p><p>При этом состоянии процесс ожидает и не может быть прерван, например, если событие продолжения вот вот наступит, такое как чтение/запись на диск. Как правило, это происходит за доли секунды.</p><p><a href=http://stackoverflow.com/questions/223644/what-is-an-uninterruptable-process>На StackOverflow</a> есть хороший ответ:</p><p>Непрерываемые процессы обычно находятся в ожидании IO после page fault. Процесс не может быть прерван в это время сигналом, потому что не сможет их обработать. Если бы он мог, то снова возник бы page fault и всё бы осталось как есть.</p><p>Другими словами, это может случиться, если, например, использовать протокол сетевого доступа NFS и требуется время для чтения/записи с/на него.</p><p>По своему опыту могу сказать, что такое случается когда процесс часто подкачивается, т.е. для него недостаточно свободной памяти.</p><p>Попробуем вызвать это состояние.</p><p><strong>8.8.8.8</strong> это публичный DNS от Google. Там нет NFS, но это нас не остановит.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo mount 8.8.8.8:/tmp /tmp <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>12646</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ sudo ps x <span class=p>|</span> grep mount.nfs
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>12648</span> pts/1    D      0:00 /sbin/mount.nfs 8.8.8.8:/tmp /tmp -o rw</span></span></code></pre></td></tr></table></div></div></div><p>Как же узнать, что заставляет процесс оказаться в таком состоянии? <strong>strace</strong>!</p><p>Вызовим <strong>strace</strong> для команды <strong>ps</strong> выше.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo strace /sbin/mount.nfs 8.8.8.8:/tmp /tmp -o rw
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>mount<span class=o>(</span><span class=s2>&#34;8.8.8.8:/tmp&#34;</span>, <span class=s2>&#34;/tmp&#34;</span>, <span class=s2>&#34;nfs&#34;</span>, 0, ...</span></span></code></pre></td></tr></table></div></div></div><p>И тут мы увидим, что системный вызов <strong>mount</strong> блокирует процесс.</p><p>А <strong>mount</strong>, кстати можно вызвать с опцией <strong>intr</strong>, чтобы его можно было прерывать: <strong>sudo mount 8.8.8.8:/tmp /tmp -o intr</strong>.</p><h3 id=z--зомби-процесс id=z--зомби-процесс><span class=me-2>Z — Зомби процесс</span>
+<a href=#z--%d0%b7%d0%be%d0%bc%d0%b1%d0%b8-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Когда процесс заканчивает свою работу с помощью <strong>exit</strong> и у неё остаются дочерние процессы, дочерние процессы становятся в состоянии зомби.</p><ul><li>Абсолютно нормально, если зомби процесс существует недолго</li><li>Зомби процессы которые существуют долгое время, могут говорить о баге в программе</li><li>Зомби процессы не используют память, только лишь ID процесса</li><li>Зомби процесс нельзя «убить»</li><li>Можно вежливо попросить родительский процесс избавиться от зомби (послав <strong>SIGCHLD</strong>)</li><li>Можно завершить родительский процесс, чтобы избавиться от обоих</li></ul><p>Я продемонстрирую это, написав небольшой код на С.</p><div class=code-block><div class=code-header><span data-label-text=C><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-C data-lang=C><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdio.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;stdlib.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp>#include</span> <span class=cpf>&lt;unistd.h&gt;</span><span class=cp>
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kt>int</span> <span class=nf>main</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Running</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kt>int</span> <span class=n>pid</span> <span class=o>=</span> <span class=nf>fork</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=n>pid</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Я родительский процесс</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Родительский процесс завершает работу</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>exit</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Я дочерний процесс</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Дочерний процесс спит</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>sleep</span><span class=p>(</span><span class=mi>20</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nf>printf</span><span class=p>(</span><span class=s>&#34;Дочерний процесс завершён</span><span class=se>\n</span><span class=s>&#34;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span></span></span></code></pre></td></tr></table></div></div></div><p>Устанавливаем компилятор С, GNU C Compiler (GCC).</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y gcc</span></span></code></pre></td></tr></table></div></div></div><p>Скомпилируем и запустим программу</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gcc zombie.c -o zombie
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>./zombie</span></span></code></pre></td></tr></table></div></div></div><p>Посмотрим на иерархию процессов</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps f
+</span></span><span class=line><span class=cl>  PID TTY      STAT   TIME COMMAND
+</span></span><span class=line><span class=cl> <span class=m>3514</span> pts/1    Ss     0:00 -bash
+</span></span><span class=line><span class=cl> <span class=m>7911</span> pts/1    S+     0:00  <span class=se>\_</span> ./zombie
+</span></span><span class=line><span class=cl> <span class=m>7912</span> pts/1    Z+     0:00      <span class=se>\_</span> <span class=o>[</span>zombie<span class=o>]</span> &lt;defunct&gt;
+</span></span><span class=line><span class=cl> <span class=m>1317</span> pts/0    Ss     0:00 -bash
+</span></span><span class=line><span class=cl> <span class=m>7913</span> pts/0    R+     0:00  <span class=se>\_</span> ps f</span></span></code></pre></td></tr></table></div></div></div><p>У нас есть зомби! Когда родительский процесс завершается, зомби исчезает.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps f
+</span></span><span class=line><span class=cl>  PID TTY      STAT   TIME COMMAND
+</span></span><span class=line><span class=cl> <span class=m>3514</span> pts/1    Ss+    0:00 -bash
+</span></span><span class=line><span class=cl> <span class=m>1317</span> pts/0    Ss     0:00 -bash
+</span></span><span class=line><span class=cl> <span class=m>7914</span> pts/0    R+     0:00  <span class=se>\_</span> ps f</span></span></code></pre></td></tr></table></div></div></div><p>Если заменить <strong>sleep(20)</strong> инструкцией <strong>while (true)</strong>, зомби исчезнет сразу.</p><p>При вызове <strong>exit</strong>, освобождается вся занимаемая память и ресурсы, чтобы они были доступны другим. Почему же нужны тогда процессы зомби?</p><p>У родительских процессов есть возможность узнать код завершения работы дочерних процессов (в обработчике сигналов) с помощью системного вызова <strong>wait</strong>. Если дочерний процесс спит, то родительский сперва подождёт.</p><p>Почему же тогда принудительно не разбудить процесс и завершить его? По той же причине, по которой вы не избавитесь от своего ребёнка, если он вас не слушается. Всё может закончится плохо.</p><h3 id=t--остановлен-сигналом-управления-заданиями id=t--остановлен-сигналом-управления-заданиями><span class=me-2>T — Остановлен сигналом управления заданиями</span>
+<a href=#t--%d0%be%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd-%d1%81%d0%b8%d0%b3%d0%bd%d0%b0%d0%bb%d0%be%d0%bc-%d1%83%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d1%8f-%d0%b7%d0%b0%d0%b4%d0%b0%d0%bd%d0%b8%d1%8f%d0%bc%d0%b8 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Я открыл два терминала и могу посмотреть на свои процессы командой <strong>ps u</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps u
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>1317</span>  0.0  0.9  <span class=m>21420</span>  <span class=m>4992</span> pts/0    Ss+  Jun07   0:00 -bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3514</span>  1.5  1.0  <span class=m>21420</span>  <span class=m>5196</span> pts/1    Ss   07:28   0:00 -bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3528</span>  0.0  0.6  <span class=m>36084</span>  <span class=m>3316</span> pts/1    R+   07:28   0:00 ps u</span></span></code></pre></td></tr></table></div></div></div><p>Ниже я опущу упоминание процессов <strong>-bash</strong> и <strong>ps</strong>.</p><p>Теперь в одном из терминалов запустим <strong>cat /dev/urandom > /dev/nul</strong>. Его состояние будет <strong>R+</strong>, из чего следует что он активен.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps u
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3540</span>  <span class=m>103</span>  0.1   <span class=m>6168</span>   <span class=m>688</span> pts/1    R+   07:29   0:04 cat /dev/urandom</span></span></code></pre></td></tr></table></div></div></div><p>Нажмём <em>CTRL+Z</em>, чтобы остановить процесс.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=c1># CTRL+Z</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span>+  Stopped                 cat /dev/urandom &gt; /dev/null
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ ps aux
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3540</span> 86.8  0.1   <span class=m>6168</span>   <span class=m>688</span> pts/1    T    07:29   0:15 cat /dev/urandom</span></span></code></pre></td></tr></table></div></div></div><p>Сейчас, он в состоянии <strong>T</strong>. Если нужно продолжить процесс, то можно вызвать <strong>fg</strong> в первом терминале.</p><p>Есть и другой способ останова процессов, для этого нужно послать им сигнал <strong>STOP</strong> с помощью <strong>kill</strong>, а для продолжения, соответственно, сигнал <strong>CONT</strong>.</p><h3 id=t--остановлен-отладчиком id=t--остановлен-отладчиком><span class=me-2>t — Остановлен отладчиком</span>
+<a href=#t--%d0%be%d1%81%d1%82%d0%b0%d0%bd%d0%be%d0%b2%d0%bb%d0%b5%d0%bd-%d0%be%d1%82%d0%bb%d0%b0%d0%b4%d1%87%d0%b8%d0%ba%d0%be%d0%bc class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Для начала установим отладчик GNU Debugger (gdb)</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt install -y gdb</span></span></code></pre></td></tr></table></div></div></div><p>Запустим программу для прослушивания порта 1234.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ nc -l <span class=m>1234</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>3905</span></span></span></code></pre></td></tr></table></div></div></div><p>Он находится в состоянии сна, потому как ждёт входящих сообщений.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps u
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3905</span>  0.0  0.1   <span class=m>9184</span>   <span class=m>896</span> pts/0    S    07:41   0:00 nc -l <span class=m>1234</span></span></span></code></pre></td></tr></table></div></div></div><p>Запустим отладчик и привяжем его к процессу с PID 3905.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo gdb -p <span class=m>3905</span></span></span></code></pre></td></tr></table></div></div></div><p>Теперь процесс будет прослеживаться [trace] в отладчике и его состояние изменится на <strong>t</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ps u
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>ubuntu    <span class=m>3905</span>  0.0  0.1   <span class=m>9184</span>   <span class=m>896</span> pts/0    t    07:41   0:00 nc -l <span class=m>1234</span></span></span></code></pre></td></tr></table></div></div></div><h2 id=время-обработки-процесса id=время-обработки-процесса><span class=me-2>Время обработки процесса</span>
+<a href=#%d0%b2%d1%80%d0%b5%d0%bc%d1%8f-%d0%be%d0%b1%d1%80%d0%b0%d0%b1%d0%be%d1%82%d0%ba%d0%b8-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%b0 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Linux — многозадачная операционная система, это означает что даже если процессор один, то можно одновременно запускать на нём  несколько заданий. Например, можно подключиться к удалённому серверу через SSH и посмотреть на вывод <strong>htop</strong>, а при этом сам сервер будет показывать ваш блог читателям в интернете.</p><p>Как же возможно, что единственный процессор может одновременно выполнять несколько заданий?</p><p>Разделением времени.</p><p>Каждый процесс выполняется определённый интервал времени, при котором другие приостановлены, затем выполняется следующий процесс и т.д.</p><p>Как правило, интервал времени выполнения составляет миллисекунды, поэтому пользователь этого и не заметит, если, конечно же, система не нагружена.</p><h2 id=любезность-и-приоритет-процессов id=любезность-и-приоритет-процессов><span class=me-2>Любезность и приоритет процессов</span>
+<a href=#%d0%bb%d1%8e%d0%b1%d0%b5%d0%b7%d0%bd%d0%be%d1%81%d1%82%d1%8c-%d0%b8-%d0%bf%d1%80%d0%b8%d0%be%d1%80%d0%b8%d1%82%d0%b5%d1%82-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%be%d0%b2 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Когда количество заданий превышает количество процессоров, но выполнить их все необходимо, нужно каким то образом определить порядок их выполнения. За это отвечает планировщик заданий.</p><p>Планировщик в ядре Linux решает какой процесс выбрать из очереди на запуск и это зависит от результата алгоритма, заложенного в ядре.</p><p>Пользователь, как правило, не может прямо влиять на планирование, но может подсказать какой из процессов ему особо важен и планировщик, возможно, прислушается к нему.</p><p>Любезность или приоритет nice (<strong>NI</strong>) это приоритет процесса в пространстве пользователя, варьирующаяся от -20, что есть самый высокий приоритет, до 19, соответственно наименьший приоритет. Это может запутать, но представьте это именно как любезность, т.е. чем процесс любезнее, тем он уступчивее другим процессам.</p><p>Из того, что я прочёл на StackOverflow и других сайтах, следует что увеличение любезности процесса на 1 ведёт к уступке 10% времени работы процессора.</p><p>Приоритет (<strong>PRI</strong>) же в свою очередь это параметр приоритета в пространстве ядра. Приоритет варьируется от 0 до 139. Приоритеты от 0 до 99 зарезервированы для процессов реального времени, а выше, т.е от 100 до 139, для пользовательских.</p><p>Можно изменить любезность процесса, и тогда, возможно, ядро примет это к сведению, но сам приоритет менять нельзя.</p><p>Соотношение любезности и приоритета следующее: <strong>PR = 20 + NI.</strong>
+Таким образом область определения <strong>PR = 20 + (-20 to +19)</strong> лежит в отрезке от 100 до 139.</p><p>Можно установить любезность процесса непосредственно перед запуском.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nice -n любезность program</span></span></code></pre></td></tr></table></div></div></div><p>А менять любезность во время выполнения можно с помощью <strong>renice</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>renice -n niceness -p PID</span></span></code></pre></td></tr></table></div></div></div><p><a href=http://askubuntu.com/questions/656771/process-niceness-vs-priority>http://askubuntu.com/questions/656771/process-niceness-vs-priority</a></p><h2 id=память--virtresshrmem id=память--virtresshrmem><span class=me-2>Память — VIRT/RES/SHR/MEM</span>
+<a href=#%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c--virtresshrmem class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>У процессов создаётся иллюзия, что память кроме них никто не использует. Такая иллюзия — результат работы виртуальной памяти.</p><p>Процессы не имеют прямого доступа к физической памяти. Для них выделяется участок виртуальной памяти, адреса в которой, проецируются ядром уже на адреса в физической памяти, либо на диск. Поэтому, иногда кажется, что процессы используют больше памяти, чем установлено в системе.</p><p>Я хочу сказать, что из-за этого не совсем легко понять сколько же именно памяти использует процесс. А что насчёт общих [shared] библиотек и памяти, выгруженной на диск? Но, к счастью, ядро и, в частности, <strong>htop</strong> позволяют извлечь некоторую информацию чтобы понять аппетит процесса по отношению к памяти.</p><h3 id=virtvsz--виртуальный-образ id=virtvsz--виртуальный-образ><span class=me-2>VIRT/VSZ — Виртуальный образ</span>
+<a href=#virtvsz--%d0%b2%d0%b8%d1%80%d1%82%d1%83%d0%b0%d0%bb%d1%8c%d0%bd%d1%8b%d0%b9-%d0%be%d0%b1%d1%80%d0%b0%d0%b7 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Общее количество памяти, занимаемая процессом. Оно включает в себя весь код, данные, общие библиотеки, страницы которые были перемещены на диск, а также страницы, которые проецировались ядром, но не были использованы.</p><p>Таким образом <strong>VIRT</strong> это всё, что используется процессом.</p><p>Если приложение запрашивает 1 Гб памяти, но использует при этом только 1 Мб, то память <strong>VIRT</strong> будет отображаться всё равно как 1 Гб. Даже если оно вызовет mmap для файла весом в 1 Гб и никогда им не воспользуется, то <strong>VIRT</strong> всё равно останется 1 Гб.</p><p>В большинстве случаев этот показатель бесполезен.</p><h3 id=resrss--резидентная-память id=resrss--резидентная-память><span class=me-2>RES/RSS — Резидентная память</span>
+<a href=#resrss--%d1%80%d0%b5%d0%b7%d0%b8%d0%b4%d0%b5%d0%bd%d1%82%d0%bd%d0%b0%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Память <strong>RSS</strong> [resident set size] это область, которая не выгружена на диск и находится в оперативной памяти.</p><p><strong>RES</strong>, возможно, лучше отображает реальное использование памяти процессора чем  <strong>VIRT</strong>, но нужно иметь ввиду:</p><ul><li>Туда не включена память, выгруженная на диск</li><li>Некоторая память может быть совместно используемой несколькими процессами</li></ul><p>Если процесс использует 1 Гб памяти и вызывает <strong>fork()</strong>, то в результате у обоих процессов значение <strong>RES</strong> будет 1 Гб, в то время как в оперативной памяти будет занято только 1 Гб, потому что в Linux есть механизм копирования при записи [copy-on-write].</p><h3 id=shr--разделяемая-память id=shr--разделяемая-память><span class=me-2>SHR — Разделяемая память</span>
+<a href=#shr--%d1%80%d0%b0%d0%b7%d0%b4%d0%b5%d0%bb%d1%8f%d0%b5%d0%bc%d0%b0%d1%8f-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d1%8c class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Объём памяти, который может быть совместно использован другими процессами.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1>#include &lt;stdio.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;stdlib.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;unistd.h&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>int main<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  printf<span class=o>(</span><span class=s2>&#34;Запуск\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  sleep<span class=o>(</span>10<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  size_t <span class=nv>memory</span> <span class=o>=</span> <span class=m>10</span> * <span class=m>1024</span> * 1024<span class=p>;</span> // <span class=m>10</span> MB
+</span></span><span class=line><span class=cl>  char* <span class=nv>buffer</span> <span class=o>=</span> malloc<span class=o>(</span>memory<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  printf<span class=o>(</span><span class=s2>&#34;Выделено 10M\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  sleep<span class=o>(</span>10<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=o>(</span>size_t <span class=nv>i</span> <span class=o>=</span> 0<span class=p>;</span> i &lt; memory/2<span class=p>;</span> i++<span class=o>)</span>
+</span></span><span class=line><span class=cl>    buffer<span class=o>[</span>i<span class=o>]</span> <span class=o>=</span> 42<span class=p>;</span>
+</span></span><span class=line><span class=cl>  printf<span class=o>(</span><span class=s2>&#34;Использовано 5M\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  sleep<span class=o>(</span>10<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  int <span class=nv>pid</span> <span class=o>=</span> fork<span class=o>()</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  printf<span class=o>(</span><span class=s2>&#34;Новый поток\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  sleep<span class=o>(</span>10<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=o>(</span>pid !<span class=o>=</span> 0<span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=o>(</span>size_t <span class=nv>i</span> <span class=o>=</span> memory/2<span class=p>;</span> i &lt; memory/2 + memory/5<span class=p>;</span> i++<span class=o>)</span>
+</span></span><span class=line><span class=cl>      buffer<span class=o>[</span>i<span class=o>]</span> <span class=o>=</span> 42<span class=p>;</span>
+</span></span><span class=line><span class=cl>    printf<span class=o>(</span><span class=s2>&#34;доп. 2M потомку\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=o>}</span>
+</span></span><span class=line><span class=cl>  sleep<span class=o>(</span>10<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> 0<span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></td></tr></table></div></div></div><p>Затем</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>fallocate -l 10G
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>gcc -std<span class=o>=</span>c99 mem.c -o mem
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>./mem</span></span></code></pre></td></tr></table></div></div></div><p>И</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>Процесс  Сообщение             VIRT  RES SHR
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>главный  Запуск                <span class=m>4200</span>  <span class=m>680</span> <span class=m>604</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>главный  Выделено 10M         <span class=m>14444</span>  <span class=m>680</span> <span class=m>604</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>главный  Использовано 5M      <span class=m>14444</span> <span class=m>6168</span> <span class=m>1116</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>главный  Новый поток          <span class=m>14444</span> <span class=m>6168</span> <span class=m>1116</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>потомок  Новый поток          <span class=m>14444</span> <span class=m>5216</span> <span class=m>0</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>главный  доп. 2M потомку            <span class=m>8252</span> <span class=m>1116</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>потомок  доп. 2M потомку            <span class=m>5216</span> <span class=m>0</span></span></span></code></pre></td></tr></table></div></div></div><p><em>(прим. Этот раздел не дописан до конца, как только статья обновится, я опубликую обновления)</em></p><h3 id=mem--использование-памяти id=mem--использование-памяти><span class=me-2>MEM% — Использование памяти</span>
+<a href=#mem--%d0%b8%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d0%b8 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Процент использования физической памяти. Это <strong>RES</strong>, делённый на общий объём оперативной памяти.</p><p>Если, например, <strong>RES</strong> составляет 200М и в системе установлено 8 Гб памяти, то <strong>MEM%</strong> будет 200/8192*100 = <strong>2.4%</strong></p><h2 id=процессы-1 id=процессы-1><span class=me-2>Процессы</span>
+<a href=#%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d1%8b-1 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Я запустил виртуальную машину с Ubuntu Server в Digital Ocean. Какие же процессы запускаются при старте системы? Необходимы ли они?</p><p>Ниже приведён анализ процессов, которые запускаются на чистой версии машины с Ubuntu Server 16.04.1 LTS x64 в Digital Ocean.</p><h3 id=до id=до><span class=me-2>До</span>
+<a href=#%d0%b4%d0%be class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><a href=/post/2026-04-24-htop/htopdo.png class="popup img-link"><img src=/post/2026-04-24-htop/htopdo.png alt=htop></a><h3 id=sbininit id=sbininit><span class=me-2>/sbin/init</span>
+<a href=#sbininit class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Эта программа координирует все остальные приложения при запуске и конфигурирует окружение пользователя. После запуска, она становится родителем или прародителем всех автоматически запускающихся процессов.</p><p>Это же systemd?</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ dpkg -S /sbin/init
+</span></span><span class=line><span class=cl>systemd-sysv: /sbin/init</span></span></code></pre></td></tr></table></div></div></div><p>Да, он самый. Что произойдёт, если его остановить? Ничего.</p><h3 id=libsystemdsystemd-journald id=libsystemdsystemd-journald><span class=me-2>/lib/systemd/systemd-journald</span>
+<a href=#libsystemdsystemd-journald class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>systemd-journald</strong> это системная служба, которая собирает и сохраняет логи. Она создаёт структурированные, проиндексированный журналы на основе информации, полученной с разных источников и управляет ими.</p><p>Другими словами,</p><p>Одним из основных преимуществ <strong>journald</strong> является замена обычных текстовых файлов логов специально отформатированными структурированными сообщениями. Это позволяет администраторам эффективнее работать с журналами событий.</p><p>Если нужно найти событие, лучше использовать <strong>journalctl</strong>.</p><ul><li><strong>journalctl _COMM=sshd</strong> поиск по sshd</li><li><strong>journalctl _COMM=sshd -o json-pretty</strong> поиск по sshd в JSON</li><li><strong>journalctl &ndash;since «2015-01-10» &ndash;until «2015-01-11 03:00»</strong></li><li><strong>journalctl &ndash;since 09:00 &ndash;until «1 hour ago»</strong></li><li><strong>journalctl &ndash;since yesterday</strong></li><li><strong>journalctl -b</strong> история с момента запуска системы</li><li><strong>journalctl -f</strong> чтобы следить за логами</li><li><strong>journalctl &ndash;disk-usage</strong></li><li><strong>journalctl &ndash;vacuum-size=1G</strong></li></ul><p>Впечатляюще. Этот процесс, кажется, нельзя остановить или убрать, можно лишь отключить ведение истории.</p><h3 id=sbinlvmetad--f id=sbinlvmetad--f><span class=me-2>/sbin/lvmetad -f</span>
+<a href=#sbinlvmetad--f class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Демон lvmetad кэширует метаданные LVM, чтобы команды LVM получали доступ к метаданным без сканирования диска. Кэширование помогает избежать возможного вмешивания в работу других приложений и сэкономить время сканирования диска.</p><p>Но что такое LVM [Logical Volume Management] (Менеджер логических томов)? Можно считать, что LVM это динамические разделы, что подразумевает создание/изменение/удаление разделов, так называемых «логических томов» из командной строки на лету, без надобности перезагрузки системы.</p><p>Звучит так, что нужен он только если пользоваться LVM.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ lvscan
+</span></span><span class=line><span class=cl>$ sudo apt remove lvm2 -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=libsystemdudevd id=libsystemdudevd><span class=me-2>/lib/systemd/udevd</span>
+<a href=#libsystemdudevd class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>systemd-udevd следит за событиями uevents ядра. Для каждого события, systemd-udevd запускает соответствующую инструкцию на основе правил в udev.</p><p>udev это диспетчер устройств ядра Linux. Как преемник devfsd и hotplug, udev в основном работает с устройствами в каталоге /dev.</p><p>Я не уверен о его необходимости в виртуальной среде.</p><h3 id=libsystemdtimesyncd id=libsystemdtimesyncd><span class=me-2>/lib/systemd/timesyncd</span>
+<a href=#libsystemdtimesyncd class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>systemd-timesyncd это системная служба которая синхронизирует локальное время с удалённым сервером NTP.</p><p>Он заменил <strong>ntpd</strong>.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ timedatectl status
+</span></span><span class=line><span class=cl>      Local time: Fri 2016-08-26 11:38:21 UTC
+</span></span><span class=line><span class=cl>  Universal time: Fri 2016-08-26 11:38:21 UTC
+</span></span><span class=line><span class=cl>        RTC time: Fri 2016-08-26 11:38:20
+</span></span><span class=line><span class=cl>       Time zone: Etc/UTC <span class=o>(</span>UTC, +0000<span class=o>)</span>
+</span></span><span class=line><span class=cl> Network <span class=nb>time</span> on: yes
+</span></span><span class=line><span class=cl>NTP synchronized: yes
+</span></span><span class=line><span class=cl> RTC in <span class=nb>local</span> TZ: no</span></span></code></pre></td></tr></table></div></div></div><p>Посмотрим на открытые порты системы:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ sudo netstat -nlput
+</span></span><span class=line><span class=cl>Active Internet connections <span class=o>(</span>only servers<span class=o>)</span>
+</span></span><span class=line><span class=cl>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      2178/sshd
+</span></span><span class=line><span class=cl>tcp6       <span class=m>0</span>      <span class=m>0</span> :::22                   :::*                    LISTEN      2178/sshd</span></span></code></pre></td></tr></table></div></div></div><p>Красота! В Ubuntu 14.04 это выглядело так:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo apt-get install ntp -y
+</span></span><span class=line><span class=cl>$ sudo netstat -nlput
+</span></span><span class=line><span class=cl>Active Internet connections <span class=o>(</span>only servers<span class=o>)</span>
+</span></span><span class=line><span class=cl>Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+</span></span><span class=line><span class=cl>tcp        <span class=m>0</span>      <span class=m>0</span> 0.0.0.0:22              0.0.0.0:*               LISTEN      1380/sshd
+</span></span><span class=line><span class=cl>tcp6       <span class=m>0</span>      <span class=m>0</span> :::22                   :::*                    LISTEN      1380/sshd
+</span></span><span class=line><span class=cl>udp        <span class=m>0</span>      <span class=m>0</span> 10.19.0.6:123           0.0.0.0:*                           2377/ntpd
+</span></span><span class=line><span class=cl>udp        <span class=m>0</span>      <span class=m>0</span> 139.59.256.256:123      0.0.0.0:*                           2377/ntpd
+</span></span><span class=line><span class=cl>udp        <span class=m>0</span>      <span class=m>0</span> 127.0.0.1:123           0.0.0.0:*                           2377/ntpd
+</span></span><span class=line><span class=cl>udp        <span class=m>0</span>      <span class=m>0</span> 0.0.0.0:123             0.0.0.0:*                           2377/ntpd
+</span></span><span class=line><span class=cl>udp6       <span class=m>0</span>      <span class=m>0</span> fe80::601:6aff:fxxx:123 :::*                                2377/ntpd
+</span></span><span class=line><span class=cl>udp6       <span class=m>0</span>      <span class=m>0</span> ::1:123                 :::*                                2377/ntpd
+</span></span><span class=line><span class=cl>udp6       <span class=m>0</span>      <span class=m>0</span> :::123                  :::*                                2377/ntpd</span></span></code></pre></td></tr></table></div></div></div><p><strong>/usr/sbin/atd -f</strong></p><p>atd запускает задания, назначенные в определённое время с помощью at.</p><p>В отличии от cron, который исполняет задания с периодичностью, at единовременно выполняет задание в определённое время.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=s2>&#34;touch /tmp/yolo.txt&#34;</span> <span class=p>|</span> at now + <span class=m>1</span> minute
+</span></span><span class=line><span class=cl>job <span class=m>1</span> at Fri Aug <span class=m>26</span> 10:44:00 <span class=m>2016</span>
+</span></span><span class=line><span class=cl>$ atq
+</span></span><span class=line><span class=cl><span class=m>1</span>       Fri Aug <span class=m>26</span> 10:44:00 <span class=m>2016</span> a root
+</span></span><span class=line><span class=cl>$ sleep <span class=m>60</span> <span class=o>&amp;&amp;</span> ls /tmp/yolo.txt
+</span></span><span class=line><span class=cl>/tmp/yolo.txt</span></span></code></pre></td></tr></table></div></div></div><p>Кстати, я ни разу не использовал его до этого момента.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove at -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=usrlibsnapdsnapd id=usrlibsnapdsnapd><span class=me-2>/usr/lib/snapd/snapd</span>
+<a href=#usrlibsnapdsnapd class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Snappy Ubuntu Core это новое исполнение Ubuntu с обновлёнными решениями — минимальный образ сервера с теми же библиотеками что и Ubuntu, но приложения предоставляются через более простой механизм.</p><p>Что?</p><p>Разработчики нескольких дистрибутивов Linux и компании призвали к сотрудничеству для создания универсального формата «snap» для пакетов Linux, чтобы один и тот же бинарный пакет успешно и безопасно работал на любом компьютере, сервере, облаке и устройстве с Linux.</p><p>Оказывается, это упрощенный пакет deb, где нужно прикреплять все зависимости. Я никогда не пользовался snappy для установки или создания приложений на серверах.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove snapd -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=usrbindbus-daemon id=usrbindbus-daemon><span class=me-2>/usr/bin/dbus-daemon</span>
+<a href=#usrbindbus-daemon class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>D-Bus — система межпроцессного взаимодействия, которая позволяет приложениям в операционной системе общаться друг с другом.</p><p>Я так понимаю, что это нужно только для домашнего окружения, но зачем это серверу веб приложений?</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove dbus -y --purge</span></span></code></pre></td></tr></table></div></div></div><p>Интересно, который сейчас час и синхронизируется ли время с NTP?</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ timedatectl status
+</span></span><span class=line><span class=cl>Failed to create bus connection: No such file or directory</span></span></code></pre></td></tr></table></div></div></div><p>Упс, возможно, это стоило оставить.</p><h3 id=libsystemdsystemd-logind id=libsystemdsystemd-logind><span class=me-2>/lib/systemd/systemd-logind</span>
+<a href=#libsystemdsystemd-logind class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>systemd-logind это системная служба, управляющая авторизациями в систему.</p><h3 id=usrsbincron--f id=usrsbincron--f><span class=me-2>/usr/sbin/cron -f</span>
+<a href=#usrsbincron--f class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>cron — демон для запуска заданий по расписанию (Vixie Cron)
+-f — не демонизировать процесс.</p><p>С помощью cron можно запускать задания с периодичностью.</p><p>Чтобы редактировать расписание, можно использовать crontab -e, я предпочитаю каталоги /etc/cron.hourly, /etc/cron.daily, и т.д.</p><p>А историю запуска можно найти так:</p><ul><li><strong>grep cron /var/log/syslog</strong> или</li><li><strong>journalctl _COMM=cron</strong> или даже так</li><li><strong>journalctl _COMM=cron &ndash;since=«date» &ndash;until=«date»</strong></li></ul><p>Наверняка, cron вам понадобится.</p><p>Но если нет, то перед удалением, его нужно остановить и отключить</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo systemctl stop cron
+</span></span><span class=line><span class=cl>sudo systemctl disable cron</span></span></code></pre></td></tr></table></div></div></div><p>Иначе при попытке удаления командой apt remove cron, он попытается установить postfix!</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sudo apt remove cron
+</span></span><span class=line><span class=cl>The following packages will be REMOVED:
+</span></span><span class=line><span class=cl>  cron
+</span></span><span class=line><span class=cl>The following NEW packages will be installed:
+</span></span><span class=line><span class=cl>  anacron bcron bcron-run fgetty libbg1 libbg1-doc postfix runit ssl-cert ucspi-unix</span></span></code></pre></td></tr></table></div></div></div><p>Похоже, что cron нужен сервер почты для рассылки.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl> $ apt show cron
+</span></span><span class=line><span class=cl>Package: cron
+</span></span><span class=line><span class=cl>Version: 3.0pl1-128ubuntu2
+</span></span><span class=line><span class=cl>...
+</span></span><span class=line><span class=cl>Suggests: anacron <span class=o>(</span>&gt;<span class=o>=</span> 2.0-1<span class=o>)</span>, logrotate, checksecurity, exim4 <span class=p>|</span> postfix <span class=p>|</span> mail-transport-agent
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ apt depends cron
+</span></span><span class=line><span class=cl>cron
+</span></span><span class=line><span class=cl>  ...
+</span></span><span class=line><span class=cl>  Suggests: anacron <span class=o>(</span>&gt;<span class=o>=</span> 2.0-1<span class=o>)</span>
+</span></span><span class=line><span class=cl>  Suggests: logrotate
+</span></span><span class=line><span class=cl>  Suggests: checksecurity
+</span></span><span class=line><span class=cl> <span class=p>|</span>Suggests: exim4
+</span></span><span class=line><span class=cl> <span class=p>|</span>Suggests: postfix
+</span></span><span class=line><span class=cl>  Suggests: &lt;mail-transport-agent&gt;
+</span></span><span class=line><span class=cl>    ...
+</span></span><span class=line><span class=cl>    exim4-daemon-heavy
+</span></span><span class=line><span class=cl>    postfix</span></span></code></pre></td></tr></table></div></div></div><h3 id=usrsbinrsyslogd--n id=usrsbinrsyslogd--n><span class=me-2>/usr/sbin/rsyslogd -n</span>
+<a href=#usrsbinrsyslogd--n class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Rsyslogd — утилита помогающая вести логи.</p><p>Другими словами, это то, что создаёт файлы в <strong>/var/log/</strong>, такие как <strong>/var/log/auth.log</strong> для сообщений о попытках аутентификации пользователя через SSH.</p><p>Файлы конфигурации тут <strong>/etc/rsyslog.d</strong>.</p><p>Можно настроить <strong>rsyslogd</strong> таким образом, что он будет отправлять файлы на удалённый сервер, создав тем самым централизованную систему логирования.</p><p>Командой <strong>logger</strong> можно сохранить сообщение в <strong>/var/log/syslog</strong> в фоновых скриптах, таких как автозагрузчики.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=cp>#!/bin/bash
+</span></span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>logger Starting doing something
+</span></span><span class=line><span class=cl><span class=c1># NFS, get IPs, etc.</span>
+</span></span><span class=line><span class=cl>logger Done doing something</span></span></code></pre></td></tr></table></div></div></div><p>Да, но у нас уже есть <strong>systemd-journald</strong>. Нужен ли ещё и <strong>rsyslogd?</strong></p><p><strong>Rsyslog и Journal</strong>, это два приложения протоколирования в системе. У них есть несколько различающихся функций, которые более предпочтительны в той или иной ситуации. В большинстве случаев лучше сочетать возможности обоих, например, для создания структурированных сообщений и сохранения их в файлах. Интерфейс связи для кооперирования предоставляется модулями ввода и вывода <strong>Rsyslog</strong> и сокетом <strong>Journal</strong>.</p><p>И всё же? На всякий случай, я его оставлю.</p><h3 id=usrsbinacpid id=usrsbinacpid><span class=me-2>/usr/sbin/acpid</span>
+<a href=#usrsbinacpid class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>acpid</strong> — демон для усовершенствованного интерфейса управления конфигурацией и питанием.</p><p>acpid нужен чтобы уведомлять пользовательские программы о событиях ACPI. По умолчанию, он запускается при старте системы в фоновом режиме.</p><p>ACPI это интерфейс с открытым стандартом, который используют операционные системы чтобы управлять аппаратными средствами, чтобы, например, отключать неиспользуемые девайсы для экономии энергии.</p><p>Но у меня виртуальная машина и я не собираюсь отключать устройства. Ради эксперимента я попробую удалить его.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove acpid -y --purge</span></span></code></pre></td></tr></table></div></div></div><p>Мне удалось успешно перезагрузить машину при помощи <strong>reboot</strong>, но после halt, Digital Ocean всё ещё думал, что машина включена и мне пришлось выключить её через веб интерфейс провайдера.
+Поэтому, я бы оставил эту службу.</p><h3 id=usrbinlxcfs-varliblxcfs id=usrbinlxcfs-varliblxcfs><span class=me-2>/usr/bin/lxcfs /var/lib/lxcfs/</span>
+<a href=#usrbinlxcfs-varliblxcfs class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p>Lxcfs это своего рода предохраняющая файловая система. В Ubuntu 15.04 она используется по двум причинам: первое, визуализировать некоторые файлы в /proc и второе, ограничить доступ к файловой системе cgroup хоста.</p><p>В итоге, можно создавать контейнеры привычным образом с lxc-create и у контейнера будут правильные значения uptime, top, и т.д. Файловая система позволяет контейнеру больше вести себя как отдельная система, нежели без данной файловой системы.</p><p>Если не используете контейнеры LXC, то можно удалить с помощью</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove lxcfs -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=usrlibaccountserviceaccounts-daemon id=usrlibaccountserviceaccounts-daemon><span class=me-2>/usr/lib/accountservice/accounts-daemon</span>
+<a href=#usrlibaccountserviceaccounts-daemon class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>AccountsService</strong> предоставляет интерфейсы D-Bus для манипуляций с учётными данными пользователей. Использование интерфейсов реализовано в командах <strong>usermod(8)</strong>, <strong>useradd(8)</strong> и <strong>userdel(8)</strong>.</p><p>Когда я удалил D-Bus, это сломало <strong>timedatectl</strong>. Мне интересно, что сломается, когда я удалю эту службу.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove accountsservice -y --purge</span></span></code></pre></td></tr></table></div></div></div><p>Время покажет.</p><h3 id=sbinmdadm id=sbinmdadm><span class=me-2>/sbin/mdadm</span>
+<a href=#sbinmdadm class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>mdadm</strong> это утилита Linux для администрирования и мониторинга программных <strong>RAID</strong> устройств.</p><p>RAID — технология виртуализации данных, которая объединяет несколько дисков в один логический элемент. У RAID есть 2 основные задачи: 1) увеличения объёма логического диска: RAID 0. Если объединить 2 диска по 500 Гб, то получится 1 Тб. 2) Избежать потерю данных если один из дисков откажет: например, RAID 1, RAID 5, RAID 6, и RAID 10.</p><p>Можно удалить с помощью:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove mdadm -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=usrlibpolicykit-1polkitd-no-debug id=usrlibpolicykit-1polkitd-no-debug><span class=me-2>/usr/lib/policykit-1/polkitd &ndash;no-debug</span>
+<a href=#usrlibpolicykit-1polkitd-no-debug class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>polkit</strong> это фреймворк авторизации. Я так понимаю, что это своего рода <strong>sudo</strong> и он позволяет непривилегированным пользователям выполнять определённые команды от имени администратора, например, перезагружать систему.</p><p>Но у меня сервер. Можно удалить с помощью</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove policykit-1 -y --purge</span></span></code></pre></td></tr></table></div></div></div><p>Мне до сих пор интересно, что из-за него сломается.</p><h3 id=usrsbinsshd--d id=usrsbinsshd--d><span class=me-2>/usr/sbin/sshd -D</span>
+<a href=#usrsbinsshd--d class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>sshd</strong> (OpenSSH Daemon) демон для ssh. С <strong>-D</strong> он не будет переведен в режим работы демона. Это позволит легче осуществлять мониторинг <strong>sshd</strong>.</p><h3 id=sbiniscsid id=sbiniscsid><span class=me-2>/sbin/iscsid</span>
+<a href=#sbiniscsid class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>iscsid</strong> это системная служба, запускаемая в фоновом режиме, работающая с конфигурацией iSCSI и управляющая подключениями.</p><p>Я никогда не слышал о iSCSI:</p><p>iSCSI — протокол, который базируется на TCP/IP и разработан для установления взаимодействия и управления системами хранения данных, серверами и клиентами.<br>Можно удалить с</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove open-iscsi -y --purge</span></span></code></pre></td></tr></table></div></div></div><h3 id=sbinagetty-noclear-tty1-linux id=sbinagetty-noclear-tty1-linux><span class=me-2>/sbin/agetty &ndash;noclear tty1 linux</span>
+<a href=#sbinagetty-noclear-tty1-linux class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>agetty</strong> — Linux альтернатива <strong>getty</strong>.</p><p><strong>getty</strong> это Unix программа, работающая на системах с физическими или виртуальными терминалами. При подключении, она запрашивает имя пользователя и запускает программу <strong>login</strong> для аутентификации.</p><p>Это позволяет войти в систему при физическом доступе к нему. В Digital Ocean, например, можно открыть консоль из браузера и подключиться к этому терминалу (кажется через VNC).</p><p>Раньше, можно было наблюдать как несколько терминалов стартовали систему (настроенных в <strong>/etc/inittab</strong>), но сейчас всё делает <strong>systemd</strong>.</p><p>Ради эксперимента, я удалил файл конфигурации, который запускает и создаёт <strong>agetty</strong>:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.servicesudo rm /lib/systemd/system/getty@.service</span></span></code></pre></td></tr></table></div></div></div><p>При перезагрузке сервера, я по прежнему мог аутентифицироваться через SSH, но не через веб консоль провайдера.</p><a href=/post/2026-04-24-htop/htop1.png class="popup img-link"><img src=/post/2026-04-24-htop/htop1.png alt=htop></a><h3 id=sshd-rootpts0--bash-и-htop id=sshd-rootpts0--bash-и-htop><span class=me-2>sshd: root@pts/0, -bash и htop</span>
+<a href=#sshd-rootpts0--bash-%d0%b8-htop class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><p><strong>sshd: root@pts/0</strong> означает, что была установлена SSH сессия для пользователя <strong>root</strong> в псевдотерминале (<strong>pts</strong>) №<strong>0</strong>.</p><p><strong>bash</strong> это командная оболочка, которую я использую. Но почему перед <strong>bash</strong> стоит дефис? Пользователь Reddit под ником hirnbrot объяснил:</p><p>Там стоит дефис, потому что запуск его как &ldquo;-bash&rdquo;, активирует login-оболочку. Login-оболочка это такая оболочка, у которой первый символ аргумента под номером 0 дефис, либо он запущен с параметром &ndash;login. В результате используются разные файлы настроек.</p><p><strong>htop</strong> — интерактивная программа для просмотра процессов, которая изображена на скриншоте.</p><h3 id=после id=после><span class=me-2>После</span>
+<a href=#%d0%bf%d0%be%d1%81%d0%bb%d0%b5 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h3><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove lvm2 -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove at -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove snapd -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove lxcfs -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove mdadm -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove open-iscsi -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove accountsservice -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove policykit-1 -y --purge</span></span></code></pre></td></tr></table></div></div></div><a href=/post/2026-04-24-htop/htopposle.png class="popup img-link"><img src=/post/2026-04-24-htop/htopposle.png alt=htop></a><p>Крайняя степень:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo apt remove dbus -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove rsyslog -y --purge
+</span></span><span class=line><span class=cl>sudo apt remove acpid -y --purge
+</span></span><span class=line><span class=cl>sudo systemctl stop cron <span class=o>&amp;&amp;</span> sudo systemctl disable cron
+</span></span><span class=line><span class=cl>sudo rm /etc/systemd/system/getty.target.wants/getty@tty1.service
+</span></span><span class=line><span class=cl>sudo rm /lib/systemd/system/getty@.service</span></span></code></pre></td></tr></table></div></div></div><a href=/post/2026-04-24-htop/htop2.png class="popup img-link"><img src=/post/2026-04-24-htop/htop2.png alt=htop></a><p>Я так же попробовал установить программное обеспечение по своей инструкции <a href=https://peteris.rocks/blog/unattended-installation-of-wordpress-on-ubuntu-server/>об автоматической установке WordPress на Ubuntu Server</a> и всё работало.</p><p>Тут nginx, PHP7 и MySQL.</p><a href=/post/2026-04-24-htop/htop3.png class="popup img-link"><img src=/post/2026-04-24-htop/htop3.png alt=htop></a><h2 id=исходный-код id=исходный-код><span class=me-2>Исходный код</span>
+<a href=#%d0%b8%d1%81%d1%85%d0%be%d0%b4%d0%bd%d1%8b%d0%b9-%d0%ba%d0%be%d0%b4 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Иногда не достаточно только <strong>strace</strong>. Другой способ посмотреть, что же программа делает это взглянуть на исходный код</p><p>Сперва, надо найти где начать искать.</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ which uptime/usr/bin/uptime$ dpkg -S /usr/bin/uptimeprocps: /usr/bin/uptime</span></span></code></pre></td></tr></table></div></div></div><p>Тут видно, что <strong>uptime</strong> находится в <strong>/usr/bin/uptime</strong> и что в Ubuntu это часть пакета <strong>procps</strong>.</p><p>Затем, можно зайти на <a href=http://packages.ubuntu.com/>packages.ubuntu.com</a> и найти этот пакет.</p><p>Страница <strong>procps</strong>: <a href=http://packages.ubuntu.com/source/xenial/procps>http://packages.ubuntu.com/source/xenial/procps</a></p><p>Внизу есть ссылки на репозитории с исходными кодами:</p><ul><li>Debian Package Source Repository git://git.debian.org/collab-maint/procps.git</li><li>Debian Package Source Repository (для браузера) <a href=https://anonscm.debian.org/cgit/collab-maint/procps.git/>https://anonscm.debian.org/cgit/collab-maint/procps.git/</a></li></ul><h2 id=дескрипторы-файлов-и-перенаправление id=дескрипторы-файлов-и-перенаправление><span class=me-2>Дескрипторы файлов и перенаправление</span>
+<a href=#%d0%b4%d0%b5%d1%81%d0%ba%d1%80%d0%b8%d0%bf%d1%82%d0%be%d1%80%d1%8b-%d1%84%d0%b0%d0%b9%d0%bb%d0%be%d0%b2-%d0%b8-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%b0%d0%bf%d1%80%d0%b0%d0%b2%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5 class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Если нужно перенаправить стандартный поток ошибок (<strong>stderr</strong>) в стандартный выходной поток, нужно это делать с <strong>2&>1</strong> или <strong>2>&amp;1</strong>?</p><p>Можно запомнить положение амперсанда пониманием того, что <strong>echo нечто > файл</strong> запишет <strong>нечто</strong> в файл <strong>файл</strong>. Это тоже самое, что <strong>echo нечто 1> файл</strong>. А вот <strong>echo нечто 2> файл</strong> запишет поток ошибок в <strong>файл</strong>.</p><p>Если написать <strong>echo нечто 2> 1</strong>, то поток ошибок перенаправится в файл, с именем <strong>1</strong>.</p><p>Если поставить перед <strong>1</strong> амперсанд <strong>&</strong>, то это будет означать, что <strong>1</strong> это не имя файла, а идентификатор потока. Поэтому правильно <strong>echo нечто 2>&amp;1</strong>.</p><h2 id=цвета-в-putty id=цвета-в-putty><span class=me-2>Цвета в PuTTY</span>
+<a href=#%d1%86%d0%b2%d0%b5%d1%82%d0%b0-%d0%b2-putty class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><a href=/post/2026-04-24-htop/htop4.png class="popup img-link"><img src=/post/2026-04-24-htop/htop4.png alt=htop></a><p>Если некоторые элементы сверху не отображаются при использовании PuTTY, то можно это исправить так.</p><ol><li><p>Нажмите правой кнопкой на заголовок окна</p></li><li><p>Выберите <em>Change settings</em></p></li><li><p>Перейдите в <em>Window → Colours</em></p></li><li><p>Отметьте опцию <em>Both</em></p></li><li><p>Нажмите <em>Apply</em></p></li></ol><a href=/post/2026-04-24-htop/htop5.png class="popup img-link"><img src=/post/2026-04-24-htop/htop5.png alt=htop></a><h2 id=командная-оболочка-на-c id=командная-оболочка-на-c><span class=me-2>Командная оболочка на C</span>
+<a href=#%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4%d0%bd%d0%b0%d1%8f-%d0%be%d0%b1%d0%be%d0%bb%d0%be%d1%87%d0%ba%d0%b0-%d0%bd%d0%b0-c class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Попробуем написать очень простую командную оболочку на C, которая бы использовала системные вызовы <strong>fork</strong>/<strong>exec</strong>/<strong>wait</strong>. Программа <strong>shell.c</strong>:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1>#include &lt;stdio.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;stdlib.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;unistd.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;string.h&gt;</span>
+</span></span><span class=line><span class=cl><span class=c1>#include &lt;sys/wait.h&gt;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>int main<span class=o>()</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>  printf<span class=o>(</span><span class=s2>&#34;Добро пожаловать\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  char line<span class=o>[</span>1024<span class=o>]</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=o>(</span>1<span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>    printf<span class=o>(</span><span class=s2>&#34;&gt; &#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    fgets<span class=o>(</span>line, sizeof<span class=o>(</span>line<span class=o>)</span>, stdin<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    line<span class=o>[</span>strlen<span class=o>(</span>line<span class=o>)</span>-1<span class=o>]</span> <span class=o>=</span> <span class=s1>&#39;\0&#39;</span><span class=p>;</span> // strip <span class=se>\n</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span>strcmp<span class=o>(</span>line, <span class=s2>&#34;exit&#34;</span><span class=o>)</span> <span class=o>==</span> 0<span class=o>)</span> // shell built-in
+</span></span><span class=line><span class=cl>      break<span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    int <span class=nv>pid</span> <span class=o>=</span> fork<span class=o>()</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=o>(</span><span class=nv>pid</span> <span class=o>==</span> 0<span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        printf<span class=o>(</span><span class=s2>&#34;Запуск: %s\n&#34;</span>, line<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=o>(</span>execlp<span class=o>(</span>line, <span class=s2>&#34;&#34;</span>, NULL<span class=o>)</span> <span class=o>==</span> -1<span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>          printf<span class=o>(</span><span class=s2>&#34;Ошибка!\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          exit<span class=o>(</span>1<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span> <span class=k>else</span> <span class=k>if</span> <span class=o>(</span>pid &gt; 0<span class=o>)</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        int status<span class=p>;</span>
+</span></span><span class=line><span class=cl>        waitpid<span class=o>(</span>pid, <span class=p>&amp;</span>status, 0<span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        printf<span class=o>(</span><span class=s2>&#34;Потомок вышел с кодом %d\n&#34;</span>, WEXITSTATUS<span class=o>(</span>status<span class=o>))</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span> <span class=k>else</span> <span class=o>{</span>
+</span></span><span class=line><span class=cl>        printf<span class=o>(</span><span class=s2>&#34;Ошибка!\n&#34;</span><span class=o>)</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        break<span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl>  <span class=o>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> 0<span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span></span></span></code></pre></td></tr></table></div></div></div><p>Скомпилируем программу:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>gcc shell.c -o shell</span></span></code></pre></td></tr></table></div></div></div><p>И запустим её:</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ./shell
+</span></span><span class=line><span class=cl>Добро пожаловать
+</span></span><span class=line><span class=cl>&gt; date
+</span></span><span class=line><span class=cl>Запуск: date
+</span></span><span class=line><span class=cl>Thu Dec  <span class=m>1</span> 14:10:59 UTC <span class=m>2016</span>
+</span></span><span class=line><span class=cl>Потомок вышел с кодом <span class=m>0</span>
+</span></span><span class=line><span class=cl>&gt; <span class=nb>true</span>
+</span></span><span class=line><span class=cl>Запуск: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>Потомок вышел с кодом <span class=m>0</span>
+</span></span><span class=line><span class=cl>&gt; <span class=nb>false</span>
+</span></span><span class=line><span class=cl>Запуск: <span class=nb>false</span>
+</span></span><span class=line><span class=cl>Потомок вышел с кодом <span class=m>1</span>
+</span></span><span class=line><span class=cl>&gt; exit</span></span></code></pre></td></tr></table></div></div></div><p>Вы когда нибудь интересовались почему при запуске программы в фоновом режиме вы видите, что она завершила свою работу, только после нажатия <strong>Enter</strong>?</p><div class=code-block><div class=code-header><span data-label-text=Shell><i class="fas fa-code fa-fw small"></i></span> <button aria-label=copy data-title-succeed=Copied!><i class="far fa-clipboard"></i></button></div><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ sleep <span class=m>1</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span> <span class=m>11686</span>
+</span></span><span class=line><span class=cl>$ <span class=c1># нажали Enter</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>1<span class=o>]</span>+  Done                    sleep <span class=m>1</span></span></span></code></pre></td></tr></table></div></div></div><p>Это потому, что оболочка ждёт ввода. Только после ввода команды, оболочка проверяет состояния процессов в фоне и выводит, что они завершились.</p><h2 id=от-себя id=от-себя><span class=me-2>От себя</span>
+<a href=#%d0%be%d1%82-%d1%81%d0%b5%d0%b1%d1%8f class="anchor text-muted"><i class="fas fa-hashtag"></i></a></h2><p>Спасибо, если дочитали перевод до конца. Статья мне показалась очень интересной и полезной. Хочу отметить, что лично мне нравятся статьи, в которых описывается то, о чём в них идёт речь и ещё объясняется всё, что около. Тут много текста, и, возможно, я что либо упустил, приврал или заставил вас съежиться от корявого перевода. Буду рад, если Вы сообщите об этом в личном сообщении, а комментарии останутся только для обсуждения по теме статьи.</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"><i class="far fa-folder-open fa-fw me-1"></i>
+<a href=/categories/linux/>Linux</a></div><div class=post-tags><i class="fa fa-tags fa-fw me-1"></i>
+<a href=/tags/linux/ class="post-tag no-text-decoration">linux</a>
+<a href=/tags/htop/ class="post-tag no-text-decoration">htop</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class=license-wrapper>Авторский пост защищен лицензией <a href=https://creativecommons.org/licenses/by/4.0/>CC BY 4.0</a>.</div></div></div></article></main><aside aria-label=Panel id=panel-wrapper class="col-xl-3 ps-2 text-muted"><div class=access><section id=access-lastmod><h2 class=panel-heading>Недавно обновлено</h2><ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2"><li class="text-truncate lh-lg"><a href=/post/2026-04-28-sbornik/>Сборник по DevOps и Linux</a></li><li class="text-truncate lh-lg"><a href=/post/2026-04-24-htop/>Как читать htop и не пугаться всех этих цифр</a></li><li class="text-truncate lh-lg"><a href=/post/2019-08-09-getting-started/>Getting Started</a></li><li class="text-truncate lh-lg"><a href=/post/2019-08-08-write-a-new-post/>Writing a New Post</a></li><li class="text-truncate lh-lg"><a href=/post/2019-08-08-text-and-typography/>Text and Typography</a></li></ul></section><section><h2 class=panel-heading>Популярные теги</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"><a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/devops/>devops</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/getting-started/>getting started</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/htop/>htop</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/linux/>linux</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/typography/>typography</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/writing/>writing</a></div></section></div><div class="toc-border-cover z-3"></div><section id=toc-wrapper class="invisible position-sticky ps-0 pe-4 pb-4"><h2 class="panel-heading ps-3 pb-2 mb-0">Содержание</h2><nav id=toc></nav></section></aside></div><div class=row><div id=tail-wrapper class="col-12 col-lg-11 col-xl-9 px-md-4"><aside id=related-posts aria-labelledby=related-label><h3 class=mb-4 id=related-label>Похожие посты</h3><nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4"><article class=col><a href=/post/2026-04-28-sbornik/ class="post-preview card h-100"><div class=card-body><time data-ts=1777391700 data-df=DD.MM.YYYY>%d.%m.%Y</time><h4 class="pt-0 my-2">Сборник по DevOps и Linux</h4><div class=text-muted><p>🌀 Материал обновляется Разобраны материалы и задания по ключевым темам: Linux: команды, файловая система, практика Терминал: хитрости CLI, команды на скорость CI/CD: пайплайны, автосборка, …</p></div></div></a></article></nav></aside><nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation"><a href=/post/2019-08-09-getting-started/ class="btn btn-outline-primary" aria-label="Предыдущий пост"><p>Getting Started</p></a><a href=/post/2026-04-28-sbornik/ class="btn btn-outline-primary" aria-label="Следующий пост"><p>Сборник по DevOps и Linux</p></a></nav><footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3"><p>©
+<time>2026</time>
+<a href=https://github.com/solizarevich>solizarevich</a>.
+<span data-bs-toggle=tooltip data-bs-placement=top title="Если не указано иное, авторские посты на этом сайте защищены лицензией Creative Commons Attribution 4.0 International (CC BY 4.0).">Некоторые права защищены.</span></p><p>Использует тему <a data-bs-toggle=tooltip data-bs-placement=top title=v1.0.2 href=https://github.com/geekifan/hugo-theme-chirpy target=_blank rel=noopener>Chirpy</a> для <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a></p></footer></div></div><div id=search-result-wrapper class="d-flex justify-content-center d-none"><div class="col-11 content"><div id=search-hints><section><h2 class=panel-heading>Популярные теги</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"><a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/devops/>devops</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/getting-started/>getting started</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/htop/>htop</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/linux/>linux</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/typography/>typography</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/writing/>writing</a></div></section></div><div id=search-results class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div><script>const DEFAULT_CONFIG={search:{minChars:1,maxResults:5,fields:{title:!0,description:!0,section:!0,contents:!0},strictMode:!0}};class FastSearch{constructor({searchInput:e,resultsContainer:t,json:n,searchResultTemplate:s=null,noResultsText:o=null}){this.searchInput=e,this.resultsContainer=t,this.json=n,this.searchResultTemplate=s,this.noResultsText=o,this.init()}init(){this.loadSearchIndex(),this.searchInput.addEventListener("input",e=>{if(!this.searchIndex){this.resultsContainer.innerHTML='<li class="search-message">Loading search index...</li>';return}this.performSearch(this.searchInput.value)})}async loadSearchIndex(){try{const e=await fetch(this.json);if(!e.ok)throw new Error("Failed to load search index");const t=await e.json();this.searchIndex=t.map(e=>({...e,searchableTitle:e.title?.toLowerCase()||"",searchableDesc:e.desc?.toLowerCase()||"",searchableSection:e.section?.toLowerCase()||"",searchableContents:e.contents?.toLowerCase()||""}))}catch(e){console.error("Error loading search index:",e),this.resultsContainer.innerHTML='<li class="search-message">Error loading search index...</li>'}}escapeHtml(e){return e?e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"):""}containsTerm(e,t){return!!e&&!!t&&e.includes(t)}performSearch(e){if(e=e.toLowerCase().trim(),!e||!this.searchIndex||e.length<DEFAULT_CONFIG.search.minChars){this.resultsContainer.innerHTML="";return}const s=[e,...e.split(/\s+/).filter(e=>e.length>0)],t=[...new Set(s)],o=DEFAULT_CONFIG.search.strictMode,n=this.searchIndex.map(e=>{const s=this.checkFieldsForMatch(e,t[0]);if(o&&!s)return{item:e,score:0,matched:!1};let n=0,i=0,a=!1;t.forEach((t,s)=>{const r=s===0,o=this.checkFieldsForMatch(e,t);o&&(i++,o.inTitle&&(n+=r?10:5,a=!0),o.inDesc&&(n+=r?8:4),o.inSection&&(n+=r?6:3),o.inContents&&(n+=r?4:2))});const r=i/t.length,c=n*r*(a?1.5:1);return{item:e,score:c,matched:s}}).filter(e=>e.matched).sort((e,t)=>t.score-e.score).slice(0,DEFAULT_CONFIG.search.maxResults).map(e=>e.item);if(n.length===0){this.resultsContainer.innerHTML='<p class="mt-5">Упс! Ничего не найдено.</p>';return}const i=n.map(e=>{let t="",n="";return e.categories&&(t=e.categories.join(", "),t=`<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${t}</div>`),e.tags&&(n=e.tags.join(", "),n=`<div><i class="fa fa-tag fa-fw"></i>${n}</div>`),`
+        <article class="px-1 px-sm-2 px-lg-4 px-xl-0">
+          <header>
+            <h2><a href="${this.escapeHtml(e.permalink)}">${this.escapeHtml(e.title)}</a></h2>
+            <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
+              ${t}
+              ${n}
+            </div>
+          </header>
+          <p>${this.escapeHtml(e.contents)}</p>
+        </article>
+      `}).join("");this.resultsContainer.innerHTML=i}checkFieldsForMatch(e,t){const n={inTitle:!1,inDesc:!1,inSection:!1,inContents:!1};return DEFAULT_CONFIG.search.fields.title&&this.containsTerm(e.searchableTitle,t)&&(n.inTitle=!0),DEFAULT_CONFIG.search.fields.description&&this.containsTerm(e.searchableDesc,t)&&(n.inDesc=!0),DEFAULT_CONFIG.search.fields.section&&this.containsTerm(e.searchableSection,t)&&(n.inSection=!0),DEFAULT_CONFIG.search.fields.contents&&this.containsTerm(e.searchableContents,t)&&(n.inContents=!0),!!(n.inTitle||n.inDesc||n.inSection||n.inContents)&&n}}const search=new FastSearch({searchInput:document.getElementById("search-input"),resultsContainer:document.getElementById("search-results"),json:`/index.json`})</script></div><aside aria-label="Scroll to Top"><button id=back-to-top type=button class="btn btn-lg btn-box-shadow">
+<i class="fas fa-angle-up"></i></button></aside></div><div id=mask class="d-none position-fixed w-100 h-100 z-1"></div></body></html>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux | Network | DevOps</title><link>https://solizarevich.github.io/</link><description>Recent content on Linux | Network | DevOps</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 28 Apr 2026 18:55:00 +0300</lastBuildDate><atom:link href="https://solizarevich.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Сборник по DevOps и Linux</title><link>https://solizarevich.github.io/post/2026-04-28-sbornik/</link><pubDate>Tue, 28 Apr 2026 18:55:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-28-sbornik/</guid><description>&lt;p&gt;🌀 &lt;a href="https://boosty.to/solizarevich/posts/defada2e-054e-4106-836b-cf8888f44170"&gt;Материал обновляется&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Разобраны материалы и задания по ключевым темам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux: команды, файловая система, практика&lt;/li&gt;
+&lt;li&gt;Терминал: хитрости CLI, команды на скорость&lt;/li&gt;
+&lt;li&gt;CI/CD: пайплайны, автосборка, DevOps-логика&lt;/li&gt;
+&lt;li&gt;Docker: образы, volume, docker-compose&lt;/li&gt;
+&lt;li&gt;Сети: TCP/IP, DNS, NAT, туннели, практика&lt;/li&gt;
+&lt;li&gt;Ansible: плейбуки, роли, inventory&lt;/li&gt;
+&lt;li&gt;Kubernetes: поды, сервисы, деплой, хелм&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Внутри:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;— термины по каждой теме&lt;/p&gt;
+&lt;p&gt;— вопросы для самопроверки&lt;/p&gt;
+&lt;p&gt;— задания для выполнения&lt;/p&gt;
+&lt;p&gt;— рабочие задачи (прямо как на собесах и на реальной работе)&lt;/p&gt;
+&lt;p&gt;Уровень: от Junior до Senior — есть над чем подумать.&lt;/p&gt;</description></item><item><title>Как читать htop и не пугаться всех этих цифр</title><link>https://solizarevich.github.io/post/2026-04-24-htop/</link><pubDate>Fri, 24 Apr 2026 15:35:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-24-htop/</guid><description>&lt;p&gt;На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?&lt;/p&gt;
+&lt;p&gt;Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.&lt;/p&gt;
+&lt;h2 id="htop-на-ubuntu-server" id=htop-на-ubuntu-server&gt;
+ 
+ &lt;span class="me-2"&gt;htop на Ubuntu Server&lt;/span&gt;
+ &lt;a href="#htop-%d0%bd%d0%b0-ubuntu-server" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Ниже скриншот htop, который я буду рассматривать в статье.
+&lt;a href="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" class="popup img-link "&gt;
+ &lt;img src="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" alt="htop"&gt;
+&lt;/a&gt;&lt;/p&gt;</description></item><item><title>О сайте</title><link>https://solizarevich.github.io/about/</link><pubDate>Thu, 20 Apr 2023 00:00:00 +0000</pubDate><guid>https://solizarevich.github.io/about/</guid><description>&lt;p&gt;Приветствую всех кто интересуется Linux, компьютерными сетями и DevOps.&lt;/p&gt;
+&lt;p&gt;Меня зовут Сергей, и я сетевой/системный инженер, в ИТ сфере больше 10 лет #SysAdmin&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;На этом сайт обсуждаются различные аспекты:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Компьютерные сети и их автоматизация; #Network #Automation&lt;/li&gt;
+&lt;li&gt;Linux, включая инструменты администрирования; #Linux #Bash&lt;/li&gt;
+&lt;li&gt;Методологии и лучшие практики, такие как, DevOps, NetOps, DevNet,
+GitOps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Рассматриваются такие инструменты:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Ansible&lt;/li&gt;
+&lt;li&gt;Terraform&lt;/li&gt;
+&lt;li&gt;Git&lt;/li&gt;
+&lt;li&gt;Docker&lt;/li&gt;
+&lt;li&gt;Kubernetes&lt;/li&gt;
+&lt;li&gt;Helm&lt;/li&gt;
+&lt;li&gt;Prometeus&lt;/li&gt;
+&lt;li&gt;Grafana&lt;/li&gt;
+&lt;li&gt;NetBox&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Кроме того, изучаем и погружаемся в концепции:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Getting Started</title><link>https://solizarevich.github.io/post/2019-08-09-getting-started/</link><pubDate>Fri, 09 Aug 2019 20:55:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-09-getting-started/</guid><description>&lt;blockquote class="prompt-warning"&gt;&lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; This tutorial is not fully migrated from the Jekyll version &amp;ndash; please reference with caution.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="creating-a-site-repository" id=creating-a-site-repository&gt;
+ 
+ &lt;span class="me-2"&gt;Creating a Site Repository&lt;/span&gt;
+ &lt;a href="#creating-a-site-repository" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;When creating your site repository, you have two options depending on your needs:&lt;/p&gt;
+&lt;h3 id="option-1-using-the-starter-recommended" id=option-1-using-the-starter-recommended&gt;
+ 
+ &lt;span class="me-2"&gt;Option 1. Using the Starter (Recommended)&lt;/span&gt;
+ &lt;a href="#option-1-using-the-starter-recommended" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h3&gt;&lt;p&gt;This approach simplifies upgrades, isolates unnecessary files, and is perfect for users who want to focus on writing with minimal configuration.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign in to GitHub and navigate to the &lt;a href="https://github.com/geekifan/chirpy-starter"&gt;&lt;strong&gt;starter&lt;/strong&gt;&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Click the &lt;kbd&gt;Use this template&lt;/kbd&gt; button and then select &lt;kbd&gt;Create a new repository&lt;/kbd&gt;.&lt;/li&gt;
+&lt;li&gt;Name the new repository &lt;code&gt;&amp;lt;username&amp;gt;.github.io&lt;/code&gt;, replacing &lt;code&gt;username&lt;/code&gt; with your lowercase GitHub username.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="option-2-forking-the-theme" id=option-2-forking-the-theme&gt;
+ 
+ &lt;span class="me-2"&gt;Option 2. Forking the Theme&lt;/span&gt;
+ &lt;a href="#option-2-forking-the-theme" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h3&gt;&lt;p&gt;This approach is convenient for modifying features or UI design, but presents challenges during upgrades. So don&amp;rsquo;t try this unless you are familiar with Jekyll and plan to heavily modify this theme.&lt;/p&gt;</description></item><item><title>Writing a New Post</title><link>https://solizarevich.github.io/post/2019-08-08-write-a-new-post/</link><pubDate>Thu, 08 Aug 2019 14:10:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-08-write-a-new-post/</guid><description>&lt;p&gt;This tutorial will guide you how to write a post in the &lt;em&gt;Chirpy&lt;/em&gt; template, and it&amp;rsquo;s worth reading even if you&amp;rsquo;ve used Hugo before, as many features require specific variables to be set.&lt;/p&gt;
+&lt;h2 id="naming-and-path" id=naming-and-path&gt;
+ 
+ &lt;span class="me-2"&gt;Naming and Path&lt;/span&gt;
+ &lt;a href="#naming-and-path" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Create a new file using &lt;code&gt;hugo new content/post/YYYY-MM-DD-TITLE.md&lt;/code&gt;. You can change the path as you like, but note that all the posts should be placed in &lt;code class="filepath"&gt;content/post&lt;/code&gt; of the root directory.&lt;/p&gt;
+&lt;h2 id="front-matter" id=front-matter&gt;
+ 
+ &lt;span class="me-2"&gt;Front Matter&lt;/span&gt;
+ &lt;a href="#front-matter" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Basically, you need to fill the &lt;a href="https://gohugo.io/content-management/front-matter/"&gt;Front Matter&lt;/a&gt; as below at the top of the post:&lt;/p&gt;</description></item><item><title>Text and Typography</title><link>https://solizarevich.github.io/post/2019-08-08-text-and-typography/</link><pubDate>Thu, 08 Aug 2019 11:33:00 +0800</pubDate><guid>https://solizarevich.github.io/post/2019-08-08-text-and-typography/</guid><description>&lt;h2 id="headings" id=headings&gt;
+ 
+ &lt;span class="me-2"&gt;Headings&lt;/span&gt;
+ &lt;a href="#headings" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;!-- markdownlint-capture --&gt;
+&lt;!-- markdownlint-disable --&gt;
+&lt;h1 id="h1--heading" class=mt-4 mb-0 data-toc-skip=true id=h1--heading&gt;
+ H1 — heading
+&lt;/h1&gt;&lt;h2 id="h2--heading" class=mt-4 mb-0 data-toc-skip=true id=h2--heading&gt;
+ H2 — heading
+&lt;/h2&gt;&lt;h3 id="h3--heading" class=mt-4 mb-0 data-toc-skip=true id=h3--heading&gt;
+ H3 — heading
+&lt;/h3&gt;&lt;h4 id="h4--heading" class=mt-4 data-toc-skip=true id=h4--heading&gt;
+ H4 — heading
+&lt;/h4&gt;&lt;!-- markdownlint-restore --&gt;
+&lt;h2 id="paragraph" id=paragraph&gt;
+ 
+ &lt;span class="me-2"&gt;Paragraph&lt;/span&gt;
+ &lt;a href="#paragraph" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Quisque egestas convallis ipsum, ut sollicitudin risus tincidunt a. Maecenas interdum malesuada egestas. Duis consectetur porta risus, sit amet vulputate urna facilisis ac. Phasellus semper dui non purus ultrices sodales. Aliquam ante lorem, ornare a feugiat ac, finibus nec mauris. Vivamus ut tristique nisi. Sed vel leo vulputate, efficitur risus non, posuere mi. Nullam tincidunt bibendum rutrum. Proin commodo ornare sapien. Vivamus interdum diam sed sapien blandit, sit amet aliquam risus mattis. Nullam arcu turpis, mollis quis laoreet at, placerat id nibh. Suspendisse venenatis eros eros.&lt;/p&gt;</description></item><item><title>Архив</title><link>https://solizarevich.github.io/archives/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://solizarevich.github.io/archives/</guid><description/></item></channel></rss>
