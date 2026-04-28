@@ -9,7 +9,6 @@ categories:
   - Demo
 tags:
   - typography
-pin: true
 math: true
 image:
   path: devices-mockup.png
