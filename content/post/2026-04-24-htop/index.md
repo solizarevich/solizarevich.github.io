@@ -616,31 +616,21 @@ gcc zombie.c -o zombie
 Посмотрим на иерархию процессов
 ```bash
 $ ps f
-
-`  `PID TTY      STAT   TIME COMMAND
-
-` `3514 pts/1    Ss     0:00 -bash
-
-` `7911 pts/1    S+     0:00  \\_ ./zombie
-
-` `7912 pts/1    Z+     0:00      \\_ [zombie] <defunct>
-
-` `1317 pts/0    Ss     0:00 -bash
-
-` `7913 pts/0    R+     0:00  \\_ ps f
+  PID TTY      STAT   TIME COMMAND
+ 3514 pts/1    Ss     0:00 -bash
+ 7911 pts/1    S+     0:00  \_ ./zombie
+ 7912 pts/1    Z+     0:00      \_ [zombie] <defunct>
+ 1317 pts/0    Ss     0:00 -bash
+ 7913 pts/0    R+     0:00  \_ ps f
 ```
 
 У нас есть зомби! Когда родительский процесс завершается, зомби исчезает.
 ```bash
 $ ps f
-
-`  `PID TTY      STAT   TIME COMMAND
-
-` `3514 pts/1    Ss+    0:00 -bash
-
-` `1317 pts/0    Ss     0:00 -bash
-
-` `7914 pts/0    R+     0:00  \\_ ps f
+  PID TTY      STAT   TIME COMMAND
+ 3514 pts/1    Ss+    0:00 -bash
+ 1317 pts/0    Ss     0:00 -bash
+ 7914 pts/0    R+     0:00  \_ ps f
 ```
 
 Если заменить **sleep(20)** инструкцией **while (true)**, зомби исчезнет сразу.
@@ -801,53 +791,35 @@ renice -n niceness -p PID
 Объём памяти, который может быть совместно использован другими процессами.
 ```bash
 #include <stdio.h>
-
 #include <stdlib.h>
-
 #include <unistd.h>
 
 int main() {
+  printf("Запуск\n");
+  sleep(10);
 
-`  `printf("Запуск\n");
+  size_t memory = 10 * 1024 * 1024; // 10 MB
+  char* buffer = malloc(memory);
+  printf("Выделено 10M\n");
+  sleep(10);
 
-`  `sleep(10);
+  for (size_t i = 0; i < memory/2; i++)
+    buffer[i] = 42;
+  printf("Использовано 5M\n");
+  sleep(10);
 
-`  `size\_t memory = 10 \* 1024 \* 1024; // 10 MB
+  int pid = fork();
+  printf("Новый поток\n");
+  sleep(10);
 
-`  `char\* buffer = malloc(memory);
+  if (pid != 0) {
+    for (size_t i = memory/2; i < memory/2 + memory/5; i++)
+      buffer[i] = 42;
+    printf("доп. 2M потомку\n");
+  }
+  sleep(10);
 
-`  `printf("Выделено 10M\n");
-
-`  `sleep(10);
-
-`  `for (size\_t i = 0; i < memory/2; i++)
-
-`    `buffer[i] = 42;
-
-`  `printf("Использовано 5M\n");
-
-`  `sleep(10);
-
-`  `int pid = fork();
-
-`  `printf("Новый поток\n");
-
-`  `sleep(10);
-
-`  `if (pid != 0) {
-
-`    `for (size\_t i = memory/2; i < memory/2 + memory/5; i++)
-
-`      `buffer[i] = 42;
-
-`    `printf("доп. 2M потомку\n");
-
-`  `}
-
-`  `sleep(10);
-
-`  `return 0;
-
+  return 0;
 }
 ```
 
