@@ -1269,12 +1269,15 @@ $ which uptime/usr/bin/uptime$ dpkg -S /usr/bin/uptimeprocps: /usr/bin/uptime
 ![htop](htop4.png)
 
 Если некоторые элементы сверху не отображаются при использовании PuTTY, то можно это исправить так.
-
-  1.Нажмите правой кнопкой на заголовок окна
-  2.Выберите Change settings
-  3.Перейдите в Window → Colours
-  4.Отметьте опцию Both
-  5.Нажмите Apply
+1.   Нажмите правой кнопкой на заголовок окна  
+    
+2.   Выберите _Change settings_  
+    
+3.  Перейдите в _Window → Colours_  
+    
+4.  Отметьте опцию _Both_  
+    
+5.  Нажмите _Apply_
 
 ![htop](htop5.png)
 
