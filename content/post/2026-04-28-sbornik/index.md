@@ -4,7 +4,6 @@ date: 2026-04-28 18:55:00 +0300
 draft: false
 categories:
   - DevOps
-  - Linux
 tags:
   - linux
   - devops
