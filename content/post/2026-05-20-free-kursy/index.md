@@ -15,9 +15,9 @@ _Список пополняется..._
 
 Обсудить эту заметку можно в Телеграм чате: https://t.me/linautonetchat
 
-[**Бесплатные курсы по ИТ и ИБ**](https://university.tssolution.ru/)
+## [**Бесплатные курсы по ИТ и ИБ**](https://university.tssolution.ru/)
 
-**Linux**
+## Linux
 
 [LPIC-1 (exam 101)](https://www.youtube.com/watch?v=rKCu-tfL730&list=PLmxB7JSpraiep6kr802UDqiAIU-76nGfc)
 
@@ -43,7 +43,7 @@ _Список пополняется..._
 
 [Killer Shell - Exam Simulators](https://dzen.ru/away?to=https%3A%2F%2Fkiller.sh%2F)
 
-**Devops**
+## Devops
 
 [Docker с нуля](https://dzen.ru/away?to=https%3A%2F%2Fkarpov.courses%2Fdocker)
 
@@ -63,7 +63,7 @@ _Список пополняется..._
 
 [Docker с нуля: как работают контейнеры и зачем они нужны](https://dzen.ru/away?to=https%3A%2F%2Fselectel.ru%2Fblog%2Fcourses%2Fdocker-from-scratch%2F)
 
-**Git**
+## Git
 
 [Бесплатный курс «Основы работы с Git»](https://dzen.ru/away?to=https%3A%2F%2Fstart.practicum.yandex%2Fgit-basics%2F)
 
@@ -83,7 +83,7 @@ _Список пополняется..._
 
 [Мини-практикум: Git | Rebrain](https://dzen.ru/away?to=https%3A%2F%2Fmy.rebrainme.com%2Fcourse%2Fgit%2F)
 
-**Компьютерные сети**
+## Компьютерные сети
 
 [Сети для самых маленьких](https://dzen.ru/away?to=https%3A%2F%2Flinkmeup.ru%2Fblog%2F1188%2F)
 
@@ -117,7 +117,7 @@ _Список пополняется..._
 
 [Miminet](https://dzen.ru/away?to=https%3A%2F%2Fmiminet.ru%2F) [— эмулятор компьютерных сетей на базе ОС Linux, предназначенный для образовательных целей.](https://dzen.ru/away?to=https%3A%2F%2Fmiminet.ru%2F)
 
-**Python**
+## Python
 
 ["Поколение Python": курс для начинающих](https://dzen.ru/away?to=https%3A%2F%2Fstepik.org%2Fcourse%2F58852%2Fpromo)
 
@@ -139,7 +139,7 @@ _Список пополняется..._
 
 [Бесплатный десятинедельный онлайн-курс для сетевых инженеров](https://dzen.ru/away?to=https%3A%2F%2Fpynet.twb-tech.com%2Ffree-python-course.html)
 
-**SQL**
+## SQL
 
 [Симулятор SQL](https://dzen.ru/away?to=https%3A%2F%2Fkarpov.courses%2Fsimulator-sql)
 
@@ -151,7 +151,7 @@ _Список пополняется..._
 
 [Практическое владение языком SQL](https://dzen.ru/away?to=https%3A%2F%2Fsql-ex.ru%2F)
 
-**Курсы по облачным технологиям**
+## Курсы по облачным технологиям
 
 [Cloud Native DIY](https://dzen.ru/away?to=https%3A%2F%2Fcloud.vk.com%2Fcloud-native-diy%2F)
 
