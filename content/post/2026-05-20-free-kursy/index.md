@@ -24,7 +24,7 @@ _Список пополняется..._
 
 [LPIC-2 (exam 201)](https://www.youtube.com/playlist?list=PLmxB7JSpraidTqByo0ihkyExIbKfAB-B9)
 
-[Сети в Linux, для самых маленьких](https://dzen.ru/away?to=https%3A%2F%2Fedu.slurm.io%2Fcourses%2Fnetworks-ops1)
+[Сети в Linux, для самых маленьких](https://edu.slurm.io/courses/networks-ops1)
 
 [Базовое администрирование Linux-серверов](https://dzen.ru/away?to=https%3A%2F%2Fslurm.io%2Flinux-admin-base)
 
