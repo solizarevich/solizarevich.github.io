@@ -6,6 +6,7 @@ tags:
   - devops
   - network
   - python
+pin: true
 ---
 
 _Список пополняется..._
