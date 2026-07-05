@@ -1,6 +1,6 @@
 ---
 title: Книги по Linux, DevOps, компьютерным сетям, Python
-date: 2026-07-205 20:20:00 +0300
+date: 2026-07-05 20:20:00 +0300
 tags:
   - linux
   - devops
