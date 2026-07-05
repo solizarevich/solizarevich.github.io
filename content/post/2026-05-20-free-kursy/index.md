@@ -46,43 +46,43 @@ _Список пополняется..._
 
 ## Devops
 
-[Docker с нуля](https://dzen.ru/away?to=https%3A%2F%2Fkarpov.courses%2Fdocker)
+[Docker с нуля](https://karpov.courses/docker)
 
-[Демо-курс "Быстрый старт в DevOps"](https://dzen.ru/away?to=https%3A%2F%2Fedu.slurm.io%2Fcourses%2Fdemo_devops)
+[Демо-курс "Быстрый старт в DevOps"](https://edu.slurm.io/courses/demo_devops)
 
-[Из сисадмина в DevOps](https://dzen.ru/away?to=https%3A%2F%2Frutube.ru%2Fchannel%2F23971074%2F)
+[Из сисадмина в DevOps](https://rutube.ru/u/stravnik/)
 
-[Курс | DevOps практики и инструменты](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLfnFOImnyWRUOpAQLhyadp7mK2PXKj5xj%26si%3DYGcD2DuiHUor4tq8)
+[Курс | DevOps практики и инструменты](https://www.youtube.com/playlist?list=PLfnFOImnyWRUOpAQLhyadp7mK2PXKj5xj)
 
-[Terraform на Русском Языке](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYujWDTYb-Zbofdl44Jxb2l8%26si%3DLN5EZDuJSOl3GBlR)
+[Terraform на Русском Языке](https://www.youtube.com/playlist?list=PLg5SS_4L6LYujWDTYb-Zbofdl44Jxb2l8)
 
-[Ansible На Русском Языке](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYufspdPupdynbMQTBnZd31N%26si%3DENtpTxChhj6B1CIb)
+[Ansible На Русском Языке](https://www.youtube.com/playlist?list=PLg5SS_4L6LYufspdPupdynbMQTBnZd31N)
 
-[Kubernetes на Русском Языке](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYvN1RqaVesof8KAf-02fJSi%26si%3DNP7OC3rPoNnwJywA)
+[Kubernetes на Русском Языке](https://www.youtube.com/playlist?list=PLg5SS_4L6LYvN1RqaVesof8KAf-02fJSi)
 
-[Prometheus - Основы Мониторинга](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYu6qjwwwjt2WRsEudkzqB7J%26si%3D7CWKlqJzbM7ZmbNi)
+[Prometheus - Основы Мониторинга](https://www.youtube.com/playlist?list=PLg5SS_4L6LYu6qjwwwjt2WRsEudkzqB7J)
 
-[Docker с нуля: как работают контейнеры и зачем они нужны](https://dzen.ru/away?to=https%3A%2F%2Fselectel.ru%2Fblog%2Fcourses%2Fdocker-from-scratch%2F)
+[Docker с нуля: как работают контейнеры и зачем они нужны](https://selectel.ru/blog/courses/docker-from-scratch/)
 
 ## Git
 
-[Бесплатный курс «Основы работы с Git»](https://dzen.ru/away?to=https%3A%2F%2Fstart.practicum.yandex%2Fgit-basics%2F)
+[Бесплатный курс «Основы работы с Git»](https://practicum.yandex.com/git-basics/)
 
-[Git для начинающих](https://dzen.ru/away?to=https%3A%2F%2Fslurm.io%2Fgit)
+[Git для начинающих](https://slurm.io/git)
 
-[Git. Базовый курс](https://dzen.ru/away?to=https%3A%2F%2Fgb.ru%2Fcourses%2F1117)
+[Git. Базовый курс](https://gb.ru/courses/1117)
 
-[Введение в Git](https://dzen.ru/away?to=https%3A%2F%2Fru.hexlet.io%2Fcourses%2Fintro_to_git)
+[Введение в Git](https://ru.hexlet.io/programs/git-basics-free)
 
-[Git How To](https://dzen.ru/away?to=https%3A%2F%2Fgithowto.com%2Fru)
+[Git How To](https://githowto.com/ru)
 
-[ProGit](https://dzen.ru/away?to=https%3A%2F%2Fgit-scm.com%2Fbook%2Fru%2Fv2)
+[ProGit](https://git-scm.com/book/ru/v2)
 
-[LearnGitBranching](https://dzen.ru/away?to=https%3A%2F%2Flearngitbranching.js.org%2F)
+[LearnGitBranching](https://learngitbranching.js.org/?locale=ru_RU)
 
-[Основы Git, GitHub и GitHub Actions](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYstwxTEOU05E0URTHnbtA0l%26si%3D9nn3YWwHAI3vImji)
+[Основы Git, GitHub и GitHub Actions](https://www.youtube.com/playlist?list=PLg5SS_4L6LYstwxTEOU05E0URTHnbtA0l)
 
-[Мини-практикум: Git | Rebrain](https://dzen.ru/away?to=https%3A%2F%2Fmy.rebrainme.com%2Fcourse%2Fgit%2F)
+[Мини-практикум: Git | Rebrain](https://my.rebrainme.com/course/git/)
 
 ## Компьютерные сети
 
