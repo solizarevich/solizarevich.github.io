@@ -53,3 +53,7 @@ menu:
 ***
 
 [Чат](https://t.me/linautonetchat) на темы Linux, Network, DevOps. Поделиться опытом, помощь с проблемами, задать вопрос или просто пообщаться. 
+[Telegram](https://t.me/linautonet) 
+[YouTube](https://youtube.com/@solizarevich) 
+[VK](https://vk.com/linautonet) 
+[Rutube](https://rutube.ru/channel/25269092) 
