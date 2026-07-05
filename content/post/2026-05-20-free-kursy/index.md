@@ -120,25 +120,23 @@ _Список пополняется..._
 
 ## Python
 
-["Поколение Python": курс для начинающих](https://dzen.ru/away?to=https%3A%2F%2Fstepik.org%2Fcourse%2F58852%2Fpromo)
+["Поколение Python": курс для начинающих](https://miminet.ru/)
 
-["Поколение Python": курс для продвинутых](https://dzen.ru/away?to=https%3A%2F%2Fstepik.org%2Fcourse%2F68343%2Fpromo)
+["Поколение Python": курс для продвинутых](https://stepik.org/course/68343/promo)
 
-[Основы Python = ПРОСТЫМ ЯЗЫКОМ|](https://dzen.ru/away?to=https%3A%2F%2Fkarpov.courses%2Fpythonzero)
+[Основы Python = ПРОСТЫМ ЯЗЫКОМ|](https://karpov.courses/pythonzero)
 
-[Бесплатный курс «Основы Python-разработки»](https://dzen.ru/away?to=https%3A%2F%2Fstart.practicum.yandex%2Fpython-free%2F)
+[Бесплатный курс «Основы Python-разработки»](https://start.practicum.yandex/python-free/)
 
-[Основы Python: создаём телеграм-бота](https://dzen.ru/away?to=https%3A%2F%2Fnetology.ru%2Fprograms%2Fpyfree-async)
+[Изучите Regex шаг за шагом, от нуля до продвинутого уровня](https://regexlearn.com/ru)
 
-[Изучите Regex шаг за шагом, от нуля до продвинутого уровня](https://dzen.ru/away?to=https%3A%2F%2Fregexlearn.com%2Fru)
+[Python для Начинающих](https://www.youtube.com/playlist?list=PLg5SS_4L6LYtHCActBzbuGVYlWpLYqXC6)
 
-[Python для Начинающих](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLg5SS_4L6LYtHCActBzbuGVYlWpLYqXC6%26si%3DPsugcqSohPmTQpCJ)
+[Алгоритмы и структуры данных на Python 3](https://www.youtube.com/playlist?list=PLRDzFCPr95fK7tr47883DFUbm4GeOjjc0)
 
-[Алгоритмы и структуры данных на Python 3](https://dzen.ru/away?to=https%3A%2F%2Fwww.youtube.com%2Fplaylist%3Flist%3DPLRDzFCPr95fK7tr47883DFUbm4GeOjjc0)
+[Практика программирования на Python 3](https://www.youtube.com/playlist?list=PLRDzFCPr95fLuusPXwvOPgXzBL3ZTzybY)
 
-[Практика программирования на Python 3](https://dzen.ru/away?to=https%3A%2F%2Fwww.youtube.com%2Fplaylist%3Flist%3DPLRDzFCPr95fLuusPXwvOPgXzBL3ZTzybY)
-
-[Бесплатный десятинедельный онлайн-курс для сетевых инженеров](https://dzen.ru/away?to=https%3A%2F%2Fpynet.twb-tech.com%2Ffree-python-course.html)
+[Бесплатный десятинедельный онлайн-курс для сетевых инженеров](https://pynet.twb-tech.com/free-python-course.html)
 
 ## SQL
 
