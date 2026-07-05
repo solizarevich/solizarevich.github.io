@@ -86,37 +86,37 @@ _Список пополняется..._
 
 ## Компьютерные сети
 
-[Сети для самых маленьких](https://dzen.ru/away?to=https%3A%2F%2Flinkmeup.ru%2Fblog%2F1188%2F)
+[Сети для самых маленьких](https://linkmeup.ru/blog/1188/)
 
-[Бесплатные курсы по Cisco](https://dzen.ru/away?to=https%3A%2F%2Fwww.networkeducation.ru%2Fvideo)  [networkeducation.ru](https://dzen.ru/away?to=https%3A%2F%2Fwww.networkeducation.ru%2Fvideo)
+[Бесплатные курсы по Cisco networkeducation.ru](https://www.networkeducation.ru/video/)
 
-[Видео уроки Cisco Packet Tracer. Курс молодого бойца](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLcDkQ2Au8aVNYsqGsxRQxYyQijILa94T9%26si%3DqvC1upsLslpGYX_T)
+[Видео уроки Cisco Packet Tracer. Курс молодого бойца](https://www.youtube.com/playlist?list=PLcDkQ2Au8aVNYsqGsxRQxYyQijILa94T9)
 
-[Автоматизация для самых маленьких АДСМ](https://dzen.ru/away?to=https%3A%2F%2Flinkmeup.ru%2Fadsm%2F)
+[Автоматизация для самых маленьких АДСМ](https://linkmeup.ru/adsm/)
 
-[NetBox - Zero To Hero Course](https://dzen.ru/away?to=https%3A%2F%2Fgithub.com%2Fnetbox-community%2Fnetbox-zero-to-hero)
+[NetBox - Zero To Hero Course](https://github.com/netbox-community/netbox-zero-to-hero)
 
-[IPSec полный курс](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLJiaYySZYx020nm9FA8XBPXI-oopdE4tl%26si%3DvbVc1TIo_PJtcI-K)
+[IPSec полный курс](https://www.youtube.com/playlist?list=PLJiaYySZYx020nm9FA8XBPXI-oopdE4tl)
 
-[Курс Huawei HCIA DATCOM+](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLhUar1yMUpOvqs_KAgxhnbLNW48NxG99d%26si%3DrYR-hfZk0_ZLg_IB)
+[Курс Huawei HCIA DATACOM+](https://www.youtube.com/playlist?list=PLhUar1yMUpOvqs_KAgxhnbLNW48NxG99d)
 
-[Конфигурирование Huawei (HCIA HCIP)](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLhUar1yMUpOsOdubCQw6uxpr8jnhDbyPh%26si%3Dnd8lfgdOM2XeGDTB)
+[Конфигурирование Huawei (HCIA HCIP)](https://www.youtube.com/playlist?list=PLhUar1yMUpOsOdubCQw6uxpr8jnhDbyPh)
 
-[Free CCNA 200-301 | Complete Course 2024 ENG](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ%26si%3D-lBUQY7ogMPNIf6X)
+[Free CCNA 200-301 | Complete Course 2024 ENG](https://www.youtube.com/playlist?list=PLxbwE86jKRgMpuZuLBivzlM8s2Dk5lXBQ)
 
-[CCNP ENCOR v1.1 350-401 | Complete Course 2023 ENG](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLxbwE86jKRgOb2uny1CYEzyRy_mc-lE39%26si%3DcBjVZ4L-cot92Cmw)
+[CCNP ENCOR v1.1 350-401 | Complete Course 2023 ENG](https://www.youtube.com/playlist?list=PLxbwE86jKRgOb2uny1CYEzyRy_mc-lE39)
 
-[Network traffic analysis and troubleshooting](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLcDkQ2Au8aVNXuTxX18aw5uP4MrBeg16p%26si%3DoFHwhyKNhZd15ilw)
+[Network traffic analysis and troubleshooting](https://www.youtube.com/playlist?list=PLcDkQ2Au8aVNXuTxX18aw5uP4MrBeg16p)
 
-[Основы документирования сетей. Как рисовать понятные и красивые схемы на примере типового дизайна сети](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLcDkQ2Au8aVPmWZ2vXcby73Tl8SA7fp97%26si%3DviDxzJ8yYx6GW-Y1)
+[Основы документирования сетей. Как рисовать понятные и красивые схемы на примере типового дизайна сети](https://www.youtube.com/playlist?list=PLcDkQ2Au8aVPmWZ2vXcby73Tl8SA7fp97)
 
-[Полный курс на русском языке Network Automation Developer H12-881](https://dzen.ru/away?to=https%3A%2F%2Fforum.huawei.com%2Fenterprise%2Fru%2F%25D0%259F%25D0%25BE%25D0%25BB%25D0%25BD%25D1%258B%25D0%25B9-%25D0%25BA%25D1%2583%25D1%2580%25D1%2581-%25D0%25BD%25D0%25B0-%25D1%2580%25D1%2583%25D1%2581%25D1%2581%25D0%25BA%25D0%25BE%25D0%25BC-%25D1%258F%25D0%25B7%25D1%258B%25D0%25BA%25D0%25B5-Network-Automation-Developer-H12-881%2Fthread%2F667494545916575744-667481113456685057)
+[Полный курс на русском языке Network Automation Developer H12-881](https://forum.huawei.com/enterprise/intl/ru/thread/%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9-%D0%BA%D1%83%D1%80%D1%81-%D0%BD%D0%B0-%D1%80%D1%83%D1%81%D1%81%D0%BA%D0%BE%D0%BC-%D1%8F%D0%B7%D1%8B%D0%BA%D0%B5-Network-Automation-Developer-H12-881/667494545916575744?blogId=667494545916575744)
 
-[Погружение в компьютерные сети](https://dzen.ru/away?to=https%3A%2F%2Fselectel.ru%2Fblog%2Fcourses%2Fcomputer-network-basics%2F)
+[Погружение в компьютерные сети](https://selectel.ru/blog/courses/computer-network-basics/)
 
-[“Где сохранить пакет” - книга о том, как устроена аппаратура для передачи данных в современных сетях - о чипах и о памяти](https://dzen.ru/away?to=https%3A%2F%2Fwhere-to-store-the-packet.readthedocs.io%2Fen%2Flatest%2F)
+[“Где сохранить пакет” - книга о том, как устроена аппаратура для передачи данных в современных сетях - о чипах и о памяти](https://where-to-store-the-packet.readthedocs.io/en/latest/)
 
-[Miminet](https://dzen.ru/away?to=https%3A%2F%2Fmiminet.ru%2F) [— эмулятор компьютерных сетей на базе ОС Linux, предназначенный для образовательных целей.](https://dzen.ru/away?to=https%3A%2F%2Fmiminet.ru%2F)
+[Miminet — эмулятор компьютерных сетей на базе ОС Linux, предназначенный для образовательных целей.](https://miminet.ru/)
 
 ## Python
 
