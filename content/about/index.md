@@ -55,7 +55,7 @@ menu:
 и вакансий  #вакансия
 
 ***
-Если у вас есть вопросы или предложения, а также если нужна консультация по темам Linux, Network, DevOps, пожалуйста, [пишите в личные сообщения](https://t.me/solizarevich) или [сюда](https://boosty.to/solizarevich) 
+Если у вас есть вопросы или предложения, а также если нужна консультация по темам Linux, Network, DevOps, пожалуйста, [пишите в личные сообщения](https://t.me/solizarevich) или [сюда](https://boosty.to/solizarevich) или [можно сюда](https://vk.com/solizarevich) 
 ***
 
 [Чат](https://t.me/linautonetchat) на темы Linux, Network, DevOps. Поделиться опытом, помощь с проблемами, задать вопрос или просто пообщаться. 
