@@ -55,41 +55,41 @@ _Список пополняется..._
 
 [Python Сборник упражнений | Стивенсон Бен](https://www.dmkpress.com/catalog/computer/programming/python/978-5-97060-916-3/)
 
-[Terraform инфраструктура на уровне кода. 3-е изд.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2FA33087%2Fproduct%2Fterraform-infrastruktura-na-urovne-koda-3-e-mezhd-izd-2)
+[Terraform инфраструктура на уровне кода. 3-е изд.](https://www.piter.com/collection/A33087/product/terraform-infrastruktura-na-urovne-koda-3-e-mezhd-izd-2)
 
-[Unix и Linux. Руководство системного администратора 5-е издание](https://dzen.ru/away?to=https%3A%2F%2Fwww.labirint.ru%2Fbooks%2F749458%2F)
+[Unix и Linux. Руководство системного администратора 5-е издание](https://www.labirint.ru/books/749458/)
 
-[Zabbix 6 IT Infrastructure Monitoring Cookbook](https://dzen.ru/away?to=https%3A%2F%2Fgithub.com%2Ftranslaster%2FZabbix-6-IT-Infrastructure-Monitoring-Cookbook)
+[Zabbix 6 IT Infrastructure Monitoring Cookbook](https://github.com/translaster/Zabbix-6-IT-Infrastructure-Monitoring-Cookbook)
 
-[Автоматизация программируемых сетей Автоматизация рутинных задач с помощью Python, 2-е издание | Эл Свейгарт](https://dzen.ru/away?to=https%3A%2F%2Fwww.ozon.ru%2Fproduct%2Favtomatizatsiya-rutinnyh-zadach-s-pomoshchyu-python-2-e-izd-sveygart-el-893780014%2F)
+[Автоматизация рутинных задач с помощью Python, 2-е издание | Эл Свейгарт](https://www.ozon.ru/product/avtomatizatsiya-rutinnyh-zadach-s-pomoshchyu-python-2-e-izd-sveygart-el-893780014/?__rr=1)
 
-[Администрирование системы защиты SELinux | Вермейлен Свен](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fsecuruty%2F978-5-97060-557-8%2F)
+[Администрирование системы защиты SELinux | Вермейлен Свен](https://www.dmkpress.com/catalog/computer/securuty/978-5-97060-557-8/)
 
-[Анализ пакетов: практическое руководство по использованию Wireshark и tcpdump для решения реальных проблем в локальных сетях. 3-е изд | Сандерс Крис](https://dzen.ru/away?to=https%3A%2F%2Fwww.labirint.ru%2Fbooks%2F681060%2F)
+[Анализ пакетов: практическое руководство по использованию Wireshark и tcpdump для решения реальных проблем в локальных сетях. 3-е изд | Сандерс Крис](https://www.labirint.ru/books/681060/)
 
-[Атака сетей на уровне протоколов | Форшоу Дж.](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fsecuruty%2F978-5-97060-972-9%2F)
+[Атака сетей на уровне протоколов | Форшоу Дж.](https://www.dmkpress.com/catalog/computer/securuty/978-5-97060-972-9/)
 
-[DevOps интеграция и автоматизация | Баланов А.Н.](https://dzen.ru/away?to=https%3A%2F%2Flanbook.com%2Fcatalog%2Finformatika%2Fdevops-integratsiya-i-avtomatizatsiya%2F)
+[DevOps интеграция и автоматизация | Баланов А.Н.](https://lanbook.com/catalog/informatika/devops-integratsiya-i-avtomatizatsiya/)
 
-[Безопасность контейнеров. Фундаментальный подход к защите контейнеризированных приложений | Райс Лиз](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Fbezopasnost-konteynerov-fundamentalnyy-podhod-k-zaschite-konteynerizirovannyh-prilozheniy)
+[Безопасность контейнеров. Фундаментальный подход к защите контейнеризированных приложений | Райс Лиз](https://www.piter.com/collection/all/product/bezopasnost-konteynerov-fundamentalnyy-podhod-k-zaschite-konteynerizirovannyh-prilozheniy)
 
-[Безопасный DevOps. Эффективная эксплуатация систем | Вехен Джульен](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Fbezopasnyy-devops-effektivnaya-ekspluatatsiya-sistem)
+[Безопасный DevOps. Эффективная эксплуатация систем | Вехен Джульен](https://www.piter.com/collection/all/product/bezopasnyy-devops-effektivnaya-ekspluatatsiya-sistem)
 
-[Большая книга проектов Python | Свейгарт Эл](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fproduct%2Fbolshaya-kniga-proektov-python)
+[Большая книга проектов Python | Свейгарт Эл](https://www.piter.com/product/bolshaya-kniga-proektov-python)
 
-[Внутреннее устройство Linux | Уорд Брайан](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Ftop-2%2Fproduct%2Fvnutrennee-ustroystvo-linux-3-e-izd)
+[Внутреннее устройство Linux | Уорд Брайан](https://www.piter.com/product/vnutrennee-ustroystvo-linux-3-e-izd)
 
-[Запускаем Ansible 3 изд. | Мейер Б., Мозер Р., Хоштейн Л.](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-6-01763-867-2%2F)
+[Запускаем Ansible 3 изд. | Мейер Б., Мозер Р., Хоштейн Л.](https://www.dmkpress.com/catalog/computer/os/978-6-01763-867-2/)
 
-[Запускаем Prometheus. Мониторинг инфраструктуры и приложений](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-6-01810-341-4%2F)
+[Запускаем Prometheus. Мониторинг инфраструктуры и приложений](https://www.dmkpress.com/catalog/computer/os/978-6-01810-341-4/)
 
-[Использование Docker | Моуэт Эдриен](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-5-97060-426-7%2F)
+[Использование Docker | Моуэт Эдриен](https://www.dmkpress.com/catalog/computer/os/978-5-97060-426-7/)
 
-[Командная строка Linux. Полное руководство. 2-е межд. изд. | Шоттс Уильям](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fproduct%2Fkomandnaya-stroka-linux-polnoe-rukovodstvo)
+[Командная строка Linux. Полное руководство. 2-е межд. изд. | Шоттс Уильям](https://www.piter.com/product/komandnaya-stroka-linux-polnoe-rukovodstvo)
 
-[Ядро Linux. Сборка, настройка, управление](https://dzen.ru/away?to=https%3A%2F%2Fwww.chitai-gorod.ru%2Fproduct%2Fyadro-linux-sborka-nastroyka-upravlenie-2973794)
+[Ядро Linux. Сборка, настройка, управление](https://www.chitai-gorod.ru/product/yadro-linux-sborka-nastroyka-upravlenie-2973794)
 
-[Начинаем программировать на Python. 5-е изд. | Гэддис Тони](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Fnachinaem-programmirovat-na-python-5-e-izd%2F)
+[Начинаем программировать на Python. 5-е изд. | Гэддис Тони](https://bhv.ru/product/nachinaem-programmirovat-na-python-5-e-izd/)
 
 [Осваиваем Kubernetes. Оркестрация контейнерных архитектур | Сайфан Д.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Fosvaivaem-kubernetes-orkestratsiya-konteynernyh-arhitektur)
 
