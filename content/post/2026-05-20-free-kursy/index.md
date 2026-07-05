@@ -140,24 +140,22 @@ _Список пополняется..._
 
 ## SQL
 
-[Симулятор SQL](https://dzen.ru/away?to=https%3A%2F%2Fkarpov.courses%2Fsimulator-sql)
+[Симулятор SQL](https://karpov.courses/simulator-sql)
 
-[Бесплатный курс «Основы работы с базами данных и SQL»](https://dzen.ru/away?to=https%3A%2F%2Fstart.practicum.yandex%2Fsql-database-basics%2F)
+[Бесплатный курс «Основы работы с базами данных и SQL»](https://start.practicum.yandex/sql-database-basics/)
 
-[Интерактивный онлайн курс по SQL](https://dzen.ru/away?to=https%3A%2F%2Fsql-academy.org%2Fru)
+[Интерактивный онлайн курс по SQL](https://sql-academy.org/ru)
 
-[Введение в SQL и работу с базой данных](https://dzen.ru/away?to=https%3A%2F%2Fnetology.ru%2Fprograms%2Fvvedenie-v-sql-i-rabotu-s-bazoi-dannih%23%2F)
-
-[Практическое владение языком SQL](https://dzen.ru/away?to=https%3A%2F%2Fsql-ex.ru%2F)
+[Практическое владение языком SQL](https://sql-ex.ru/)
 
 ## Курсы по облачным технологиям
 
-[Cloud Native DIY](https://dzen.ru/away?to=https%3A%2F%2Fcloud.vk.com%2Fcloud-native-diy%2F)
+[Cloud Native DIY](https://cloud.vk.com/cloud-native-courses/diy/)
 
-[Бесплатный курс «Инженер облачных сервисов»](https://dzen.ru/away?to=https%3A%2F%2Fstart.practicum.yandex%2Fycloud%2F)
+[Бесплатный курс «Инженер облачных сервисов»](https://start.practicum.yandex/ycloud/)
 
-[Деплой инфраструктуры по модели GitOps](https://dzen.ru/away?to=https%3A%2F%2Fyandex.cloud%2Fru%2Ftraining%2Fdeploy)
+[Деплой инфраструктуры по модели GitOps](https://yandex.cloud/ru/training/deploy?from=training-pro)
 
-[Облачные серверы: теория и практика](https://dzen.ru/away?to=https%3A%2F%2Fselectel.ru%2Fblog%2Fcourses%2Fcloud-service%2F)
+[Облачные серверы: теория и практика](https://selectel.ru/blog/courses/cloud-service/)
 
-[Сертификация Cloud.ru Cloud Fundamentals](https://dzen.ru/away?to=https%3A%2F%2Fcloud.ru%2Feducation%2Fsertifikatsiya-cloud-ru-cloud-fundamentals%3Fuxt%3Db)
+[Сертификация Cloud.ru Cloud Fundamentals](https://cloud.ru/education/sertifikatsiya-cloud-ru-cloud-fundamentals)
