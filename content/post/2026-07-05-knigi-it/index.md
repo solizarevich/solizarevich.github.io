@@ -15,45 +15,45 @@ _Список пополняется..._
 В подборке — несколько хороших книг,  которые можно рекомендовать. В комментариях рекомендуйте то, что пригодилось именно Вам. Хорошего чтения.
 
 
-[Bash и кибербезопасность: атака, защита и анализ из командной строки Linux | Тронкон Пол, Олбинг Карл](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fbezopasnost%2Fproduct%2Fbash-i-kiberbezopasnost-ataka-zaschita-i-analiz-iz-komandnoy-stroki-linux)
+[Bash и кибербезопасность: атака, защита и анализ из командной строки Linux | Тронкон Пол, Олбинг Карл](https://www.piter.com/collection/bezopasnost/product/bash-i-kiberbezopasnost-ataka-zaschita-i-analiz-iz-komandnoy-stroki-linux)
 
-[DOCKER COMPOSE для разработчика | Годзурас Э.](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-5-93700-203-7%2F)
+[DOCKER COMPOSE для разработчика | Годзурас Э.](https://www.dmkpress.com/catalog/computer/os/978-5-93700-203-7/)
 
-[Docker. Вводный курс. 3-е изд. | Кейн Шая](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Fdocker-vvodnyj-kurs-3-izdanie%2F)
+[Docker. Вводный курс. 3-е изд. | Кейн Шая](https://bhv.ru/product/docker-vvodnyj-kurs-3-izdanie/)
 
-[Docker на практике | Сейерс Э. Х., Милл А.](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-5-97060-772-5%2F)
+[Docker на практике | Сейерс Э. Х., Милл А.](https://www.dmkpress.com/catalog/computer/os/978-5-97060-772-5/)
 
-[Kubernetes в действии | Лукша Марко](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-5-97060-657-5%2F)
+[Kubernetes в действии | Лукша Марко](https://www.dmkpress.com/catalog/computer/os/978-5-97060-657-5/)
 
-[Kubernetes для DevOps: развертывание, запуск и масштабирование в облаке | Арундел Д., Домингус Д.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fprogrammirovanie-razrabotka-programnogo-obespecheniya%2Fproduct%2Fkubernetes-dlya-devops-razvertyvanie-zapusk-i-masshtabirovanie-v-oblake)
+[Kubernetes для DevOps: развертывание, запуск и масштабирование в облаке | Арундел Д., Домингус Д.](https://www.piter.com/product/kubernetes-dlya-devops-razvertyvanie-zapusk-i-masshtabirovanie-v-oblake)
 
-[Kubernetes изнутри](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fos%2F978-5-93700-153-5%2F)
+[Kubernetes изнутри](https://www.dmkpress.com/catalog/computer/os/978-5-93700-153-5/)
 
-[Kubernetes и сети. Многоуровневый подход | Стронг Джон](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Fkubernetes-i-seti-mnogourovnevyj-podhod%2F)
+[Kubernetes и сети. Многоуровневый подход | Стронг Джон](https://bhv.ru/product/kubernetes-i-seti-mnogourovnevyj-podhod/)
 
-[Kubernetes: лучшие практики. Раскрой потенциал главного инструмента в отрасли | Бёрнс Брендан, Вильяльба Эдди](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fproduct%2Fkubernetes-luchshie-praktiki)
+[Kubernetes: лучшие практики. Раскрой потенциал главного инструмента в отрасли | Бёрнс Брендан, Вильяльба Эдди](https://www.piter.com/product/kubernetes-luchshie-praktiki)
 
-[Kubernetes на практике. Создание успешных платформ приложений](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Fkubernetes-na-praktike%2F)
+[Kubernetes на практике. Создание успешных платформ приложений](https://bhv.ru/product/kubernetes-na-praktike/)
 
-[Linux в действии](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Flinux-v-deystvii)
+[Linux в действии](https://www.piter.com/collection/all/product/linux-v-deystvii)
 
-[Linux для сетевых инженеров | Ванденбринк Роб](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Flinux-dlya-setevyh-inzhenerov)
+[Linux для сетевых инженеров | Ванденбринк Роб](https://www.piter.com/collection/all/product/linux-dlya-setevyh-inzhenerov)
 
-[Linux. Командная строка. Лучшие практики | Барретт Дэниел Джей](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fproduct%2Flinux-komandnaya-stroka-luchshie-praktiki)
+[Linux. Командная строка. Лучшие практики | Барретт Дэниел Джей](https://www.piter.com/product/linux-komandnaya-stroka-luchshie-praktiki)
 
-[Linux. Установка, настройка, администрирование | Кофлер Михаэль, Сивченко Олег Ю.](https://dzen.ru/away?to=https%3A%2F%2Fwww.labirint.ru%2Fbooks%2F412984%2F)
+[Linux. Установка, настройка, администрирование | Кофлер Михаэль, Сивченко Олег Ю.](https://www.labirint.ru/books/412984/)
 
-[Linux for System Administrators - Viorel Rudareanu, Daniil Baturin](https://dzen.ru/away?to=https%3A%2F%2Fwww.amazon.com%2FLinux-System-Administrators-landscape-administration%2Fdp%2F1803247940)
+[Linux for System Administrators - Viorel Rudareanu, Daniil Baturin](https://www.amazon.com/Linux-System-Administrators-landscape-administration/dp/1803247940)
 
-[Monitoring with Prometheus | James Turnbull](https://dzen.ru/away?to=https%3A%2F%2Fwww.prometheusbook.com%2F)
+[Monitoring with Prometheus | James Turnbull](https://www.prometheusbook.com/)
 
-[The Art of Monitoring | James Turnbull](https://dzen.ru/away?to=https%3A%2F%2Fartofmonitoring.com%2F)
+[The Art of Monitoring | James Turnbull](https://artofmonitoring.com/)
 
-[OPENSSL 3: ключ к тайнам криптографии](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fsecuruty%2F978-5-93700-205-1%2F)
+[OPENSSL 3: ключ к тайнам криптографии](https://www.dmkpress.com/catalog/computer/securuty/978-5-93700-205-1/)
 
-[Python для сетевых инженеров. Автоматизация сети, программирование и DevOps | Чоу Эрик](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fproduct%2Fpython-dlya-setevyh-inzhenerov-avtomatizatsiya-seti-programmirovanie-i-devops)
+[Python для сетевых инженеров. Автоматизация сети, программирование и DevOps | Чоу Эрик](https://www.piter.com/product/python-dlya-setevyh-inzhenerov-avtomatizatsiya-seti-programmirovanie-i-devops)
 
-[Python Сборник упражнений | Стивенсон Бен](https://dzen.ru/away?to=https%3A%2F%2Fwww.ozon.ru%2Fproduct%2Fpython-sbornik-uprazhneniy-1290521149%2F)
+[Python Сборник упражнений | Стивенсон Бен](https://www.dmkpress.com/catalog/computer/programming/python/978-5-97060-916-3/)
 
 [Terraform инфраструктура на уровне кода. 3-е изд.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2FA33087%2Fproduct%2Fterraform-infrastruktura-na-urovne-koda-3-e-mezhd-izd-2)
 
@@ -61,7 +61,7 @@ _Список пополняется..._
 
 [Zabbix 6 IT Infrastructure Monitoring Cookbook](https://dzen.ru/away?to=https%3A%2F%2Fgithub.com%2Ftranslaster%2FZabbix-6-IT-Infrastructure-Monitoring-Cookbook)
 
-[Автоматизация программируемых сетейАвтоматизация рутинных задач с помощью Python, 2-е издание | Эл Свейгарт](https://dzen.ru/away?to=https%3A%2F%2Fwww.ozon.ru%2Fproduct%2Favtomatizatsiya-rutinnyh-zadach-s-pomoshchyu-python-2-e-izd-sveygart-el-893780014%2F)
+[Автоматизация программируемых сетей Автоматизация рутинных задач с помощью Python, 2-е издание | Эл Свейгарт](https://dzen.ru/away?to=https%3A%2F%2Fwww.ozon.ru%2Fproduct%2Favtomatizatsiya-rutinnyh-zadach-s-pomoshchyu-python-2-e-izd-sveygart-el-893780014%2F)
 
 [Администрирование системы защиты SELinux | Вермейлен Свен](https://dzen.ru/away?to=https%3A%2F%2Fdmkpress.com%2Fcatalog%2Fcomputer%2Fsecuruty%2F978-5-97060-557-8%2F)
 
