@@ -1,6 +1,6 @@
 ---
 title: Книги по Linux, DevOps, компьютерным сетям, Python
-date: 2026-07-05 20:20:00 +0300
+date: 2026-07-05 21:21:00 +0300
 tags:
   - linux
   - devops
@@ -91,26 +91,26 @@ _Список пополняется..._
 
 [Начинаем программировать на Python. 5-е изд. | Гэддис Тони](https://bhv.ru/product/nachinaem-programmirovat-na-python-5-e-izd/)
 
-[Осваиваем Kubernetes. Оркестрация контейнерных архитектур | Сайфан Д.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Fosvaivaem-kubernetes-orkestratsiya-konteynernyh-arhitektur)
+[Осваиваем Kubernetes. Оркестрация контейнерных архитектур | Сайфан Д.](https://www.piter.com/collection/all/product/osvaivaem-kubernetes-orkestratsiya-konteynernyh-arhitektur)
 
-[Паттерны Kubernetes: Шаблоны разработки собственных облачных приложений | Ибрам Б., Хасс Р.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fbestsellery-oreilly%2Fproduct%2Fpatterny-kubernetes-shablony-razrabotki-sobstvennyh-oblachnyh-prilozheniy)
+[Паттерны Kubernetes: Шаблоны разработки собственных облачных приложений | Ибрам Б., Хасс Р.](https://www.piter.com/product/patterny-kubernetes-shablony-razrabotki-sobstvennyh-oblachnyh-prilozheniy)
 
-[Программирование на Bash с нуля Илья Шпигорь](https://dzen.ru/away?to=https%3A%2F%2Fleanpub.com%2Fprogramming-from-scratch)
+[Программирование на Bash с нуля Илья Шпигорь](https://leanpub.com/programming-from-scratch)
 
-[Проект "Феникс". Роман о том, как DevOps меняет бизнес к лучшему | Ким Джин, Спаффорд Джордж](https://dzen.ru/away?to=https%3A%2F%2Fwww.chitai-gorod.ru%2Fproduct%2Fproekt-feniks-kak-devops-ustranyaet-haos-i-uskoryaet-razvitie-kompanii-2826932)
+[Проект "Феникс". Роман о том, как DevOps меняет бизнес к лучшему | Ким Джин, Спаффорд Джордж](https://bombora.ru/book/64983/)
 
-[Расширения ядра Linux: драйверы и модули | Цирюлик Олег](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Frasshireniya-yadra-linux-drajvery-i-moduli%2F)
+[Расширения ядра Linux: драйверы и модули | Цирюлик Олег](https://bhv.ru/product/rasshireniya-yadra-linux-drajvery-i-moduli/)
 
-[Самойленко Н. - Python для сетевых инженеров. - 31 мая 2023](https://dzen.ru/away?to=https%3A%2F%2Fpyneng.readthedocs.io%2Fru%2Flatest%2Fdownload.html)
+[Самойленко Н. - Python для сетевых инженеров. - 31 мая 2023](https://pyneng.readthedocs.io/ru/latest/download.html)
 
-[Современное системное администрирование: управление надежными и устойчивыми системами 2024г.](https://dzen.ru/away?to=https%3A%2F%2Fbhv.ru%2Fproduct%2Fsovremennoe-sistemnoe-administrirovanie-upravlenie-nadezhnymi-i-ustojchivymi-sistemami%2F)
+[Современное системное администрирование: управление надежными и устойчивыми системами 2024г.](https://bhv.ru/product/sovremennoe-sistemnoe-administrirovanie-upravlenie-nadezhnymi-i-ustojchivymi-sistemami/)
 
-[Сценарии командной оболочки. Linux, OS X и Unix. 2-е издание | Тейлор Д., Перри Б.](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fall%2Fproduct%2Fstsenarii-komandnoy-obolochki-linux-os-x-i-unix-2-e-izdanie)
+[Сценарии командной оболочки. Linux, OS X и Unix. 2-е издание | Тейлор Д., Перри Б.](https://www.piter.com/collection/all/product/stsenarii-komandnoy-obolochki-linux-os-x-i-unix-2-e-izdanie)
 
-[Тестирование на проникновение с Kali Linux | Джоши Паллави 2022](https://dzen.ru/away?to=https%3A%2F%2Fwww.ozon.ru%2Fproduct%2Fprinted-book-scientific-literature-non-fiction-joshi-pallavi-705026580%2F)
+[Тестирование на проникновение с Kali Linux | Джоши Паллави 2022](https://www.ozon.ru/product/testirovanie-na-proniknovenie-s-kali-linux-3487027432/?at=6WtZvgOzECQPV2ykcPOEj8ztDRGkWLfZzgNqRUOJnXME)
 
-[Тестирование на проникновение с помощью Kali Linux 2.0](https://dzen.ru/away?to=https%3A%2F%2Fcodeby.net%2Fthreads%2Fkniga-testirovanie-na-proniknovenie-s-kali-linux-2-0-na-russkom-jazyke.67077%2F)
+[Тестирование на проникновение с помощью Kali Linux 2.0](https://codeby.net/threads/kniga-testirovaniye-na-proniknoveniye-s-kali-linux-2-0-na-russkom-yazyke.67077/)
 
-[Kali Linux. Тестирование на проникновение и безопасность | Парасрам Шива, Замм Алекс](https://dzen.ru/away?to=https%3A%2F%2Fhabr.com%2Fru%2Fcompanies%2Fpiter%2Farticles%2F465123%2F)
+[Kali Linux. Тестирование на проникновение и безопасность | Парасрам Шива, Замм Алекс](https://www.piter.com/product/kali-linux-testirovanie-na-proniknovenie-i-bezopasnost)
 
-[Zabbix 7: мониторинг ИТ-инфраструктуры [Натан Лифтинг, Брайан ван Бакел]](https://dzen.ru/away?to=https%3A%2F%2Fwww.piter.com%2Fcollection%2Fkompyutery-i-internet%2Fproduct%2Fzabbix-7-monitoring-it-infrastruktury)
+[Zabbix 7: мониторинг ИТ-инфраструктуры Натан Лифтинг, Брайан ван Бакел](https://www.piter.com/collection/kompyutery-i-internet/product/zabbix-7-monitoring-it-infrastruktury)
