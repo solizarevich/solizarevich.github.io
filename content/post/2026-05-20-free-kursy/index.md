@@ -28,21 +28,21 @@ _Список пополняется..._
 
 [Сети в Linux, для самых маленьких](https://edu.slurm.io/courses/networks-ops1)
 
-[Базовое администрирование Linux-серверов](https://dzen.ru/away?to=https%3A%2F%2Fslurm.io%2Flinux-admin-base)
+[Базовое администрирование Linux-серверов](https://slurm.io/linux-admin-base)
 
-[Основы GNU/Linux и подготовка к RHCSA](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLisqB92_b4TlQH3jVGf6lrFMVqalCTjAQ%26si%3D6Esg194jxp4ImLE8)
+[Основы GNU/Linux и подготовка к RHCSA](https://www.youtube.com/playlist?list=PLisqB92_b4TlQH3jVGf6lrFMVqalCTjAQ)
 
-[Администрирование инфраструктуры на GNU/Linux](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLisqB92_b4TlPVUnmIpXLOSgDuT6JB0XN%26si%3D4AR9fP5M1fKXvdi9)
+[Администрирование инфраструктуры на GNU/Linux](https://www.youtube.com/playlist?list=PLisqB92_b4TlPVUnmIpXLOSgDuT6JB0XN&si=4AR9fP5M1fKXvdi9)
 
-[Основы виртуализации](https://dzen.ru/away?to=https%3A%2F%2Fyoutube.com%2Fplaylist%3Flist%3DPLcDkQ2Au8aVM6hSTeiBGTXNMNBwzQyuZG%26si%3DkN__QMocV6VkSi78)
+[Основы виртуализации](https://www.youtube.com/playlist?list=PLcDkQ2Au8aVM6hSTeiBGTXNMNBwzQyuZG&si=kN__QMocV6VkSi78)
 
-[Внутреннее устройство Linux](https://dzen.ru/away?to=http%3A%2F%2Fyoutube.com%2F%40DmitryKetov)
+[Внутреннее устройство Linux](https://www.youtube.com/@DmitryKetov)
 
-[Learn DevOps Linux Kubernetes CKS CKA CKAD Git etc](https://dzen.ru/away?to=https%3A%2F%2Fkillercoda.com%2F)
+[Learn DevOps Linux Kubernetes CKS CKA CKAD Git etc](https://killercoda.com/)
 
-[KodeKloud: The Best DevOps Online Training Courses](https://dzen.ru/away?to=https%3A%2F%2Fkodekloud.com%2F)
+[KodeKloud: The Best DevOps Online Training Courses](https://kodekloud.com/)
 
-[Killer Shell - Exam Simulators](https://dzen.ru/away?to=https%3A%2F%2Fkiller.sh%2F)
+[Killer Shell - Exam Simulators](https://killer.sh/)
 
 ## Devops
 
