@@ -1,5 +1,5 @@
 ---
-title:  Как практиковаться начинающему DevOps-инженеру: путь от Linux до Kubernetes
+title:  "Как практиковаться начинающему DevOps-инженеру: путь от Linux до Kubernetes"
 date: 2026-07-19 14:20:00 +0300
 categories:
   - DevOps
