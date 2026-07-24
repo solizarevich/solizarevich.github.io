@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Htop on Linux | Network | DevOps</title><link>https://solizarevich.github.io/tags/htop/</link><description>Recent content in Htop on Linux | Network | DevOps</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Fri, 24 Apr 2026 15:35:00 +0300</lastBuildDate><atom:link href="https://solizarevich.github.io/tags/htop/index.xml" rel="self" type="application/rss+xml"/><item><title>Как читать htop и не пугаться всех этих цифр</title><link>https://solizarevich.github.io/post/2026-04-24-htop/</link><pubDate>Fri, 24 Apr 2026 15:35:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-24-htop/</guid><description>&lt;p&gt;На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?&lt;/p&gt;
+&lt;p&gt;Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.&lt;/p&gt;
+&lt;h2 id="htop-на-ubuntu-server" id=htop-на-ubuntu-server&gt;
+ 
+ &lt;span class="me-2"&gt;htop на Ubuntu Server&lt;/span&gt;
+ &lt;a href="#htop-%d0%bd%d0%b0-ubuntu-server" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Ниже скриншот htop, который я буду рассматривать в статье.
+&lt;a href="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" class="popup img-link "&gt;
+ &lt;img src="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" alt="htop"&gt;
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

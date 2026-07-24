@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Linux | Network | DevOps</title><link>https://solizarevich.github.io/post/</link><description>Recent content in Posts on Linux | Network | DevOps</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Fri, 24 Jul 2026 11:11:00 +0300</lastBuildDate><atom:link href="https://solizarevich.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Почему сильные специалисты остаются без откликов и какую роль в этом играет резюме</title><link>https://solizarevich.github.io/post/2026-07-24-resume/</link><pubDate>Fri, 24 Jul 2026 11:11:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-07-24-resume/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Разберём, почему даже опытные кандидаты могут долго не получать приглашений, какие ошибки чаще всего встречаются в резюме и как представить свой опыт так, чтобы его заметили.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="рынок-труда-изменился-но-многие-продолжают-искать-работу-по-старой-схеме" id=рынок-труда-изменился-но-многие-продолжают-искать-работу-по-старой-схеме&gt;
+ 
+ &lt;span class="me-2"&gt;Рынок труда изменился, но многие продолжают искать работу по старой схеме&lt;/span&gt;
+ &lt;a href="#%d1%80%d1%8b%d0%bd%d0%be%d0%ba-%d1%82%d1%80%d1%83%d0%b4%d0%b0-%d0%b8%d0%b7%d0%bc%d0%b5%d0%bd%d0%b8%d0%bb%d1%81%d1%8f-%d0%bd%d0%be-%d0%bc%d0%bd%d0%be%d0%b3%d0%b8%d0%b5-%d0%bf%d1%80%d0%be%d0%b4%d0%be%d0%bb%d0%b6%d0%b0%d1%8e%d1%82-%d0%b8%d1%81%d0%ba%d0%b0%d1%82%d1%8c-%d1%80%d0%b0%d0%b1%d0%be%d1%82%d1%83-%d0%bf%d0%be-%d1%81%d1%82%d0%b0%d1%80%d0%be%d0%b9-%d1%81%d1%85%d0%b5%d0%bc%d0%b5" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Конкуренция среди кандидатов заметно выросла. Работодатели стали осторожнее подходить к найму, внимательнее выбирать кандидатов и чаще отказывать ещё до первого разговора. Поэтому сегодня недостаточно просто иметь хороший опыт. Важно уметь понятно показать его ценность.&lt;/p&gt;</description></item><item><title>Как практиковаться начинающему DevOps-инженеру: путь от Linux до Kubernetes</title><link>https://solizarevich.github.io/post/2026-07-19-junior/</link><pubDate>Sun, 19 Jul 2026 14:20:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-07-19-junior/</guid><description>&lt;p&gt;Одна из главных сложностей начинающего DevOps-инженера — отсутствие понятного плана практики.&lt;/p&gt;
+&lt;p&gt;Можно пройти несколько курсов, изучить основы Linux, посмотреть уроки по Docker и Kubernetes, но всё равно не понимать, что именно делать руками и как соединить отдельные технологии в цельный проект.&lt;/p&gt;
+&lt;p&gt;Хорошая практика DevOps — это не набор случайных команд. Гораздо полезнее создать небольшую инфраструктуру и постепенно развивать её: сначала развернуть сервер, затем запустить приложение, автоматизировать его доставку, добавить контейнеризацию, мониторинг, логирование и Kubernetes.&lt;/p&gt;</description></item><item><title>Книги по Linux, DevOps, компьютерным сетям, Python</title><link>https://solizarevich.github.io/post/2026-07-05-knigi-it/</link><pubDate>Sun, 05 Jul 2026 21:21:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-07-05-knigi-it/</guid><description>&lt;p&gt;&lt;em&gt;Список пополняется&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Книги, которые актуальны как для начинающих специалистов, так и для профи, которым нужна дополнительная информация или практические советы.
+В подборке — несколько хороших книг, которые можно рекомендовать. В комментариях рекомендуйте то, что пригодилось именно Вам. Хорошего чтения.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.piter.com/collection/bezopasnost/product/bash-i-kiberbezopasnost-ataka-zaschita-i-analiz-iz-komandnoy-stroki-linux"&gt;Bash и кибербезопасность: атака, защита и анализ из командной строки Linux | Тронкон Пол, Олбинг Карл&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.dmkpress.com/catalog/computer/os/978-5-93700-203-7/"&gt;DOCKER COMPOSE для разработчика | Годзурас Э.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bhv.ru/product/docker-vvodnyj-kurs-3-izdanie/"&gt;Docker. Вводный курс. 3-е изд. | Кейн Шая&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Бесплатные курсы для обучения Linux, DevOps, компьютерным сетям, Python</title><link>https://solizarevich.github.io/post/2026-05-20-free-kursy/</link><pubDate>Wed, 20 May 2026 20:20:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-05-20-free-kursy/</guid><description>&lt;p&gt;&lt;em&gt;Список пополняется&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote class="prompt-tip"&gt;&lt;p&gt;Для эффективного обучения важно вместе с теорией сразу практиковаться. Так что лучше выбирать курсы сразу практикой или же тренироваться самому параллельно с изучением теории.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Обсудить эту заметку можно в Телеграм чате: &lt;a href="https://t.me/linautonetchat"&gt;https://t.me/linautonetchat&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="бесплатные-курсы-по-ит-и-иб" id=бесплатные-курсы-по-ит-и-иб&gt;
+ 
+ &lt;span class="me-2"&gt;&lt;a href="https://university.tssolution.ru/"&gt;&lt;strong&gt;Бесплатные курсы по ИТ и ИБ&lt;/strong&gt;&lt;/a&gt;&lt;/span&gt;
+ &lt;a href="#%d0%b1%d0%b5%d1%81%d0%bf%d0%bb%d0%b0%d1%82%d0%bd%d1%8b%d0%b5-%d0%ba%d1%83%d1%80%d1%81%d1%8b-%d0%bf%d0%be-%d0%b8%d1%82-%d0%b8-%d0%b8%d0%b1" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;h2 id="linux" id=linux&gt;
+ 
+ &lt;span class="me-2"&gt;Linux&lt;/span&gt;
+ &lt;a href="#linux" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=rKCu-tfL730&amp;amp;list=PLmxB7JSpraiep6kr802UDqiAIU-76nGfc"&gt;LPIC-1 (exam 101)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=aRcRAA1Gj_4&amp;amp;list=PLmxB7JSpraieH3aScuPs7h77cSEQvPi2A"&gt;LPIC-1 (exam 102)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PLmxB7JSpraidTqByo0ihkyExIbKfAB-B9"&gt;LPIC-2 (exam 201)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://edu.slurm.io/courses/networks-ops1"&gt;Сети в Linux, для самых маленьких&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://slurm.io/linux-admin-base"&gt;Базовое администрирование Linux-серверов&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PLisqB92_b4TlQH3jVGf6lrFMVqalCTjAQ"&gt;Основы GNU/Linux и подготовка к RHCSA&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/playlist?list=PLisqB92_b4TlPVUnmIpXLOSgDuT6JB0XN&amp;amp;si=4AR9fP5M1fKXvdi9"&gt;Администрирование инфраструктуры на GNU/Linux&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Сборник по DevOps и Linux</title><link>https://solizarevich.github.io/post/2026-04-28-sbornik/</link><pubDate>Tue, 28 Apr 2026 18:55:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-28-sbornik/</guid><description>&lt;p&gt;🌀 &lt;a href="https://boosty.to/solizarevich/posts/defada2e-054e-4106-836b-cf8888f44170"&gt;Материал обновляется&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Разобраны материалы и задания по ключевым темам:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Linux: команды, файловая система, практика&lt;/li&gt;
+&lt;li&gt;Терминал: хитрости CLI, команды на скорость&lt;/li&gt;
+&lt;li&gt;CI/CD: пайплайны, автосборка, DevOps-логика&lt;/li&gt;
+&lt;li&gt;Docker: образы, volume, docker-compose&lt;/li&gt;
+&lt;li&gt;Сети: TCP/IP, DNS, NAT, туннели, практика&lt;/li&gt;
+&lt;li&gt;Ansible: плейбуки, роли, inventory&lt;/li&gt;
+&lt;li&gt;Kubernetes: поды, сервисы, деплой, хелм&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Внутри:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;— термины по каждой теме&lt;/p&gt;
+&lt;p&gt;— вопросы для самопроверки&lt;/p&gt;
+&lt;p&gt;— задания для выполнения&lt;/p&gt;
+&lt;p&gt;— рабочие задачи (прямо как на собесах и на реальной работе)&lt;/p&gt;
+&lt;p&gt;Уровень: от Junior до Senior — есть над чем подумать.&lt;/p&gt;</description></item><item><title>Как читать htop и не пугаться всех этих цифр</title><link>https://solizarevich.github.io/post/2026-04-24-htop/</link><pubDate>Fri, 24 Apr 2026 15:35:00 +0300</pubDate><guid>https://solizarevich.github.io/post/2026-04-24-htop/</guid><description>&lt;p&gt;На протяжении долгого времени я не до конца понимал htop. Я думал, что средняя загрузка [load average] в 1.0 означает, что процессор загружен на 50%, но это не совсем так. Да и потом, почему именно 1.0?&lt;/p&gt;
+&lt;p&gt;Затем я решил во всём разобраться и написать об этом. Говорят, что лучший способ научиться новому — попытаться это объяснить.&lt;/p&gt;
+&lt;h2 id="htop-на-ubuntu-server" id=htop-на-ubuntu-server&gt;
+ 
+ &lt;span class="me-2"&gt;htop на Ubuntu Server&lt;/span&gt;
+ &lt;a href="#htop-%d0%bd%d0%b0-ubuntu-server" class="anchor text-muted"&gt;&lt;i class="fas fa-hashtag"&gt;&lt;/i&gt;&lt;/a&gt;
+ 
+&lt;/h2&gt;&lt;p&gt;Ниже скриншот htop, который я буду рассматривать в статье.
+&lt;a href="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" class="popup img-link "&gt;
+ &lt;img src="https://solizarevich.github.io/post/2026-04-24-htop/htop.png" alt="htop"&gt;
+&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
