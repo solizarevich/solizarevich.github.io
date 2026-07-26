@@ -77,3 +77,7 @@ input_position = ""
 lang = ""
 # optional, default to the value of `1`
 reactions_enabled = ""
+
+# Yandex.Metrika counter
+[analytics.yandex]
+id = "111045874"
