@@ -12,6 +12,8 @@ tags:
 
 Однако эта структура не случайна. Большинство Linux-дистрибутивов придерживается общего стандарта организации файловой системы — FHS.
 
+[Презентация](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-07-28-fhs/FHS-Linux.pdf)
+
 ## 1. Стандарт FHS
 
 FHS расшифровывается как **Filesystem Hierarchy Standard** — стандарт иерархии файловой системы.
