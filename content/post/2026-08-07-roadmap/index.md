@@ -1,6 +1,6 @@
 ---
 title:  "DevOps Roadmap: полный путь от Linux до Kubernetes"
-date: 2026-08-7 13:05:00 +0300
+date: 2026-08-07 13:05:00 +0300
 categories:
   - DevOps
 tags:
