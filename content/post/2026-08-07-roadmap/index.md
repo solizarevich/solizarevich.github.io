@@ -14,7 +14,7 @@ tags:
 
 Надеюсь, он поможет вам в этом очень перспективном, но непростом путешествии в DevOps.
 
-[Презентация](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-07-28-fhs/FHS-Linux.pdf)
+[Презентация](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-08-07-roadmap/Roadmap%20Devops.pdf)
 
 Я также хотел сделать маршрут более индивидуальным — в зависимости от того, из какой области вы переходите в DevOps:
 
