@@ -232,7 +232,7 @@ AWS является мощной и широко используемой IaaS-
 * VK Cloud;
 * Selectel;
 * Timeweb Cloud;
-* MWS Cloud Platform. 
+* MWS Cloud Platform и другие...
 
 После освоения одной IaaS-платформы изучать остальные становится намного легче.
 
