@@ -13,7 +13,7 @@ hasCJKLanguage = false
 
 # Pagination settings.
 [pagination]
-  pagerSize = 5
+  pagerSize = 10
 
 # Make sure to include JSON output to support the search functionality.
 [outputs]
