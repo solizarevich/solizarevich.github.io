@@ -10,7 +10,7 @@ tags:
 ---
 
 
-[Команда ethtool в Linux](1.jpeg) позволяет изменять параметры сетевого интерфейса, такие как скорость передачи данных, режим дуплекса и автоопределение.
+[Команда ethtool в Linux]([https://dzen.ru/away?to=https%3A%2F%2Fwww.opennet.ru%2Fman.shtml%3Ftopic%3Dethtool%26category%3D8%26russian%3D0](https://www.opennet.ru/man.shtml?topic=ethtool&category=8&russian=0)) позволяет изменять параметры сетевого интерфейса, такие как скорость передачи данных, режим дуплекса и автоопределение.
 
 Пример команды:
 
