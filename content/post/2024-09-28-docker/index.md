@@ -38,7 +38,7 @@ tags:
     docker stop frontend
 
 
-# Управление контейнерами
+## Управление контейнерами
 
 ### Показать работающие контейнеры
 
@@ -73,7 +73,7 @@ tags:
     docker run -d busybox /bin/sh -c "while true; do sleep 2; done"
 
 
-# Сборка образа
+## Сборка образа
 
 ### На основе Dockerfile в текущей директории
 
@@ -92,7 +92,7 @@ tags:
     docker rmi $(docker images -q -f "dangling=true")
 
 
-# Отладка
+## Отладка
 
 ### Зайти в работающий контейнер
 
@@ -107,7 +107,7 @@ tags:
     docker port c31337
 
 
-# Диски
+## Диски
 
 ### Создать локальный диск
 
@@ -126,7 +126,7 @@ tags:
     docker volume ls
 
 
-# Сети
+## Сети
 
 ### Создать локальную сеть
 
@@ -145,7 +145,7 @@ tags:
     docker network disconnect my-net c31337
 
 
-# Управление Docker Machine
+## Управление Docker Machine
 
 ### Запустить Docker Machine
 
@@ -160,7 +160,7 @@ tags:
     eval "$(docker-machine env machine_name)"
 
 
-# Работа с Dockerfile
+## Работа с Dockerfile
 
 Сборка образа из файла `Dockerfile`, учитывая, что мы находимся
 в папке, где лежит этот файл:
@@ -183,7 +183,7 @@ tags:
 вместе с ключом выводит все контейнеры.
 
 
-# Удаление и экспорт
+## Удаление и экспорт
 
 ### Удалить контейнер
 
@@ -208,7 +208,7 @@ tags:
     sudo docker load -i linux-nginx.img
 
 
-# Запуск контейнера с Bash
+## Запуск контейнера с Bash
 
 Запустить контейнер и открыть в нём `bash`:
 
@@ -228,7 +228,7 @@ tags:
     docker start ID-контейнера
 
 
-# Bash-скрипт для запуска Docker-образа
+## Bash-скрипт для запуска Docker-образа
 
     #!/bin/bash
 
@@ -260,17 +260,17 @@ tags:
 - `5e89f9aa5754` — ID запускаемого образа.
 
 
-# Копирование файлов внутрь контейнера
+## Копирование файлов внутрь контейнера
 
     docker cp some_files.conf docker_container:/home/docker/
 
 
-# Выполнить Bash внутри уже запущенного контейнера
+## Выполнить Bash внутри уже запущенного контейнера
 
     docker exec -it name_of_container /bin/bash
 
 
-# Экспорт и импорт образа
+## Экспорт и импорт образа
 
 Выгрузить образ в файл:
 
@@ -281,7 +281,7 @@ tags:
     docker load --input=file.tar
 
 
-# Загрузка Docker-образа в локальный репозиторий
+## Загрузка Docker-образа в локальный репозиторий
 
 Присвоить тег:
 
@@ -292,28 +292,28 @@ tags:
     docker push [repo_name]:[port]/[name_image]
 
 
-# Установка Docker
+## Установка Docker
 
 ## Linux
 
     curl -sSL https://get.docker.com/ | sh
 
-## Mac
+### Mac
 
 Скачать DMG:
 
     https://download.docker.com/mac/stable/Docker.dmg
 
-## Windows
+### Windows
 
 Использовать MSI-инсталлятор:
 
     https://download.docker.com/win/stable/InstallDocker.msi
 
 
-# Реестры и репозитории Docker
+## Реестры и репозитории Docker
 
-## Вход в реестр
+### Вход в реестр
 
     docker login
 
@@ -321,7 +321,7 @@ tags:
 
     docker login localhost:8080
 
-## Выход из реестра
+### Выход из реестра
 
     docker logout
 
@@ -330,7 +330,7 @@ tags:
     docker logout localhost:8080
 
 
-# Поиск образа
+## Поиск образа
 
     docker search nginx
 
@@ -339,7 +339,7 @@ tags:
     docker search nginx --filter stars=3 --no-trunc busybox
 
 
-# Pull — загрузка образа из реестра
+## Pull — загрузка образа из реестра
 
     docker pull nginx
 
@@ -350,7 +350,7 @@ tags:
     docker pull localhost:5000/myadmin/nginx
 
 
-# Push — загрузка образа в реестр
+## Push — загрузка образа в реестр
 
     docker push eon01/nginx
 
@@ -359,82 +359,82 @@ tags:
     docker push localhost:5000/myadmin/nginx
 
 
-# Первые действия с контейнерами
+## Первые действия с контейнерами
 
-## Создание контейнера
+### Создание контейнера
 
     docker create -t -i eon01/infinite --name infinite
 
-## Первый запуск контейнера
+### Первый запуск контейнера
 
     docker run -it --name infinite -d eon01/infinite
 
 
-# Переименование контейнера
+## Переименование контейнера
 
     docker rename infinite infinity
 
 
-# Удаление контейнера
+## Удаление контейнера
 
     docker rm infinite
 
 
-# Обновление контейнера
+## Обновление контейнера
 
     docker update --cpu-shares 512 -m 300M infinite
 
 
-# Запуск и остановка контейнеров
+## Запуск и остановка контейнеров
 
-## Запуск остановленного контейнера
+### Запуск остановленного контейнера
 
     docker start nginx
 
-## Остановка
+### Остановка
 
     docker stop nginx
 
-## Перезагрузка
+### Перезагрузка
 
     docker restart nginx
 
-## Пауза
+### Пауза
 
 Приостановка всех процессов контейнера:
 
     docker pause nginx
 
-## Снятие паузы
+### Снятие паузы
 
     docker unpause nginx
 
-## Блокировка до остановки контейнера
+### Блокировка до остановки контейнера
 
     docker wait nginx
 
-## Отправка SIGKILL
+### Отправка SIGKILL
 
     docker kill nginx
 
-## Отправка другого сигнала
+### Отправка другого сигнала
 
 Например, `HUP`:
 
     docker kill -s HUP nginx
 
 
-# Подключение к существующему контейнеру
+## Подключение к существующему контейнеру
 
     docker attach nginx
 
 
-# Получение информации о контейнерах
+## Получение информации о контейнерах
 
-## Работающие контейнеры
+### Работающие контейнеры
 
     docker ps
 
-## Все контейнеры
+### Все контейнеры
 
     docker ps -a
