@@ -11,7 +11,7 @@ tags:
 Многие в наше тяжелое время слежения всего и вся хотят немного обезопасить себя от внешнего воздействия. Одним из выходов из этой ситуации является VPN сеть до какой-нибудь VDS. Под катом один из простейших способов создать такую сеть.
 Всё будем поднимать на Debian.
  
- Вводные данные 
+ **Вводные данные** 
  
 test - имя нашего сервера
 192.168.10.254 - "внешний" IP сервера
@@ -22,53 +22,32 @@ test - имя нашего сервера
 192.168.11.0/24 - "внутренняя" сеть клиента
 user - пользователь, который сможет забрать ключи и конфиги с сервера
  
-Некоторые параметры конфигов
+**Некоторые параметры конфигов**
 
     mode — режим работы впн
-
     proto — протокол передачи данных
-
     port — порт на котором работает впн
-
     tls-server — включение TLS режима авторизации
-
     dev — имя сетевого интерфейса
-
     daemon — режим работы
-
     tls-auth, ca, cert, key, dh — путь к соответствующим ключам
-
     ifconfig — IP адрес интерфейса, описанного dev
-
     ifconfig-pool — пул адресов клиентов
-
     route — описание маршрутов
-
     verb — уровень отладки
-
     cipher — тип шифрования сети
-
     persist-key — запрет перечитывания ключей через SIGUSR1
-
     log — файл лога
-
     comp-lzo — использование сжатия LZO
-
     client-to-client — режим, при котором клиенты видят друг друга
-
     client-config-dir — указание директории, в которой находятся описания клиентов
-
     status — указание пути к логу состояния
-
-
     tls-client — tls режим авторизации клиента
      remote — внешний адрес сервера OpenVPN
      pull — опция для клиента, который подключается к серверу с многими клиентами
      auth-retry — описание реагирования клиента на различные ошибки
 
-Подготовимся
- 
-Установим софт
+**Установим софт**
  
  apt update && apt install openvpn easy-rsa
  
@@ -97,25 +76,29 @@ user - пользователь, который сможет забрать кл
 
 Генерируем ключи
  
- source ./vars
-./clean-all
-./build-ca
-./build-dh
-./build-key-server servername
+
+     source ./vars
+    ./clean-all
+    ./build-ca
+    ./build-dh
+    ./build-key-server servername
+
  
  nano /etc/openvpn/scr/keys/index.txt.attr
 
     unique_subject = no
 
-Создадим TLS-auth ключ
+**Создадим TLS-auth ключ**
  
- openvpn --genkey --secret auth.key
+
+     openvpn --genkey --secret auth.key
+
  
 Переносим данные ключи в папку с ключами сервера, например, в /etc/openvpn/keys/test-serv/
 
     auth.key  ca.crt  dh2048.pem  test-serv.crt  test-serv.key
 
-Создадим конфиг сервера 
+**Создадим конфиг сервера** 
  
  nano /etc/openvpn/conf/test-serv.conf
 
@@ -143,13 +126,13 @@ user - пользователь, который сможет забрать кл
     client-config-dir /etc/openvpn/hosts
     status /var/log/ovpn-srv-status.log
 
-Сделаем симлинк конфига 
+**Сделаем симлинк конфига** 
  
  ln -s /etc/openvpn/conf/test-serv.conf /etc/openvpn/
  
  Для клиентской части
  
-Для удобства генерации ключей и конфигов сдеалем следующее:
+Для удобства генерации ключей и конфигов сделаем следующее:
  
  mkdir -p /etc/openvpn/clean/keys/test
  
@@ -175,7 +158,7 @@ cp /etc/openvpn/scr/keys/auth.key /etc/openvpn/clean/keys/test
 cp /etc/openvpn/scr/keys/ca.crt /etc/openvpn/clean/keys/test
 cp /etc/openvpn/scr/keys/dh2048.pem /etc/openvpn/clean/keys/test
  
- Скрипт автоматической генерации ключей
+ **Скрипт автоматической генерации ключей**
  
  nano /usr/local/bin/add-vpn.sh
 
@@ -236,3 +219,4 @@ cp /etc/openvpn/scr/keys/dh2048.pem /etc/openvpn/clean/keys/test
 Дальше добавляем все это дело в автозагрузку любым удобным вам способом
  
 Хочу заметить, что IP адреса брались наугад, поэтому подставляйте свои
+
