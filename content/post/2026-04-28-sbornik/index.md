@@ -7,6 +7,7 @@ categories:
 tags:
   - linux
   - devops
+  - обучение
 pin: true
 ---
 
