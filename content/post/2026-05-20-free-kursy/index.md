@@ -1,6 +1,8 @@
 ---
 title: Бесплатные курсы для обучения Linux, DevOps, компьютерным сетям, Python
 date: 2026-05-20 20:20:00 +0300
+categories:
+  - Обучение
 tags:
   - linux
   - devops
