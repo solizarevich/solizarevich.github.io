@@ -6,6 +6,7 @@ tags:
   - devops
   - network
   - python
+  - обучение
 pin: true
 ---
 
