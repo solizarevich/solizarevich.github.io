@@ -1,0 +1,195 @@
+<!doctype html><head><link rel=stylesheet href=https://solizarevich.github.io/css/main.min.4dc54a0bc54c79ec121969c5a643184c4ac85d0a5ec8b0715c1520e0b48b5fcb.css></head><html lang=ru-ru><head><meta charset=utf-8><meta name=theme-color media="(prefers-color-scheme: light)" content="#f7f7f7"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#1b1b1e"><meta name=mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="black-translucent"><meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"><meta property="og:url" content="https://solizarevich.github.io/post/2024-12-02-openvpn/"><meta property="og:site_name" content="Linux | Network | DevOps"><meta property="og:title" content="Простой способ создать OpenVPN сеть"><meta property="og:description" content="Многие в наше тяжелое время слежения всего и вся хотят немного обезопасить себя от внешнего воздействия. Одним из выходов из этой ситуации является VPN сеть до какой-нибудь VDS. Под катом один из простейших способов создать такую сеть. Всё будем поднимать на Debian.
+Вводные данные
+test - имя нашего сервера 192.168.10.254 - “внешний” IP сервера 192.168.1.254 - “внутренний” IP сервера 192.168.1.0/24 - “внутрення” сеть сервера 192.168.2.254 - OpenVPN адрес сервера 192.168.2.0/24 - OpenVPN сеть 192.168.11.0/24 - “внутренняя” сеть клиента user - пользователь, который сможет забрать ключи и конфиги с сервера"><meta property="og:locale" content="ru_ru"><meta property="og:type" content="article"><meta property="article:section" content="post"><meta property="article:published_time" content="2024-12-02T11:20:00+03:00"><meta property="article:modified_time" content="2024-12-02T11:20:00+03:00"><meta property="article:tag" content="Vpn"><meta property="article:tag" content="Network"><meta name=twitter:card content="summary"><meta name=twitter:title content="Простой способ создать OpenVPN сеть"><meta name=twitter:description content="Многие в наше тяжелое время слежения всего и вся хотят немного обезопасить себя от внешнего воздействия. Одним из выходов из этой ситуации является VPN сеть до какой-нибудь VDS. Под катом один из простейших способов создать такую сеть. Всё будем поднимать на Debian.
+Вводные данные
+test - имя нашего сервера 192.168.10.254 - “внешний” IP сервера 192.168.1.254 - “внутренний” IP сервера 192.168.1.0/24 - “внутрення” сеть сервера 192.168.2.254 - OpenVPN адрес сервера 192.168.2.0/24 - OpenVPN сеть 192.168.11.0/24 - “внутренняя” сеть клиента user - пользователь, который сможет забрать ключи и конфиги с сервера"><meta itemprop=name content="Простой способ создать OpenVPN сеть"><meta itemprop=description content="Многие в наше тяжелое время слежения всего и вся хотят немного обезопасить себя от внешнего воздействия. Одним из выходов из этой ситуации является VPN сеть до какой-нибудь VDS. Под катом один из простейших способов создать такую сеть. Всё будем поднимать на Debian.
+Вводные данные
+test - имя нашего сервера 192.168.10.254 - “внешний” IP сервера 192.168.1.254 - “внутренний” IP сервера 192.168.1.0/24 - “внутрення” сеть сервера 192.168.2.254 - OpenVPN адрес сервера 192.168.2.0/24 - OpenVPN сеть 192.168.11.0/24 - “внутренняя” сеть клиента user - пользователь, который сможет забрать ключи и конфиги с сервера"><meta itemprop=datePublished content="2024-12-02T11:20:00+03:00"><meta itemprop=dateModified content="2024-12-02T11:20:00+03:00"><meta itemprop=wordCount content="655"><meta itemprop=keywords content="Vpn,Network"><title>Простой способ создать OpenVPN сеть |
+Linux | Network | DevOps</title><link rel=apple-touch-icon sizes=180x180 href=/img/favicons/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/img/favicons/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/img/favicons/favicon-16x16.png><link rel="shortcut icon" href=/img/favicons/favicon.ico><meta name=apple-mobile-web-app-title content="Linux | Network | DevOps"><meta name=application-name content="Linux | Network | DevOps"><meta name=msapplication-TileColor content="#da532c"><meta name=msapplication-config content="/img/favicons/browserconfig.xml"><meta name=theme-color content="#ffffff"><link rel=preconnect href=https://fonts.googleapis.com><link rel=dns-prefetch href=https://fonts.googleapis.com><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=dns-prefetch href=https://fonts.gstatic.com><link rel=preconnect href=https://cdn.jsdelivr.net><link rel=dns-prefetch href=https://cdn.jsdelivr.net><link rel=stylesheet href=https://solizarevich.github.io/css/main.min.4dc54a0bc54c79ec121969c5a643184c4ac85d0a5ec8b0715c1520e0b48b5fcb.css><link rel=stylesheet href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&amp;family=Source+Sans+Pro:wght@400;600;700;900&amp;display=swap"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.1/css/all.min.css><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tocbot@4.32.2/dist/tocbot.min.css><link rel=stylesheet href=/><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css><script src=/js/modules/theme.js></script><script src=https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js></script><script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/dayjs.min.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/locale/ru-ru.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/relativeTime.js></script><script src=https://cdn.jsdelivr.net/npm/dayjs@1.11.13/plugin/localizedFormat.js></script><script defer src=/js/post.js></script><script type=text/javascript>(function(e,t,n,s,o,i,a){e[o]=e[o]||function(){(e[o].a=e[o].a||[]).push(arguments)},e[o].l=1*new Date;for(var r=0;r<document.scripts.length;r++)if(document.scripts[r].src===s)return;i=t.createElement(n),a=t.getElementsByTagName(n)[0],i.async=1,i.src=s,a.parentNode.insertBefore(i,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js?id=111045874","ym"),ym(111045874,"init",{ssr:!0,webvisor:!0,clickmap:!0,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:!0,trackLinks:!0})</script></head><body><aside aria-label=Sidebar id=sidebar class="d-flex flex-column align-items-end"><header class=profile-wrapper><a href=/ id=avatar class=rounded-circle><img src=/img/commons/avatar.jpg width=112 height=112 alt=avatar onerror='this.style.display="none"'></a>
+<a class="site-title d-block" href=/>Linux | Network | DevOps</a><p class="site-subtitle fst-italic mb-0">Авторский сайт для тех кто изучает Linux, Network, DevOps, NetDevOps, DevNet, Bash, Git, CI/CD, Docker, Kubernetes, Ansible, Terraform, Prometheus, Grafana, Zabbix</p></header><nav class="flex-column flex-grow-1 w-100 ps-0"><ul class=nav><li class=nav-item><a href=/ class=nav-link><i class="fa-fw fas fa-house"></i>
+<span>ГЛАВНАЯ</span></a></li><li class=nav-item><a href=/categories/ class=nav-link><i class="fa-fw fas fa-stream"></i>
+<span>КАТЕГОРИИ</span></a></li><li class=nav-item><a href=/tags/ class=nav-link><i class="fa-fw fas fa-tags"></i>
+<span>ТЕГИ</span></a></li><li class=nav-item><a href=/archives/ class=nav-link><i class="fa-fw fas fa-archive"></i>
+<span>АРХИВ</span></a></li><li class=nav-item><a href=/about/ class=nav-link><i class="fa-fw fas fa-info-circle"></i>
+<span>О САЙТЕ</span></a></li></ul></nav><div class="sidebar-bottom d-flex flex-wrap align-items-center w-100"><button type=button class="btn btn-link nav-link" aria-label="Switch Mode" id=mode-toggle>
+<i class="fas fa-adjust"></i>
+</button>
+<span class=icon-border></span>
+<a href=https://github.com/solizarevich aria-label=github target=_blank rel="noopener noreferrer"><i class="fab fa-github"></i>
+</a><a href=https://t.me/linautonet aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i>
+</a><a href=https://vk.com/linautonet aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-vk"></i>
+</a><a href=https://youtube.com/@solizarevich aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-youtube"></i>
+</a><a href=https://rutube.ru/channel/25269092/ aria-label target=_blank rel="noopener noreferrer"><i class="fas fa-registered"></i>
+</a><a href=https://boosty.to/solizarevich aria-label target=_blank rel="noopener noreferrer"><i class="fab fa-blogger"></i>
+</a><a href=https://solizarevich.github.io/index.xml aria-label=rss><i class="fas fa-rss"></i></a></div></aside><div id=main-wrapper class="d-flex justify-content-center"><div class="container d-flex flex-column px-xxl-5"><header id=topbar-wrapper class=flex-shrink-0 aria-label="Top Bar"><div id=topbar class="d-flex align-items-center justify-content-between px-lg-3 h-100"><nav id=breadcrumb aria-label=Breadcrumb><span><a href=/>Главная</a>
+</span><span>Простой способ создать OpenVPN сеть</span></nav><button type=button id=sidebar-trigger class="btn btn-link" aria-label=Sidebar>
+<i class="fas fa-bars fa-fw"></i></button><div id=topbar-title>Простой способ создать OpenVPN сеть</div><button type=button id=search-trigger class="btn btn-link" aria-label=Search>
+<i class="fas fa-search fa-fw"></i>
+</button>
+<search id=search class="align-items-center ms-3 ms-lg-0"><i class="fas fa-search fa-fw"></i>
+<input class=form-control id=search-input type=search aria-label=search autocomplete=off placeholder=Поиск...>
+</search><button type=button class="btn btn-link text-decoration-none" id=search-cancel>Отмена</button></div></header><div class="row flex-grow-1"><main aria-label="Main Content" class="col-12 col-lg-11 col-xl-9 px-md-4"><article class=px-1 data-toc=false><header><h1 data-toc-skip>Простой способ создать OpenVPN сеть</h1><div class="post-meta text-muted"><span>Опубликовано
+<time data-ts=1733127600 data-df=DD.MM.YYYY data-bs-toggle=tooltip data-bs-placement=bottom>%d.%m.%Y</time></span><div class="d-flex justify-content-between"><span>Автор
+<em></em></span><div><span class=readtime data-bs-toggle=tooltip data-bs-placement=bottom title="536 слов"><em>2 мин.</em> чтения</span></div></div></div></header><div class=content><p>Многие в наше тяжелое время слежения всего и вся хотят немного обезопасить себя от внешнего воздействия. Одним из выходов из этой ситуации является VPN сеть до какой-нибудь VDS. Под катом один из простейших способов создать такую сеть.
+Всё будем поднимать на Debian.</p><p><strong>Вводные данные</strong></p><p>test - имя нашего сервера
+192.168.10.254 - &ldquo;внешний&rdquo; IP сервера
+192.168.1.254 - &ldquo;внутренний&rdquo; IP сервера
+192.168.1.0/24 - &ldquo;внутрення&rdquo; сеть сервера
+192.168.2.254 - OpenVPN адрес сервера
+192.168.2.0/24 - OpenVPN сеть
+192.168.11.0/24 - &ldquo;внутренняя&rdquo; сеть клиента
+user - пользователь, который сможет забрать ключи и конфиги с сервера</p><p><strong>Некоторые параметры конфигов</strong></p><pre><code>mode — режим работы впн
+proto — протокол передачи данных
+port — порт на котором работает впн
+tls-server — включение TLS режима авторизации
+dev — имя сетевого интерфейса
+daemon — режим работы
+tls-auth, ca, cert, key, dh — путь к соответствующим ключам
+ifconfig — IP адрес интерфейса, описанного dev
+ifconfig-pool — пул адресов клиентов
+route — описание маршрутов
+verb — уровень отладки
+cipher — тип шифрования сети
+persist-key — запрет перечитывания ключей через SIGUSR1
+log — файл лога
+comp-lzo — использование сжатия LZO
+client-to-client — режим, при котором клиенты видят друг друга
+client-config-dir — указание директории, в которой находятся описания клиентов
+status — указание пути к логу состояния
+tls-client — tls режим авторизации клиента
+ remote — внешний адрес сервера OpenVPN
+ pull — опция для клиента, который подключается к серверу с многими клиентами
+ auth-retry — описание реагирования клиента на различные ошибки
+</code></pre><p><strong>Установим софт</strong></p><p>apt update && apt install openvpn easy-rsa</p><p>Создадим необходимые каталоги</p><p>mkdir /etc/openvpn/{keys,conf,scr,clean,hosts}</p><p>Скопируем RSA ключи</p><p>cp -r /usr/share/easy-rsa/* /etc/openvpn/scr/</p><p>Приступим к серверной части</p><p>cd /etc/openvpn/scr/</p><p>Изменим необходимые строки на ваши данные</p><p>nano vars</p><pre><code>export KEY_COUNTRY=&quot;RU&quot; 
+export KEY_PROVINCE=&quot;Kirov Region&quot; 
+export KEY_CITY=&quot;Kirov&quot; 
+export KEY_ORG=&quot;Interra Ltd.&quot; 
+export KEY_EMAIL=&quot;info@interra.com.ru&quot;
+#export KEY_OU=&quot;MyOrganizationalUnit&quot;
+</code></pre><p>Генерируем ключи</p><pre><code> source ./vars
+./clean-all
+./build-ca
+./build-dh
+./build-key-server servername
+</code></pre><p>nano /etc/openvpn/scr/keys/index.txt.attr</p><pre><code>unique_subject = no
+</code></pre><p><strong>Создадим TLS-auth ключ</strong></p><pre><code> openvpn --genkey --secret auth.key
+</code></pre><p>Переносим данные ключи в папку с ключами сервера, например, в /etc/openvpn/keys/test-serv/</p><pre><code>auth.key  ca.crt  dh2048.pem  test-serv.crt  test-serv.key
+</code></pre><p><strong>Создадим конфиг сервера</strong></p><p>nano /etc/openvpn/conf/test-serv.conf</p><pre><code>mode server
+tls-server
+proto udp
+dev tap100
+port 1202
+daemon
+tls-auth /etc/openvpn/keys/test-serv/auth.key 0
+ca /etc/openvpn/keys/test-serv/ca.crt
+cert /etc/openvpn/keys/test-serv/test-serv.crt
+key /etc/openvpn/keys/test-serv/test-serv.key
+dh /etc/openvpn/keys/test-serv/dh2048.pem
+ifconfig 192.168.2.254 255.255.255.0
+ifconfig-pool 192.168.2.1 192.168.2.100
+route 192.168.11.0 255.255.255.0 192.168.2.1
+verb 3
+cipher DES-EDE3-CBC
+persist-key
+log /var/log/ovpn-srv.log
+comp-lzo
+keepalive 20 70
+client-to-client
+client-config-dir /etc/openvpn/hosts
+status /var/log/ovpn-srv-status.log
+</code></pre><p><strong>Сделаем симлинк конфига</strong></p><p>ln -s /etc/openvpn/conf/test-serv.conf /etc/openvpn/</p><p>Для клиентской части</p><p>Для удобства генерации ключей и конфигов сделаем следующее:</p><p>mkdir -p /etc/openvpn/clean/keys/test</p><p>nano /etc/openvpn/clean/clean.conf</p><pre><code>tls-client
+proto udp
+remote 192.168.10.254   #внешний адрес нашего сервера
+dev tap10
+port 1202
+pull
+tls-auth /etc/openvpn/keys/test/auth.key 1
+ca /etc/openvpn/keys/test/ca.crt
+cert /etc/openvpn/keys/test/clean-test.crt
+key /etc/openvpn/keys/test/clean-test.key
+cipher DES-EDE3-CBC
+comp-lzo
+route 192.168.1.0 255.255.255.0 192.168.2.254
+log /var/log/ovpn-test.log
+auth-retry nointeract
+</code></pre><p>cp /etc/openvpn/scr/keys/auth.key /etc/openvpn/clean/keys/test
+cp /etc/openvpn/scr/keys/ca.crt /etc/openvpn/clean/keys/test
+cp /etc/openvpn/scr/keys/dh2048.pem /etc/openvpn/clean/keys/test</p><p><strong>Скрипт автоматической генерации ключей</strong></p><p>nano /usr/local/bin/add-vpn.sh</p><pre><code>#!/bin/bash
+ 
+# globals
+COLOR_WHITE='\e[1;37m'
+COLOR_GREEN='\e[1;33m'
+COLOR_END='\e[0m'
+ 
+PROMPT=$COLOR&quot;&gt;&gt; &quot;$COLOR_END
+ 
+CLEAN_DIR=/etc/openvpn/clean
+CONF_FILE=/etc/openvpn/clean/clean.conf
+KEYS_DIR=/etc/openvpn/clean/keys/test
+SRC_DIR=/etc/openvpn/scr
+TMP_DIR=`mktemp -d`
+EDITOR=nano
+
+echo 'Files will be stored in $TMP_DIR'
+cp -r &quot;$CLEAN_DIR&quot;/keys &quot;$TMP_DIR&quot;/keys
+# beautiful functions
+read_colored() {
+    # args: text_prompt, variable
+    echo -e $1
+    echo -e -n $COLOR_WHITE'&gt;&gt; '
+    read $2
+    echo -e -n $COLOR_END
+}
+echo 'What the hostname is?'
+read_colored &quot;Key name will be $COLOR_GREEN&lt;hostname&gt;-test$COLOR_END&quot; HOSTNAME
+HOSTNAMECT=$HOSTNAME-test
+cd &quot;$SRC_DIR&quot;
+source ./vars
+./build-key $HOSTNAMECT
+cp &quot;$SRC_DIR&quot;/keys/$HOSTNAMECT.* &quot;$TMP_DIR&quot;/keys/test
+cat &quot;$CONF_FILE&quot; | sed &quot;s/clean-test/$HOSTNAMECT/&quot; &gt; &quot;$TMP_DIR&quot;/$HOSTNAMECT.conf
+#$EDITOR /etc/dnsmasq.hosts
+#/etc/init.d/dnsmasq restart
+echo 'ifconfig-push 192.168.2.XXX 255.255.255.0' &gt; /etc/openvpn/hosts/$HOSTNAMECT
+$EDITOR /etc/openvpn/hosts/$HOSTNAMECT
+chown user:user $TMP_DIR -R
+mv $TMP_DIR /tmp/openvpn-$HOSTNAME
+echo -e &quot;Your files available in $COLOR_WHITE/tmp/openvpn-$HOSTNAME$COLOR_END&quot;
+</code></pre><p>Меняете user на своего пользователя, которому нужно будет забирать ключи</p><p>Строка EDITOR=nano указывает на то, каким редактором будут открываться конфиги, которые нужно поправить</p><p>Если хотите резолвить имена ВПН, то воспользуйтесь, например, dnsmasq и раскомментируйте строку #$EDITOR /etc/dnsmasq.hosts с введением соответствующего конфига в /etc/dnsmasq.conf (addn-hosts=/etc/dnsmasq.hosts)</p><p>chmod 777 /usr/local/bin/add-vpn.sh</p><p>Запускаете скрипт, соглашаясь со всем, что вам предложат (не забудьте нажать &ldquo;y&rdquo;, когда будет предложено, иначе не будут сгенерированны ключи)</p><p>После выполнения скрипта, все файлы, необходимые для впн, будут лежать в /tmp, их желательно запаковать и отправить на клиентскую машинку</p><p>Дальше добавляем все это дело в автозагрузку любым удобным вам способом</p><p>Хочу заметить, что IP адреса брались наугад, поэтому подставляйте свои</p></div><div class="post-tail-wrapper text-muted"><div class="post-meta mb-3"><i class="far fa-folder-open fa-fw me-1"></i>
+<a href=/categories/network/>Network</a></div><div class=post-tags><i class="fa fa-tags fa-fw me-1"></i>
+<a href=/tags/vpn/ class="post-tag no-text-decoration">vpn</a>
+<a href=/tags/network/ class="post-tag no-text-decoration">network</a></div><div class="post-tail-bottom d-flex justify-content-between align-items-center mt-5 pb-2"><div class=license-wrapper>Авторский пост защищен лицензией <a href=https://creativecommons.org/licenses/by/4.0/>CC BY 4.0</a>.</div></div></div></article></main><aside aria-label=Panel id=panel-wrapper class="col-xl-3 ps-2 text-muted"><div class=access><section id=access-lastmod><h2 class=panel-heading>Недавно обновлено</h2><ul class="content list-unstyled ps-0 pb-1 ms-1 mt-2"><li class="text-truncate lh-lg"><a href=/post/2026-09-03-victoria/>Как VictoriaLogs хранит логи</a></li><li class="text-truncate lh-lg"><a href=/post/2026-09-01-study/>Как учиться быстрее и эффективнее</a></li><li class="text-truncate lh-lg"><a href=/post/2026-08-14-dump/>Как снять дамп на маршрутизаторах Huawei</a></li><li class="text-truncate lh-lg"><a href=/post/2026-08-07-roadmap/>DevOps Roadmap: полный путь от Linux до Kubernetes</a></li><li class="text-truncate lh-lg"><a href=/post/2026-07-28-fhs/>Файловая система Linux: стандарт FHS</a></li></ul></section><section><h2 class=panel-heading>Популярные теги</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"><a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/devops/>devops</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/docker/>docker</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/dump/>dump</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/ethtool/>ethtool</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/htop/>htop</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/huawei/>huawei</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/linux/>linux</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/logs/>logs</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/network/>network</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/ospf/>ospf</a></div></section></div></aside></div><div class=row><div id=tail-wrapper class="col-12 col-lg-11 col-xl-9 px-md-4"><aside id=related-posts aria-labelledby=related-label><h3 class=mb-4 id=related-label>Похожие посты</h3><nav class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mb-4"><article class=col><a href=/post/2024-09-28-ospf/ class="post-preview card h-100"><div class=card-body><time data-ts=1727526840 data-df=DD.MM.YYYY>%d.%m.%Y</time><h4 class="pt-0 my-2">Немного теории: типы OSPF-областей и их связи между собой</h4><div class=text-muted><p>Разбираться в типах областей будем на примере схемы, указанной выше. У нас есть 5 OSPF-областей и 11 маршрутизаторов. Все маршрутизаторы соединены между собой по протоколу OSPF, за исключением …</p></div></div></a></article><article class=col><a href=/post/2024-09-29-ospf-dr-bdr/ class="post-preview card h-100"><div class=card-body><time data-ts=1727619240 data-df=DD.MM.YYYY>%d.%m.%Y</time><h4 class="pt-0 my-2">OSPF: все о DR и BDR</h4><div class=text-muted><p>&amp;lt;span class=&amp;quot;me-2&amp;quot;&amp;gt;Немного теории&amp;lt;/span&amp;gt; &amp;lt;a href=&amp;quot;#%d0%bd%d0%b5%d0%bc%d0%bd%d0%be%d0%b3%d0%be-%d1%82%d0%b5%d0%be%d1%80%d0%b8%d0%b8&amp;quot; class=&amp;quot;anchor …</p></div></div></a></article><article class=col><a href=/post/2024-09-30-ospf-abr-asbr/ class="post-preview card h-100"><div class=card-body><time data-ts=1727681220 data-df=DD.MM.YYYY>%d.%m.%Y</time><h4 class="pt-0 my-2">Настройка ABR и ASBR</h4><div class=text-muted><p>Топология сети: Схема данной статьи аналогична предыдущей, за исключением интерфейса E0/0 на R2. Он участвует в процессе маршрутизации EIGRP 100. Итак, интерфейсы на маршрутизаторах настроены в …</p></div></div></a></article></nav></aside><nav class="post-navigation d-flex justify-content-between" aria-label="Post Navigation"><a href=/post/2024-10-03-ospf-manyarea/ class="btn btn-outline-primary" aria-label="Предыдущий пост"><p>Настройка OSPF для нескольких областей</p></a><a href=/post/2026-04-24-htop/ class="btn btn-outline-primary" aria-label="Следующий пост"><p>Как читать htop и не пугаться всех этих цифр</p></a></nav><footer aria-label="Site Info" class="d-flex flex-column justify-content-center text-muted
+flex-lg-row justify-content-lg-between align-items-lg-center pb-lg-3"><p>©
+<time>2026</time>
+<a href=https://github.com/solizarevich>solizarevich</a>.
+<span data-bs-toggle=tooltip data-bs-placement=top title="Если не указано иное, авторские посты на этом сайте защищены лицензией Creative Commons Attribution 4.0 International (CC BY 4.0).">Некоторые права защищены.</span></p><p>Использует тему <a data-bs-toggle=tooltip data-bs-placement=top title=v1.0.2 href=https://github.com/geekifan/hugo-theme-chirpy target=_blank rel=noopener>Chirpy</a> для <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a></p></footer></div></div><div id=search-result-wrapper class="d-flex justify-content-center d-none"><div class="col-11 content"><div id=search-hints><section><h2 class=panel-heading>Популярные теги</h2><div class="d-flex flex-wrap mt-3 mb-1 me-3"><a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/devops/>devops</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/docker/>docker</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/dump/>dump</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/ethtool/>ethtool</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/htop/>htop</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/huawei/>huawei</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/linux/>linux</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/logs/>logs</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/network/>network</a>
+<a class="post-tag btn btn-outline-primary" href=https://solizarevich.github.io/tags/ospf/>ospf</a></div></section></div><div id=search-results class="d-flex flex-wrap justify-content-center text-muted mt-3"></div></div></div><script>const DEFAULT_CONFIG={search:{minChars:1,maxResults:5,fields:{title:!0,description:!0,section:!0,contents:!0},strictMode:!0}};class FastSearch{constructor({searchInput:e,resultsContainer:t,json:n,searchResultTemplate:s=null,noResultsText:o=null}){this.searchInput=e,this.resultsContainer=t,this.json=n,this.searchResultTemplate=s,this.noResultsText=o,this.init()}init(){this.loadSearchIndex(),this.searchInput.addEventListener("input",e=>{if(!this.searchIndex){this.resultsContainer.innerHTML='<li class="search-message">Loading search index...</li>';return}this.performSearch(this.searchInput.value)})}async loadSearchIndex(){try{const e=await fetch(this.json);if(!e.ok)throw new Error("Failed to load search index");const t=await e.json();this.searchIndex=t.map(e=>({...e,searchableTitle:e.title?.toLowerCase()||"",searchableDesc:e.desc?.toLowerCase()||"",searchableSection:e.section?.toLowerCase()||"",searchableContents:e.contents?.toLowerCase()||""}))}catch(e){console.error("Error loading search index:",e),this.resultsContainer.innerHTML='<li class="search-message">Error loading search index...</li>'}}escapeHtml(e){return e?e.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"):""}containsTerm(e,t){return!!e&&!!t&&e.includes(t)}performSearch(e){if(e=e.toLowerCase().trim(),!e||!this.searchIndex||e.length<DEFAULT_CONFIG.search.minChars){this.resultsContainer.innerHTML="";return}const s=[e,...e.split(/\s+/).filter(e=>e.length>0)],t=[...new Set(s)],o=DEFAULT_CONFIG.search.strictMode,n=this.searchIndex.map(e=>{const s=this.checkFieldsForMatch(e,t[0]);if(o&&!s)return{item:e,score:0,matched:!1};let n=0,i=0,a=!1;t.forEach((t,s)=>{const r=s===0,o=this.checkFieldsForMatch(e,t);o&&(i++,o.inTitle&&(n+=r?10:5,a=!0),o.inDesc&&(n+=r?8:4),o.inSection&&(n+=r?6:3),o.inContents&&(n+=r?4:2))});const r=i/t.length,c=n*r*(a?1.5:1);return{item:e,score:c,matched:s}}).filter(e=>e.matched).sort((e,t)=>t.score-e.score).slice(0,DEFAULT_CONFIG.search.maxResults).map(e=>e.item);if(n.length===0){this.resultsContainer.innerHTML='<p class="mt-5">Упс! Ничего не найдено.</p>';return}const i=n.map(e=>{let t="",n="";return e.categories&&(t=e.categories.join(", "),t=`<div class="me-sm-4"><i class="far fa-folder fa-fw"></i>${t}</div>`),e.tags&&(n=e.tags.join(", "),n=`<div><i class="fa fa-tag fa-fw"></i>${n}</div>`),`
+        <article class="px-1 px-sm-2 px-lg-4 px-xl-0">
+          <header>
+            <h2><a href="${this.escapeHtml(e.permalink)}">${this.escapeHtml(e.title)}</a></h2>
+            <div class="post-meta d-flex flex-column flex-sm-row text-muted mt-1 mb-1">
+              ${t}
+              ${n}
+            </div>
+          </header>
+          <p>${this.escapeHtml(e.contents)}</p>
+        </article>
+      `}).join("");this.resultsContainer.innerHTML=i}checkFieldsForMatch(e,t){const n={inTitle:!1,inDesc:!1,inSection:!1,inContents:!1};return DEFAULT_CONFIG.search.fields.title&&this.containsTerm(e.searchableTitle,t)&&(n.inTitle=!0),DEFAULT_CONFIG.search.fields.description&&this.containsTerm(e.searchableDesc,t)&&(n.inDesc=!0),DEFAULT_CONFIG.search.fields.section&&this.containsTerm(e.searchableSection,t)&&(n.inSection=!0),DEFAULT_CONFIG.search.fields.contents&&this.containsTerm(e.searchableContents,t)&&(n.inContents=!0),!!(n.inTitle||n.inDesc||n.inSection||n.inContents)&&n}}const search=new FastSearch({searchInput:document.getElementById("search-input"),resultsContainer:document.getElementById("search-results"),json:`/index.json`})</script></div><aside aria-label="Scroll to Top"><button id=back-to-top type=button class="btn btn-lg btn-box-shadow">
+<i class="fas fa-angle-up"></i></button></aside></div><div id=mask class="d-none position-fixed w-100 h-100 z-1"></div></body></html>
