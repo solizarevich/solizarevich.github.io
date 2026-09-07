@@ -738,7 +738,7 @@ man tar
 
 <iframe src="https://vkvideo.ru/video_ext.php?oid=-234521173&id=456239969&hash=30adb8bb26971edb&hd=4" width="100%" height="450" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
 
-
+<iframe width="100%" height="405" src="https://rutube.ru/play/embed/1c365724803d75bad03c34485a226742/" style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
 
 {{< youtube id="q_BEG7ofHis" >}}
 
