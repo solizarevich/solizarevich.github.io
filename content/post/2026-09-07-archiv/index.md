@@ -734,6 +734,175 @@ man tar
 
 ---
 
+## Тест форматов
+
+Можно просто скопировать:
+
+```bash
+echo "=== COMPRESSION ==="
+
+/usr/bin/time -f 'gzip: %e sec' \
+  sh -c 'gzip -c DevOps.mp4 > DevOps.mp4.gz'
+
+/usr/bin/time -f 'xz: %e sec' \
+  sh -c 'xz -c DevOps.mp4 > DevOps.mp4.xz'
+
+/usr/bin/time -f 'zstd: %e sec' \
+  sh -c 'zstd -c DevOps.mp4 > DevOps.mp4.zst'
+
+/usr/bin/time -f '7z: %e sec' \
+  7z a -t7z DevOps.mp4.7z DevOps.mp4
+
+
+echo
+echo "=== SIZE ==="
+
+ls -lh \
+  DevOps.mp4 \
+  DevOps.mp4.gz \
+  DevOps.mp4.xz \
+  DevOps.mp4.zst \
+  DevOps.mp4.7z
+
+
+echo
+echo "=== DECOMPRESSION ==="
+
+/usr/bin/time -f 'gzip: %e sec' \
+  sh -c 'gzip -dc DevOps.mp4.gz > /dev/null'
+
+/usr/bin/time -f 'xz: %e sec' \
+  sh -c 'xz -dc DevOps.mp4.xz > /dev/null'
+
+/usr/bin/time -f 'zstd: %e sec' \
+  sh -c 'zstd -dc DevOps.mp4.zst > /dev/null'
+
+/usr/bin/time -f '7z: %e sec' \
+  sh -c '7z x -so DevOps.mp4.7z > /dev/null'
+```
+
+Получился очень наглядный тест. На файле`DevOps.mp4` **zstd явно выигрывает по скорости**, а `xz/7z` — по размеру.
+
+| Формат   |     Сжатие | Распаковка |  Размер | Скорость сжатия* |
+| -------- | ---------: | ---------: | ------: | ---------------: |
+| **zstd** | **0.25 c** | **0.04 c** |     18M |        ~113 MB/s |
+| gzip     |     1.00 c |     0.17 c |     25M |         ~28 MB/s |
+| 7z       |     3.29 c |     1.04 c | **17M** |        ~8.6 MB/s |
+| xz       |    10.12 c |     1.18 c | **17M** |        ~2.8 MB/s |
+
+* Исходный файл: `28,228,463` байт.
+
+### По скорости сжатия
+
+`zstd`:
+
+```text
+0.25 sec
+```
+
+оказался примерно:
+
+* **4× быстрее gzip**
+* **13× быстрее 7z**
+* **40× быстрее xz**
+
+Причём размер получился всего около `1M` больше, чем у `xz/7z`.
+
+### По скорости распаковки
+
+Здесь разница ещё заметнее:
+
+```text
+zstd   0.04 sec
+gzip   0.17 sec
+7z     1.04 sec
+xz     1.18 sec
+```
+
+То есть `zstd` распаковывается примерно:
+
+* **4.3× быстрее gzip**
+* **26× быстрее 7z**
+* **30× быстрее xz**
+
+Эффективная скорость распаковки исходных 28.2 MB:
+
+```text
+zstd  ≈ 706 MB/s
+gzip  ≈ 166 MB/s
+7z    ≈ 27 MB/s
+xz    ≈ 24 MB/s
+```
+
+### По размеру
+
+Получилось:
+
+```text
+Original    27M
+gzip        25M
+zstd        18M
+xz          17M
+7z          17M
+```
+
+Очень интересный результат именно для MP4: `gzip` почти ничего не дал, а `xz`, `7z` и `zstd` нашли довольно много дополнительно сжимаемых данных.
+
+Для `7z` есть точное значение из вывода:
+
+```text
+Исходный: 28,228,463 bytes
+7z:       17,228,929 bytes
+```
+
+Экономия:
+
+```text
+28,228,463 - 17,228,929 = 10,999,534 bytes
+```
+
+то есть примерно **39% уменьшения размера**.
+
+### Итог
+
+**Лучший баланс — `zstd`**
+
+```text
+18M
+compression   0.25 sec
+decompression 0.04 sec
+```
+
+Он отдаёт примерно 1 MB по сравнению с `xz/7z`, зато работает **на порядок быстрее**.
+
+**Минимальный размер — `xz` / `7z`**
+
+```text
+~17M
+```
+
+Но особенно `xz` платит за этот результат огромной потерей скорости:
+
+```text
+zstd:  0.25 sec → 18M
+xz:   10.12 sec → 17M
+```
+
+То есть **40× больше времени ради примерно 1 MB**.
+
+**gzip здесь выглядит самым слабым:**
+
+```text
+1.00 sec → 25M
+```
+
+Он и медленнее `zstd` в 4 раза, и архив значительно больше.
+
+Для бэкапов, передачи файлов, Docker/DevOps-задач я бы в этом тесте однозначно выбрал **zstd**. Для долговременного хранения, где важен каждый мегабайт и скорость неважна — `xz` или `7z`.
+
+
+---
+
 ## Видео по теме
 
 <iframe src="https://vkvideo.ru/video_ext.php?oid=-234521173&id=456239969&hash=30adb8bb26971edb&hd=4" width="100%" height="450" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
