@@ -730,6 +730,8 @@ man tar
 - [7-Zip — официальный сайт](https://www.7-zip.org/)  
   Архиватор 7-Zip, формат 7z и консольная версия для Linux.
   
+- [Презентация](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-09-07-archiv/%D0%90%D1%80%D1%85%D0%B8%D0%B2%D1%8B%20%D0%B2%20Linux_%20tar%2C%20gzip%2C%20xz%2C%20zstd%2C%20zip%20%D0%B8%207-zip%20%D0%BF%D1%80%D0%BE%D1%81%D1%82%D1%8B%D0%BC%D0%B8%20%D1%81%D0%BB%D0%BE%D0%B2%D0%B0%D0%BC%D0%B8.pdf)  
+
 ---
 
 ## Видео по теме
