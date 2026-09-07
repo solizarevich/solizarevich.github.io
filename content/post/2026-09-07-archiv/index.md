@@ -736,5 +736,10 @@ man tar
 
 ## Видео по теме
 
+<iframe src="https://vkvideo.ru/video_ext.php?oid=-234521173&id=456239969&hash=30adb8bb26971edb&hd=4" width="100%" height="450" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" allowfullscreen></iframe>
+
+
+
+{{< youtube id="q_BEG7ofHis" >}}
 
 
