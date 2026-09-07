@@ -909,6 +909,4 @@ xz:   10.12 sec → 17M
 
 <iframe width="100%" height="405" src="https://rutube.ru/play/embed/1c365724803d75bad03c34485a226742/" style="border: none;" allow="clipboard-write; autoplay" allowFullScreen></iframe>
 
-{{< youtube id="q_BEG7ofHis" >}}
-
 
