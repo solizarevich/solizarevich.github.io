@@ -95,6 +95,22 @@ Tabby существует уже давно и является самым из
 
 Desktop-версии есть для Windows, macOS и Linux. Полноценного мобильного клиента в основной версии нет.
 
+| Плагин | Что делает |
+|---|---|
+| **[`tabby-quick-cmds`](https://github.com/minyoad/tabby-quick-cmds)** | Хранит готовые команды и целые многострочные конфигурации. Поддерживает группы, задержки, параметры и автоматический `Enter`. |
+| **[`tabby-quick-cmds-buttons`](https://github.com/weijia/tabby-quick-cmds-buttons)** | Показывает команды из `tabby-quick-cmds` как видимые кнопки. |
+| **[`tabby-windy-quick-commands`](https://github.com/windyy0/tabby-windy-quick-commands)** | Расширенный менеджер быстрых команд. Поддерживает поиск, категории, многострочные команды, пошаговое выполнение и дополнительные сценарии автоматизации. |
+| **[`tabby-broadcast-input`](https://github.com/fernandogonzalez90/tabby-broadcast-input)** | Позволяет отправлять одну и ту же команду одновременно в несколько открытых терминальных сессий. Удобно для параллельной работы с группой серверов или сетевых устройств. |
+| **[`tabby-save-output`](https://github.com/eugeny/tabby-save-output)** | Записывает вывод терминальной сессии в файл. Удобно для сохранения логов и результатов выполнения команд. |
+| **[`tabby-ssh-sidebar`](https://github.com/tsukasagenesis/tabby-ssh-sidebar)** | Добавляет боковую панель со списком SSH-профилей для быстрого подключения к серверам и коммутаторам. |
+| **[`tabby-sftp-tab`](https://github.com/wljince007/tabby-sftp-tab)** | Добавляет SFTP-вкладку для передачи файлов через активное SSH-подключение, примерно как связка SecureCRT + SecureFX. |
+| **[`tabby-highlight`](https://github.com/moemoechu/tabby-highlight)** | Подсвечивает заданные слова и шаблоны в терминале: `ERROR`, `DOWN`, `WARNING`, названия интерфейсов и другие события. Поддерживает регулярные выражения. |
+| **[`tabby-sync-config`](https://github.com/starxg/terminus-sync-config)** | Синхронизирует конфигурацию Tabby между компьютерами через GitHub Gist или Gitee Gist. |
+| **[`tabby-cloud-sync-settings`](https://github.com/niceit/tabby-cloud-sync-settings)** | Синхронизирует настройки Tabby, включая сохранённые SSH-сессии, между устройствами через облачные сервисы. **Репозиторий архивирован 24 марта 2026 года.** |
+| **[`tabby-workspace-manager`](https://github.com/composer404/tabby-workspace-manager)** | Сохраняет рабочие пространства: наборы вкладок, SSH-сессий и расположение панелей. |
+| **[`tabby-title-control`](https://github.com/kbjr/terminus-title-control)** | Настраивает названия вкладок: позволяет добавлять префикс и суффикс, а также удалять ненужные части из заголовка. **Старый плагин, репозиторий архивирован.** |
+| **[`tabby-ssh-keymap`](https://github.com/mathys-lopinto/tabby-ssh-keymap)** | Позволяет использовать логические названия SSH-ключей вместо абсолютных путей. Особенно удобно при синхронизации одних SSH-профилей между Windows, Linux и macOS. |
+
 ## Skerry — интересный новый подход
 
 Skerry из всей тройки самый молодой проект.
