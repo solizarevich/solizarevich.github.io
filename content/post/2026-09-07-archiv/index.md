@@ -6,6 +6,7 @@ categories:
 tags:
   - архивы
   - sysadmin
+  - video
 ---
 Почему в Linux встречаются файлы с расширениями `.tar.gz`, `.tar.xz` и `.tar.zst`? Зачем нужны сразу два расширения? Чем `tar` отличается от `gzip`, а `xz` — от `zstd`?
 
