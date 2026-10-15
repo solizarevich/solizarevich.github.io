@@ -21,6 +21,7 @@ tags:
 ![Linux](https://img.shields.io/badge/OS-Linux-FCC624?logo=linux&logoColor=black)
 </div>
 <div align="center">
+  
 ⭐ **Поставь звезду, чтобы шпаргалка всегда была под рукой!**
 </div>
 
