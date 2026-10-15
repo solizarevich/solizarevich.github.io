@@ -12,14 +12,16 @@ tags:
 # 🐧 Linux Cheat Sheet — шпаргалка по командам
 
 **Самая удобная шпаргалка по Linux и Bash на русском:** теория простым языком (как устроены файлы, процессы, права, память, загрузка и сеть), команды терминала, права доступа, процессы, сеть, SSH, systemd, grep/sed/awk, Vim и готовые однострочники — с примерами. А для тех, кто идёт дальше, — продвинутый уровень: Bash для профи, LVM и RAID, трассировка и производительность, ядро, безопасность, контейнеры, восстановление системы и вопросы с собеседований. И практикум: 8 пошаговых сценариев из реальной работы и 28 задач с решениями на учебном полигоне.
-
+</div>
+<div align="left">
+  
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#-как-помочь-проекту)
 ![Language](https://img.shields.io/badge/язык-русский-blue)
 ![Bash](https://img.shields.io/badge/shell-bash-4EAA25?logo=gnubash&logoColor=white)
 ![Linux](https://img.shields.io/badge/OS-Linux-FCC624?logo=linux&logoColor=black)
-
+</div>
+<div align="center">
 ⭐ **Поставь звезду, чтобы шпаргалка всегда была под рукой!**
-
 </div>
 
 ---
