@@ -967,6 +967,13 @@ crontab -l
 
 # Презентация и видео по теме
 
+[Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-10-25-cron/cron_crontab_linux_presentation.pdf)
+
+➡️[Rutube](https://rutube.ru/video/3350737fa31e48707d084012cb07d012/)
+
+➡️[VK](https://vkvideo.ru/video-234521173_456239990)
+
+➡️[YouTube](https://youtu.be/hK3wAtvPGBw)
 
 ---
 
