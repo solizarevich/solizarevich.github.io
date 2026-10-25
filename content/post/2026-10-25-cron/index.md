@@ -7,7 +7,7 @@ tags:
   - Linux
   - cron
   - crontab
-  - DevOps
+  - видео
   - sysadmin
 ---
 Как сделать так, чтобы Linux сам запускал команду каждый день в два часа ночи?
