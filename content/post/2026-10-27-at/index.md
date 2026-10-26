@@ -4,7 +4,7 @@ date: 2026-10-26 20:30:00 +0300
 categories:
   - Linux
 tags:
-  - Linux
+  - linux
   - at
   - видео
   - sysadmin
@@ -980,18 +980,14 @@ systemctl list-timers
 
 # Презентация и видео по теме
 
-[Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-10-25-cron/cron_crontab_linux_presentation.pdf)
+[Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-10-27-at/at_linux_presentation.pdf)
 
-➡️[Rutube](https://rutube.ru/video/3350737fa31e48707d084012cb07d012/)
+➡️[Rutube](https://rutube.ru/video/e7ade74b6e1281c611101e737267dde7/)
 
-➡️[VK](https://vkvideo.ru/video-234521173_456239990)
+➡️[VK](https://vkvideo.ru/video-234521173_456239991)
 
-➡️[YouTube](https://youtu.be/hK3wAtvPGBw)
+➡️[YouTube](https://youtu.be/sjjtUmsfmBA)
 
-
-Также смотрите:
-
-[**Cron и crontab в Linux простыми словами: задачи по расписанию**](https://solizarevich.github.io/post/2026-10-25-cron/)
 
 ---
 
@@ -1007,17 +1003,3 @@ systemctl list-timers
 
 - [LPIC-1 Objectives](https://www.lpi.org/our-certifications/exam-101-102-objectives/)  
   Цели сертификации LPIC-1, включая автоматизацию задач и планировщики.
-
-## Больше материалов по Linux и DevOps
-
-Публикую материалы по Linux, компьютерным сетям, автоматизации и DevOps:
-
-- 🌐 [Сайт](https://solizarevich.github.io/)
-- ✈️ [Telegram](https://t.me/linautonet)
-- 🔵 [ВКонтакте](https://vk.com/linautonet)
-- ▶️ [YouTube](https://youtube.com/@solizarevich)
-- 📺 [RUTUBE](https://rutube.ru/channel/25269092/)
-
----
-
-Если используете `at` в работе, расскажите: **для каких одноразовых задач он вам чаще всего пригождается?**
