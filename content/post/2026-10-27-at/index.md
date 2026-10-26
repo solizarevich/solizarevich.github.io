@@ -1,19 +1,13 @@
 ---
 title: "at в Linux: как запустить команду один раз по расписанию"
-description: "Разбираемся с командой at в Linux: как запланировать одноразовый запуск команды, посмотреть очередь через atq, удалить задачу через atrm, настроить atd и доступ через at.allow и at.deny."
-date: 2026-10-26
+date: 2026-10-26 20:30:00 +0300
 categories:
   - Linux
 tags:
   - Linux
   - at
-  - atd
-  - atq
-  - atrm
-  - cron
-  - DevOps
-  - LPIC
-  - system administration
+  - видео
+  - sysadmin
 ---
 
 # at в Linux: как запустить команду один раз по расписанию
