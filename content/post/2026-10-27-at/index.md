@@ -9,9 +9,6 @@ tags:
   - видео
   - sysadmin
 ---
-
-# at в Linux: как запустить команду один раз по расписанию
-
 В предыдущем материале мы разобрали `cron` и `crontab` — инструменты для регулярного запуска задач по расписанию.
 
 Но что делать, если команду нужно выполнить **только один раз**?
@@ -950,34 +947,6 @@ at   → одноразовые задания
 
 ---
 
-# Что дальше: systemd timers
-
-Теперь мы уже знаем два классических механизма:
-
-```text
-cron → регулярные задачи
-
-at → одноразовые задачи
-```
-
-Но в современных Linux-дистрибутивах на базе systemd есть ещё один механизм:
-
-```text
-systemd timers
-```
-
-Он позволяет связывать расписание с systemd-сервисами, управлять задачами через `systemctl`, смотреть их через:
-
-```bash
-systemctl list-timers
-```
-
-и анализировать выполнение через `journalctl`.
-
-Эту тему лучше разобрать отдельно.
-
----
-
 # Презентация и видео по теме
 
 [Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-10-27-at/at_linux_presentation.pdf)
@@ -988,15 +957,11 @@ systemctl list-timers
 
 ➡️[YouTube](https://youtu.be/sjjtUmsfmBA)
 
-
 ---
-
-# Полезные ссылки
-
 ## Документация
 
 - [at(1) — Linux man-pages](https://man7.org/linux/man-pages/man1/at.1.html)  
-  Команды `at`, `atq`, `atrm`, `batch` и основные параметры.
+  Команды `at`, `atq`, `atrm` и основные параметры.
 
 - [atd(8) — Linux man-pages](https://man7.org/linux/man-pages/man8/atd.8.html)  
   Документация по демону `atd`.
