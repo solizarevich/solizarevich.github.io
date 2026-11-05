@@ -1032,27 +1032,16 @@ Persistent=true
 
 ---
 
-# Видео по теме
+# Презентация и видео по теме
 
-🎥 **systemd timers в Linux**
+[Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-11-05-timers/systemd_timers_linux_presentation.pdf)
 
-После публикации видео сюда можно добавить ссылку на YouTube или RUTUBE.
+➡️[Rutube](https://rutube.ru/video/e7ade74b6e1281c611101e737267dde7/)
 
-## Также смотрите
+➡️[VK](https://vkvideo.ru/video-234521173_456239991)
 
-**Cron и crontab в Linux простыми словами: задачи по расписанию**
+➡️[YouTube](https://youtu.be/sjjtUmsfmBA)
 
-Добавьте сюда ссылку на статью про `cron`.
-
-**at в Linux: как запустить команду один раз по расписанию**
-
-Добавьте сюда ссылку на статью про `at`.
-
-Таким образом получится целая серия:
-
-```text
-cron → at → systemd timers
-```
 
 ---
 
