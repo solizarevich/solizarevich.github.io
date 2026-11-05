@@ -1040,7 +1040,7 @@ Persistent=true
 
 ➡️[VK](https://vkvideo.ru/video-234521173_456239991)
 
-➡️[YouTube](https://youtu.be/sjjtUmsfmBA)
+➡️[YouTube](https://youtu.be/A-fc8LHPbVw)
 
 
 ---
