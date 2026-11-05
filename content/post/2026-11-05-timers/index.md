@@ -1036,9 +1036,9 @@ Persistent=true
 
 [Скачать презентацию](https://github.com/solizarevich/solizarevich.github.io/blob/main/content/post/2026-11-05-timers/systemd_timers_linux_presentation.pdf)
 
-➡️[Rutube](https://rutube.ru/video/e7ade74b6e1281c611101e737267dde7/)
+➡️[Rutube](https://rutube.ru/video/8a2bb163662434abc7b9b759e468b03d/)
 
-➡️[VK](https://vkvideo.ru/video-234521173_456239991)
+➡️[VK](https://vkvideo.ru/video-234521173_456239992)
 
 ➡️[YouTube](https://youtu.be/A-fc8LHPbVw)
 
